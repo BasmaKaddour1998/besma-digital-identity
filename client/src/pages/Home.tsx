@@ -158,6 +158,7 @@ function Home() {
           <div className="hero-portrait-wrap">
             <div className="portrait-frame" aria-hidden="true" />
             <img className="hero-portrait" src="/manus-storage/besma-portrait_2ec9064c.png" alt="Portrait of Besma Kaddour, Software Engineer" width="1145" height="1374" loading="eager" fetchPriority="high" decoding="async" />
+            <img className="hero-signature" src="/manus-storage/besma-signature_88629231.png" alt="Besma Kaddour signature" width="1774" height="887" loading="eager" decoding="async" />
             <span className="portrait-caption">BESMA / 01</span>
           </div>
           <div className="hero-content">
@@ -324,7 +325,7 @@ function Home() {
         <section className="section section-contact" id="contact" aria-labelledby="contact-title"><div className="contact-top"><span className="eyebrow">12 / Closing chapter</span><span className="contact-status"><span className="status-dot" /> Open to meaningful work</span></div><h2 id="contact-title">LET&apos;S BUILD<br /><em>SOMETHING</em><br />MEANINGFUL.</h2><p className="contact-copy">For collaborations, conversations, and work that deserves a thoughtful system.</p><div className="contact-links">{contactLinks.map((link) => <a key={link.label} href={link.href} onClick={(event) => { if (link.href === "#contact") { event.preventDefault(); showPlaceholder(link.label); } }}><span>{link.label}</span><strong>{link.value}</strong><ArrowUpRight size={17} strokeWidth={1.2} /></a>)}</div></section>
       </main>
 
-      <footer className="site-footer"><span>BESMA KADDOUR</span><span>A DIGITAL IDENTITY / 2026</span><a href="#top">Back to top <ArrowUpRight size={14} /></a></footer>
+      <footer className="site-footer"><span>© 2024–2026 BESMA KADDOUR — ALL RIGHTS RESERVED</span><span>ALL CONTENT, DESIGN &amp; CODE BELONG TO BESMA KADDOUR</span><a href="#top">Back to top <ArrowUpRight size={14} /></a></footer>
       {notice && <div className="notice" role="status">{notice}<button type="button" aria-label="Dismiss notification" onClick={() => setNotice("")}><X size={15} /></button></div>}
     </div>
   );
