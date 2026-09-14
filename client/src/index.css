@@ -510,13 +510,36 @@ section, [id] { scroll-margin-top: 88px; }
   .site-footer { align-items: flex-start; flex-direction: column; gap: 11px; }
   .creative-watermark { right: -12%; bottom: -3%; width: 80%; opacity: .045; }
   .cv-watermark { right: -8%; bottom: -6%; width: 70%; opacity: .045; }
-  .notice { right: 12px; bottom: 12px; left: 12px; }
+  .notice { right: 12px; bottom: 78px; left: 12px; }
   .floating-whatsapp { position: fixed; z-index: 25; right: 16px; bottom: 17px; display: grid; place-items: center; width: 52px; height: 52px; color: #fff; background: #25d366; border: 2px solid rgba(255,255,255,.72); border-radius: 50%; box-shadow: 0 10px 28px rgba(0,0,0,.35); transition: transform 180ms var(--ease-out), box-shadow 180ms var(--ease-out); }
   .floating-whatsapp:hover, .floating-whatsapp:focus-visible { color: #fff; transform: translateY(-4px) scale(1.04); box-shadow: 0 14px 34px rgba(37,211,102,.34); }
   .floating-whatsapp:active { transform: scale(.96); }
 }
 
 @media (min-width: 591px) { .mobile-break { display: none; } }
+/* Directional and responsive corrections: use logical edges so the same composition mirrors cleanly. */
+.is-arabic .site-header, .is-arabic .mobile-nav { direction: rtl; }
+.is-arabic .hero-year { margin-left: 0; margin-inline-start: auto; }
+.is-arabic .hero-footer span:last-child { margin-left: 0; margin-right: auto; }
+.is-arabic .portrait-caption { right: auto; left: -18px; transform: rotate(90deg); }
+.is-arabic .project-meta { justify-items: end; text-align: right; }
+.is-arabic .contact-links a:hover { padding-left: 0; padding-right: 10px; }
+.is-arabic .creative-watermark, .is-arabic .cv-watermark { right: auto; left: 6%; transform: rotate(5deg); }
+.is-arabic .skill-lab-grid, .is-arabic .engineering-layout, .is-arabic .technology-layout, .is-arabic .ai-bottom, .is-arabic .experience-list, .is-arabic .empty-panel, .is-arabic .capability-grid, .is-arabic .library-grid, .is-arabic .filter-bar, .is-arabic .project-list, .is-arabic .project-footer, .is-arabic .library-footnote, .is-arabic .cv-grid { margin-left: 0; margin-right: clamp(52px, 12vw, 200px); }
+
+@media (max-width: 860px) {
+  .is-arabic .hero-content { margin-left: 0; margin-right: 0; }
+  .is-arabic .section-intro, .is-arabic .about-detail-grid, .is-arabic .engineering-layout, .is-arabic .technology-layout, .is-arabic .ai-bottom, .is-arabic .creative-layout, .is-arabic .cv-grid, .is-arabic .experience-list, .is-arabic .empty-panel, .is-arabic .capability-grid, .is-arabic .library-grid, .is-arabic .filter-bar, .is-arabic .project-list, .is-arabic .project-footer, .is-arabic .library-footnote, .is-arabic .skill-lab-grid { margin-left: 0; margin-right: 52px; }
+  .is-arabic .portrait-caption { left: -12px; }
+}
+
+@media (max-width: 590px) {
+  .is-arabic .section-intro, .is-arabic .about-detail-grid, .is-arabic .engineering-layout, .is-arabic .technology-layout, .is-arabic .ai-bottom, .is-arabic .creative-layout, .is-arabic .cv-grid, .is-arabic .experience-list, .is-arabic .empty-panel, .is-arabic .capability-grid, .is-arabic .library-grid, .is-arabic .filter-bar, .is-arabic .project-list, .is-arabic .project-footer, .is-arabic .library-footnote, .is-arabic .skill-lab-grid { margin-left: 0; margin-right: 0; }
+  .is-arabic .creative-watermark { left: -12%; right: auto; }
+  .is-arabic .cv-watermark { left: -8%; right: auto; }
+  .is-arabic .portrait-caption { left: 4px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }

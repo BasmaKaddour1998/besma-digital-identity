@@ -205,7 +205,11 @@ function Home() {
   const experienceReveal = useScrollReveal<HTMLElement>(0.18);
   const bookReveal = useScrollReveal<HTMLElement>(0.18);
   const switchLanguage = () => {
-    const update = () => setLanguage((current) => current === "ar" ? "en" : "ar");
+    const update = () => {
+      setLanguage((current) => current === "ar" ? "en" : "ar");
+      setOpenAbout(null);
+      setActiveCategory((current) => current === "ALL" || current === "الكل" ? (language === "ar" ? "ALL" : "الكل") : current);
+    };
     const documentWithTransition = document as Document & { startViewTransition?: (callback: () => void) => void };
     if (documentWithTransition.startViewTransition) documentWithTransition.startViewTransition(update);
     else update();
@@ -347,7 +351,7 @@ function Home() {
               <p className="display-quote">{tx("A digital identity for the work between engineering, intelligence, and imagination.", "هوية رقمية للعمل الواقع بين الهندسة والذكاء والخيال.")}</p>
               <p className="muted-copy">{tx("The first layer stays quiet. The deeper layers are designed to hold the complete professional and creative picture — as it grows.", "تبقى الطبقة الأولى هادئة. أما الطبقات الأعمق فمصممة لتحتضن الصورة المهنية والإبداعية الكاملة وهي تنمو.")}</p>
             </div>
-            <div className="disclosure-list" aria-label="About details">
+            <div className="disclosure-list" aria-label={tx("About details", "تفاصيل عنّي")}>
               {aboutItems.map((item) => {
                 const isOpen = openAbout === item;
                 return (
@@ -368,7 +372,7 @@ function Home() {
           <SectionIntro index="02" label={tx("Selected work", "أعمال مختارة")} title={tx("WORK", "الأعمال")}>
             <p className="intro-copy">{tx("A living archive of products, systems, applications, and experiments.", "أرشيف حي للمنتجات والأنظمة والتطبيقات والتجارب.")}</p>
           </SectionIntro>
-          <div className="filter-bar" role="tablist" aria-label="Project categories">
+          <div className="filter-bar" role="tablist" aria-label={tx("Project categories", "تصنيفات المشاريع")}>
             {categories.map((category) => (
               <button key={category} className={activeCategory === category ? "is-active" : ""} type="button" role="tab" aria-selected={activeCategory === category} onClick={() => setActiveCategory(category)}>{category}</button>
             ))}
@@ -378,12 +382,12 @@ function Home() {
               <article className={`project-row ${project.featured ? "project-featured" : ""}`} key={project.name}>
                 <div className="project-index">01</div>
                 <div className="project-main">
-                  <div className="project-eyebrow">{project.eyebrow}</div>
+                  <div className="project-eyebrow">{isArabic ? "منظومة ذكاء اصطناعي / منصة وكلاء" : project.eyebrow}</div>
                   <h3>{project.name}</h3>
-                  <p>{project.description}</p>
+                  <p>{isArabic ? "مساحة لمشروع منظومة SAMA للذكاء الاصطناعي. يمكن إضافة تفاصيل المنتج والنطاق والتقنيات ودراسة الحالة هنا." : project.description}</p>
                 </div>
-                <div className="project-meta"><span>{project.category}</span><span>{project.status}</span></div>
-                <button className="round-arrow" type="button" aria-label={`Open ${project.name} details`} onClick={() => showPlaceholder(`${project.name} details`)}><ArrowUpRight size={19} strokeWidth={1.2} /></button>
+                <div className="project-meta"><span>{isArabic ? "الذكاء الاصطناعي" : project.category}</span><span>{isArabic ? "ستضاف التفاصيل" : project.status}</span></div>
+                <button className="round-arrow" type="button" aria-label={tx(`Open ${project.name} details`, `فتح تفاصيل ${project.name}`)} onClick={() => showPlaceholder(`${project.name} details`)}><ArrowUpRight size={19} strokeWidth={1.2} /></button>
               </article>
             )) : (
               <div className="empty-state"><span className="empty-mark">—</span><div><strong>{tx(`No ${activeCategory.toLowerCase()} entries yet.`, `لا توجد إدخالات في ${activeCategory === "ALL" ? "المشاريع" : activeCategory} بعد.`)}</strong><p>{tx("Add projects to the editable content registry. The interface is ready for many entries.", "أضيفي المشاريع إلى سجل المحتوى القابل للتحرير. الواجهة جاهزة لاستيعاب العديد من الإدخالات.")}</p></div></div>
@@ -397,7 +401,7 @@ function Home() {
             <p className="intro-copy">{tx("The areas of practice are arranged as a typographic map — select one to open its next layer.", "مجالات الممارسة مرتبة كخريطة طباعية — اختاري مجالًا لفتح طبقته التالية.")}</p>
           </SectionIntro>
           <div className="engineering-layout">
-            <div className="engineering-list" role="tablist" aria-label="Engineering areas">
+            <div className="engineering-list" role="tablist" aria-label={tx("Engineering areas", "مجالات الهندسة")}>
               {engineeringAreas.map((area, index) => (
                 <button key={area.label} type="button" role="tab" aria-selected={activeEngineering === index} className={activeEngineering === index ? "is-active" : ""} onClick={() => setActiveEngineering(index)}>
                   <span className="engineering-number">0{index + 1}</span><span>{isArabic ? ["هندسة البرمجيات", "التطوير المتكامل", "الواجهة الأمامية", "الواجهة الخلفية", "واجهات البرمجة", "هندسة الأنظمة", "قواعد البيانات", "السحابة وDevOps", "الأمن السيبراني", "الأتمتة", "تطوير تطبيقات الهاتف"][index] : area.label}</span><span className="engineering-short">{isArabic ? ["الأنظمة", "المنتج", "الواجهة", "المنطق", "الاتصال", "البنية", "البيانات", "التسليم", "الثقة", "التدفق", "اللمس"][index] : area.short}</span>
@@ -450,7 +454,7 @@ function Home() {
           <SectionIntro index="06" label={tx("Timeline", "الخط الزمني")} title={tx("EXPERIENCE", "الخبرة")}>
             <p className="intro-copy">{tx("A minimal timeline that expands as the record grows.", "خط زمني بسيط يتوسع مع نمو السجل المهني.")}</p>
           </SectionIntro>
-          {experience.length ? <div className="experience-list">{experience.map((entry) => <details key={`${entry.year}-${entry.role}`}><summary><span>{entry.year}</span><strong>{entry.role}</strong><em>{entry.context}</em><ChevronDown size={16} /></summary><div><p>{entry.description}</p><small>{entry.technologies.join(" / ")}</small></div></details>)}</div> : <div className="empty-panel"><div className="empty-panel-top"><span>{tx("YEAR", "السنة")}</span><span>{tx("ROLE / PROJECT / COMPANY", "الدور / المشروع / الشركة")}</span><span>{tx("DESCRIPTION", "الوصف")}</span></div><p>{tx("Editable timeline placeholder — add experience entries without changing the layout.", "خط زمني قابل للتحرير — أضيفي الخبرات دون تغيير التخطيط.")}</p></div>}
+          {experience.length ? <div className="experience-list">{experience.map((entry) => <details key={`${entry.year}-${entry.role}`}><summary><span>{isArabic ? "2024 — الآن" : entry.year}</span><strong>{isArabic ? "مهندسة برمجيات / هوية رقمية" : entry.role}</strong><em>{isArabic ? "6 سنوات من الخبرة" : entry.context}</em><ChevronDown size={16} /></summary><div><p>{isArabic ? "ممارسة مهنية متنامية عبر هندسة البرمجيات والذكاء الاصطناعي والمعمارية والمنتجات الرقمية والتقنية الإبداعية." : entry.description}</p><small>{entry.technologies.join(" / ")}</small></div></details>)}</div> : <div className="empty-panel"><div className="empty-panel-top"><span>{tx("YEAR", "السنة")}</span><span>{tx("ROLE / PROJECT / COMPANY", "الدور / المشروع / الشركة")}</span><span>{tx("DESCRIPTION", "الوصف")}</span></div><p>{tx("Editable timeline placeholder — add experience entries without changing the layout.", "خط زمني قابل للتحرير — أضيفي الخبرات دون تغيير التخطيط.")}</p></div>}
         </section>
 
         <section className="section section-capabilities" id="skills" aria-labelledby="skills-title">
@@ -472,7 +476,7 @@ function Home() {
             <p className="intro-copy">{tx("A private-looking, public-facing structure for the work behind the work.", "هيكل يبدو خاصًا ومتاحًا للعامة، يحتضن العمل خلف العمل.")}</p>
           </SectionIntro>
           <div className="library-grid">{librarySections.map((item, index) => <button type="button" key={item.label} onClick={() => showPlaceholder(`${item.label} library`)}><span>0{index + 1}</span><strong>{isArabic ? ["المشاريع", "المقالات", "الكتب", "التجارب", "البحث", "الأفكار", "البرمجة", "التصميم"][index] : item.label}</strong><small>{isArabic ? "أضيفي إدخالات" : item.count}</small><ArrowUpRight size={15} /></button>)}</div>
-          <div className="library-footnote"><span>{tx("Content model", "نموذج المحتوى")}</span><p>{contentModel.join(" / ")}</p></div>
+          <div className="library-footnote"><span>{tx("Content model", "نموذج المحتوى")}</span><p>{isArabic ? "الملف الشخصي / السيرة الذاتية / الخبرة / التقنيات / الخبرة العملية / المشاريع / الكتابة / الكتب / البحث / التجارب / المستندات / الروابط" : contentModel.join(" / ")}</p></div>
         </section>
 
         <section className="section section-philosophy" id="philosophy" aria-labelledby="philosophy-title"><div className="philosophy-line" /><div className="philosophy-content"><span className="eyebrow">10 / {tx("Personal philosophy", "الفلسفة الشخصية")}</span><h2>{isArabic ? "يجب أن توجد التعقيدات داخل النظام — لا داخل التجربة." : principles[0]}</h2><button type="button" className="text-link" onClick={() => showPlaceholder("Additional principles")}>{tx("Add another principle", "أضيفي مبدأً آخر")} <Plus size={15} /></button></div></section>
