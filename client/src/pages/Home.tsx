@@ -41,12 +41,13 @@ function AccentLink({ href, children, onClick }: AccentLinkProps) {
 }
 
 function SectionIntro({ index, label, title, children }: { index: string; label: string; title: string; children?: React.ReactNode }) {
+  const titleId = `${label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-title`;
   return (
     <div className="section-intro">
       <div className="section-index">{index}</div>
       <div>
         <div className="eyebrow">{label}</div>
-        <h2>{title}</h2>
+        <h2 id={titleId}>{title}</h2>
         {children}
       </div>
     </div>
@@ -80,6 +81,14 @@ function Home() {
     return () => window.clearTimeout(timer);
   }, [notice]);
 
+  useEffect(() => {
+    const existing = document.querySelector('link[rel="canonical"]');
+    const canonical = existing || document.createElement("link");
+    canonical.setAttribute("rel", "canonical");
+    canonical.setAttribute("href", `${window.location.origin}/`);
+    if (!existing) document.head.appendChild(canonical);
+  }, []);
+
   const categories = ["ALL", "AI", "SOFTWARE", "WEB", "MOBILE", "SYSTEMS", "CREATIVE"];
   const filteredProjects = useMemo(
     () => projects.filter((project) => activeCategory === "ALL" || project.category.toUpperCase() === activeCategory),
@@ -92,6 +101,25 @@ function Home() {
 
   return (
     <div className="site-shell">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "name": "Besma Kaddour",
+            "jobTitle": "Software Engineer",
+            "description": "Software Engineer working across full-stack development, AI, software architecture, digital innovation, cybersecurity, and creative technology.",
+            "url": window.location.origin,
+            "image": `${window.location.origin}/manus-storage/besma-portrait_2ec9064c.png`
+          },
+          {
+            "@type": "WebSite",
+            "name": "BESMA KADDOUR — Digital Identity",
+            "url": window.location.origin,
+            "description": "A digital identity across software engineering, AI, product creation, and creative work."
+          }
+        ]
+      }) }} />
       <a className="skip-link" href="#main-content">Skip to main content</a>
       <header className="site-header">
         <a href="#top" className="wordmark" aria-label="Besma Kaddour home">
@@ -129,7 +157,7 @@ function Home() {
           <SignalField />
           <div className="hero-portrait-wrap">
             <div className="portrait-frame" aria-hidden="true" />
-            <img className="hero-portrait" src="/manus-storage/besma-portrait_2ec9064c.png" alt="Besma Kaddour" />
+            <img className="hero-portrait" src="/manus-storage/besma-portrait_2ec9064c.png" alt="Portrait of Besma Kaddour, Software Engineer" width="1145" height="1374" loading="eager" fetchPriority="high" decoding="async" />
             <span className="portrait-caption">BESMA / 01</span>
           </div>
           <div className="hero-content">
