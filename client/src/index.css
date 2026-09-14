@@ -330,12 +330,13 @@ section, [id] { scroll-margin-top: 88px; }
 .section-contact h2 { margin: 100px 0 0; font-size: clamp(51px, 10vw, 145px); font-weight: 300; letter-spacing: -.09em; line-height: .84; }
 .contact-copy { max-width: 360px; margin: 58px 0 60px; color: var(--muted); font-size: 14px; line-height: 1.7; }
 .contact-links { max-width: 680px; border-top: 1px solid var(--line-strong); }
-.contact-links a { display: grid; grid-template-columns: 90px 1fr 20px; gap: 22px; align-items: center; min-height: 55px; border-bottom: 1px solid var(--line); }
+.contact-links a { display: grid; grid-template-columns: 1fr 20px; gap: 22px; align-items: center; min-height: 55px; border-bottom: 1px solid var(--line); }
 .contact-links a span { color: var(--gold); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
 .contact-links .contact-label { display: inline-flex; align-items: center; gap: 8px; }
 .contact-links .contact-label svg { flex: none; }
 .social-letter { display: inline-grid; place-items: center; width: 15px; height: 15px; color: var(--black); background: var(--gold); font: 700 9px Arial; letter-spacing: 0; text-transform: lowercase; }
 .contact-links a strong { color: var(--muted); font-size: 12px; font-weight: 400; }
+.contact-links .contact-destination { display: none !important; }
 .contact-links a svg { color: var(--gold); transition: transform 180ms var(--ease-out); }
 .contact-links a:hover strong { color: var(--white); }
 .contact-links a:hover svg { transform: translate(3px, -3px); }
@@ -443,7 +444,7 @@ section, [id] { scroll-margin-top: 88px; }
   .section-contact h2 { margin-top: 70px; font-size: 61px; }
   .contact-top { align-items: flex-start; flex-direction: column; gap: 22px; }
   .contact-copy { margin-top: 42px; }
-  .contact-links a { grid-template-columns: 70px 1fr 18px; gap: 10px; }
+  .contact-links a { grid-template-columns: 1fr 18px; gap: 10px; }
   .site-footer { align-items: flex-start; flex-direction: column; gap: 11px; }
   .creative-watermark { right: -12%; bottom: -3%; width: 80%; opacity: .045; }
   .cv-watermark { right: -8%; bottom: -6%; width: 70%; opacity: .045; }

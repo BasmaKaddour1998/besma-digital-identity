@@ -5,6 +5,7 @@ import {
   ChevronDown,
   Download,
   Github,
+  Linkedin,
   Mail,
   MessageCircle,
   Menu,
@@ -423,7 +424,7 @@ function Home() {
 
         <QrIdentity isArabic={isArabic} tx={tx} />
 
-        <section className="section section-contact" id="contact" aria-labelledby="contact-title"><div className="contact-top"><span className="eyebrow">12 / {tx("Closing chapter", "الفصل الختامي")}</span><span className="contact-status"><span className="status-dot" /> {tx("Open to meaningful work", "منفتحة على الأعمال الهادفة")}</span></div><h2 id="contact-title">{tx("LET'S BUILD", "لنبنِ")}<br /><em>{tx("SOMETHING", "شيئًا")}</em><br />{tx("MEANINGFUL.", "هادفًا.")}</h2><p className="contact-copy">{tx("For collaborations, conversations, and work that deserves a thoughtful system.", "للتعاون والمحادثات والعمل الذي يستحق نظامًا مدروسًا.")}</p><div className="contact-links">{contactLinks.map((link) => <a key={link.label} href={link.href}><span className="contact-label">{link.label === "WhatsApp" ? <MessageCircle size={15} /> : link.label === "Email" ? <Mail size={15} /> : link.label === "LinkedIn" ? <span className="social-letter">in</span> : <Github size={15} />}<b>{isArabic ? { WhatsApp: "واتساب", Email: "البريد الإلكتروني", LinkedIn: "لينكدإن", GitHub: "جيت هب" }[link.label] : link.label}</b></span><strong>{link.value}</strong><ArrowUpRight size={17} strokeWidth={1.2} /></a>)}</div></section>
+        <section className="section section-contact" id="contact" aria-labelledby="contact-title"><div className="contact-top"><span className="eyebrow">12 / {tx("Closing chapter", "الفصل الختامي")}</span><span className="contact-status"><span className="status-dot" /> {tx("Open to meaningful work", "منفتحة على الأعمال الهادفة")}</span></div><h2 id="contact-title">{tx("LET'S BUILD", "لنبنِ")}<br /><em>{tx("SOMETHING", "شيئًا")}</em><br />{tx("MEANINGFUL.", "هادفًا.")}</h2><p className="contact-copy">{tx("For collaborations, conversations, and work that deserves a thoughtful system.", "للتعاون والمحادثات والعمل الذي يستحق نظامًا مدروسًا.")}</p><div className="contact-links">{contactLinks.map((link) => <a key={link.label} href={link.href}><span className="contact-label">{link.label === "WhatsApp" ? <MessageCircle size={15} /> : link.label === "Email" ? <Mail size={15} /> : link.label === "LinkedIn" ? <Linkedin size={15} strokeWidth={1.8} /> : <Github size={15} />}<b>{isArabic ? { WhatsApp: "واتساب", Email: "البريد الإلكتروني", LinkedIn: "لينكدإن", GitHub: "جيت هب" }[link.label] : link.label}</b></span><strong className="contact-destination" aria-hidden="true">{isArabic ? { WhatsApp: "واتساب", Email: "البريد الإلكتروني", LinkedIn: "لينكدإن", GitHub: "جيت هب" }[link.label] : link.label}</strong><ArrowUpRight size={17} strokeWidth={1.2} /></a>)}</div></section>
       </main>
 
       <footer className="site-footer"><span>{tx("© 2024–2026 BESMA KADDOUR — ALL RIGHTS RESERVED", "© 2024–2026 بسمة قدور — جميع الحقوق محفوظة")}</span><span>{tx("ALL CONTENT, DESIGN &amp; CODE BELONG TO BESMA KADDOUR", "جميع المحتويات والتصميم والبرمجة ملك لبسمة قدور")}</span><a href="#top">{tx("Back to top", "العودة إلى الأعلى")} <ArrowUpRight size={14} /></a></footer>
