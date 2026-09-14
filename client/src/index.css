@@ -132,20 +132,32 @@ section, [id] { scroll-margin-top: 88px; }
 .section { padding: clamp(96px, 13vw, 180px) clamp(20px, 8vw, 150px); border-bottom: 1px solid var(--line); }
 .section-lab { background: linear-gradient(135deg, var(--black-soft), var(--black)); }
 .skill-lab-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr); gap: clamp(30px, 8vw, 120px); margin: 86px 0 0 clamp(52px, 12vw, 200px); max-width: 1100px; }
+.skill-lab-grid.is-reveal .skill-lab-chart, .skill-lab-grid.is-reveal .skill-lab-controls { opacity: 0; }
+.skill-lab-grid.is-reveal .skill-lab-chart { transform: translateY(18px) scale(.98); }
+.skill-lab-grid.is-reveal .skill-lab-controls { transform: translateY(12px); }
+.skill-lab-grid.is-visible .skill-lab-chart, .skill-lab-grid.is-visible .skill-lab-controls { opacity: 1; transform: translateY(0) scale(1); }
 .skill-lab-chart { position: relative; display: grid; place-items: center; min-height: 390px; overflow: hidden; border: 1px solid var(--line); background: radial-gradient(circle at 50% 50%, rgba(215,182,93,.12), transparent 44%), var(--surface); }
+.skill-lab-chart { transition: opacity 360ms var(--ease-out), transform 360ms var(--ease-out); }
 .chart-orbit { position: absolute; border: 1px solid rgba(215,182,93,.38); border-radius: 50%; transform: rotate(25deg); }
 .chart-orbit-one { width: 72%; height: 72%; animation: orbit 18s linear infinite; }
 .chart-orbit-two { width: 48%; height: 48%; border-color: var(--line-strong); animation: orbit-reverse 14s linear infinite; }
+.skill-lab-grid.is-reveal .chart-orbit-one, .skill-lab-grid.is-reveal .chart-orbit-two { opacity: 0; transform: rotate(25deg) scale(.84); }
+.skill-lab-grid.is-visible .chart-orbit-one, .skill-lab-grid.is-visible .chart-orbit-two { opacity: 1; transform: rotate(25deg) scale(1); transition: opacity 420ms var(--ease-out) 80ms, transform 420ms var(--ease-out) 80ms; }
 .chart-center { position: relative; z-index: 1; display: grid; gap: 7px; text-align: center; }
+.skill-lab-grid.is-reveal .chart-center { opacity: 0; transform: translateY(8px); }
+.skill-lab-grid.is-visible .chart-center { opacity: 1; transform: translateY(0); transition: opacity 300ms var(--ease-out) 150ms, transform 300ms var(--ease-out) 150ms; }
 .chart-center span { color: var(--gold); font: 10px monospace; letter-spacing: .15em; }
 .chart-center strong { max-width: 150px; font-family: 'Cormorant Garamond', serif; font-size: clamp(25px, 3vw, 42px); font-weight: 400; }
 .chart-bars { position: absolute; right: 8%; bottom: 10%; left: 8%; display: grid; gap: 15px; }
 .chart-bars div { display: grid; grid-template-columns: 100px 1fr 30px; gap: 10px; align-items: center; color: var(--muted); font-size: 9px; }
 .chart-bars i { display: block; height: 3px; background: var(--line); }
 .chart-bars b { display: block; height: 100%; background: var(--gold); transition: width 420ms var(--ease-out); }
+.skill-lab-grid.is-reveal .chart-bars b { transform: scaleX(0); transform-origin: left center; }
+.skill-lab-grid.is-visible .chart-bars b { transform: scaleX(1); transition: transform 420ms var(--ease-out) 230ms; }
+.is-arabic .skill-lab-grid.is-reveal .chart-bars b { transform-origin: right center; }
 .chart-bars b.bar-engineering { background: var(--white); }
 .chart-bars strong { color: var(--white); font: 10px monospace; }
-.skill-lab-controls { border-top: 1px solid var(--line); }
+.skill-lab-controls { border-top: 1px solid var(--line); transition: opacity 300ms var(--ease-out) 100ms, transform 300ms var(--ease-out) 100ms; }
 .lab-legend { display: flex; gap: 18px; padding: 0 0 22px; color: var(--muted); font-size: 10px; }
 .lab-legend i { display: inline-block; width: 7px; height: 7px; margin-right: 6px; background: var(--gold); }
 .lab-legend .legend-engineering { background: var(--white); }
@@ -156,6 +168,14 @@ section, [id] { scroll-margin-top: 88px; }
 .skill-lab-controls button.is-active, .skill-lab-controls button:hover { color: var(--white); }
 .skill-lab-controls button.is-active span { transform: translateX(7px); }
 .skill-lab-controls button span { transition: transform 180ms var(--ease-out), color 180ms var(--ease-out); }
+.skill-lab-grid.is-reveal .skill-lab-controls button { opacity: 0; transform: translateX(12px); }
+.skill-lab-grid.is-visible .skill-lab-controls button { opacity: 1; transform: translateX(0); transition: opacity 260ms var(--ease-out), transform 260ms var(--ease-out); }
+.skill-lab-grid.is-visible .skill-lab-controls button:nth-child(3) { transition-delay: 70ms; }
+.skill-lab-grid.is-visible .skill-lab-controls button:nth-child(4) { transition-delay: 120ms; }
+.skill-lab-grid.is-visible .skill-lab-controls button:nth-child(5) { transition-delay: 170ms; }
+.skill-lab-grid.is-visible .skill-lab-controls button:nth-child(6) { transition-delay: 220ms; }
+.skill-lab-grid.is-visible .skill-lab-controls button:nth-child(7) { transition-delay: 270ms; }
+.skill-lab-grid.is-visible .skill-lab-controls button:nth-child(8) { transition-delay: 320ms; }
 .qr-section { display: grid; grid-template-columns: minmax(0, 1fr) minmax(320px, 420px); align-items: center; gap: clamp(40px, 10vw, 160px); background: var(--black-soft); }
 .qr-copy h2 { white-space: pre-line; margin: 18px 0 24px; font-size: clamp(46px, 7vw, 92px); font-weight: 300; letter-spacing: -.07em; line-height: .87; }
 .qr-copy p { max-width: 420px; color: var(--muted); font-size: 14px; line-height: 1.8; }

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   ArrowDown,
   ArrowUpRight,
@@ -86,9 +86,23 @@ const skillChart = [
 
 function SkillLab({ isArabic, tx }: { isArabic: boolean; tx: (en: string, ar: string) => string }) {
   const [active, setActive] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const labRef = useRef<HTMLDivElement>(null);
   const item = skillChart[active];
+  useEffect(() => {
+    const node = labRef.current;
+    if (!node) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setIsVisible(true);
+        observer.disconnect();
+      }
+    }, { threshold: 0.24, rootMargin: "0px 0px -8%" });
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
   return (
-    <div className="skill-lab-grid">
+    <div ref={labRef} className={`skill-lab-grid ${isVisible ? "is-visible" : "is-reveal"}`}>
       <div className="skill-lab-chart" role="img" aria-label={tx("Interactive comparison of AI and software engineering skills", "مقارنة تفاعلية بين مهارات الذكاء الاصطناعي وهندسة البرمجيات")}>
         <div className="chart-orbit chart-orbit-one" /><div className="chart-orbit chart-orbit-two" />
         <div className="chart-center"><span>0{active + 1}</span><strong>{isArabic ? item.ar : item.en}</strong></div>
