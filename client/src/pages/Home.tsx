@@ -75,6 +75,24 @@ function SignalField() {
   );
 }
 
+function useScrollReveal<T extends HTMLElement>(threshold = 0.2) {
+  const ref = useRef<T>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setVisible(true);
+        observer.disconnect();
+      }
+    }, { threshold, rootMargin: "0px 0px -8%" });
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [threshold]);
+  return { ref, visible };
+}
+
 const skillChart = [
   { en: "AI / ML", ar: "الذكاء الاصطناعي", ai: 94, engineering: 96 },
   { en: "Agents", ar: "الوكلاء", ai: 91, engineering: 88 },
@@ -86,9 +104,28 @@ const skillChart = [
 
 function SkillLab({ isArabic, tx }: { isArabic: boolean; tx: (en: string, ar: string) => string }) {
   const [active, setActive] = useState(0);
+  const [soundEnabled, setSoundEnabled] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
   const labRef = useRef<HTMLDivElement>(null);
   const item = skillChart[active];
+  const playSkillSound = () => {
+    if (!soundEnabled) return;
+    const AudioContextClass = window.AudioContext || (window as typeof window & { webkitAudioContext?: typeof AudioContext }).webkitAudioContext;
+    if (!AudioContextClass) return;
+    const audioContext = new AudioContextClass();
+    const oscillator = audioContext.createOscillator();
+    const gain = audioContext.createGain();
+    oscillator.type = "sine";
+    oscillator.frequency.setValueAtTime(520 + active * 35, audioContext.currentTime);
+    oscillator.frequency.exponentialRampToValueAtTime(760 + active * 28, audioContext.currentTime + 0.08);
+    gain.gain.setValueAtTime(0.0001, audioContext.currentTime);
+    gain.gain.exponentialRampToValueAtTime(0.045, audioContext.currentTime + 0.012);
+    gain.gain.exponentialRampToValueAtTime(0.0001, audioContext.currentTime + 0.14);
+    oscillator.connect(gain).connect(audioContext.destination);
+    oscillator.start();
+    oscillator.stop(audioContext.currentTime + 0.15);
+    window.setTimeout(() => void audioContext.close(), 220);
+  };
   useEffect(() => {
     const node = labRef.current;
     if (!node) return;
@@ -112,11 +149,20 @@ function SkillLab({ isArabic, tx }: { isArabic: boolean; tx: (en: string, ar: st
         </div>
       </div>
       <div className="skill-lab-controls">
-        <div className="lab-legend"><span><i className="legend-ai" /> {tx("AI / ML", "الذكاء الاصطناعي")}</span><span><i className="legend-engineering" /> {tx("Engineering", "الهندسة")}</span></div><p className="lab-note">{tx("Self-assessed proficiency across six years of practice.", "نسب تقديرية ذاتية مبنية على ست سنوات من الخبرة العملية.")}</p>
-        {skillChart.map((skill, index) => <button type="button" key={skill.en} className={active === index ? "is-active" : ""} onClick={() => setActive(index)}><b>0{index + 1}</b><span>{isArabic ? skill.ar : skill.en}</span><small>{skill.ai === null && skill.engineering === null ? tx("ADD %", "أضيفي النسبة") : `${Math.max(skill.ai ?? 0, skill.engineering ?? 0)}%`}</small></button>)}
+        <SkillRadar isArabic={isArabic} tx={tx} />
+        <div className="lab-legend"><span><i className="legend-ai" /> {tx("AI / ML", "الذكاء الاصطناعي")}</span><span><i className="legend-engineering" /> {tx("Engineering", "الهندسة")}</span></div><div className="lab-note-row"><p className="lab-note">{tx("Self-assessed proficiency across six years of practice.", "نسب تقديرية ذاتية مبنية على ست سنوات من الخبرة العملية.")}</p><button type="button" className={`sound-toggle ${soundEnabled ? "is-on" : ""}`} onClick={() => setSoundEnabled((current) => !current)} aria-pressed={soundEnabled}>{soundEnabled ? tx("Sound on", "الصوت مفعّل") : tx("Sound off", "الصوت متوقف")}</button></div>
+        {skillChart.map((skill, index) => <button type="button" key={skill.en} className={active === index ? "is-active" : ""} onClick={() => { setActive(index); playSkillSound(); }}><b>0{index + 1}</b><span>{isArabic ? skill.ar : skill.en}</span><small>{`${Math.max(skill.ai, skill.engineering)}%`}</small></button>)}
       </div>
     </div>
   );
+}
+
+function SkillRadar({ isArabic, tx }: { isArabic: boolean; tx: (en: string, ar: string) => string }) {
+  const labels = isArabic ? ["الذكاء", "الوكلاء", "المعمارية", "التكامل", "الأنظمة", "الأمن"] : ["AI", "Agents", "Architecture", "Full-Stack", "Systems", "Security"];
+  const aiPoints = "120,25 187,67 186,143 120,181 55,143 59,68";
+  const engineeringPoints = "120,18 191,65 191,146 120,184 51,146 48,65";
+  const gridPoints = ["120,46 160,77 159,131 120,151 81,131 80,77", "120,72 143,87 142,118 120,128 98,118 97,87", "120,96 126,102 126,108 120,112 114,108 114,102"];
+  return <div className="skill-radar" role="img" aria-label={tx("Radar chart comparing AI and software engineering proficiency", "رسم راداري يقارن بين كفاءة الذكاء الاصطناعي وهندسة البرمجيات")}><div className="radar-heading"><span>{tx("Capability radar", "رادار القدرات")}</span><small>{tx("AI / Engineering", "الذكاء / الهندسة")}</small></div><svg viewBox="0 0 240 220" aria-hidden="true"><g className="radar-grid">{gridPoints.map((points) => <polygon key={points} points={points} />)}<line x1="120" y1="20" x2="120" y2="184" /><line x1="48" y1="65" x2="191" y2="146" /><line x1="191" y1="65" x2="51" y2="146" /></g><polygon className="radar-area radar-ai" points={aiPoints} /><polygon className="radar-area radar-engineering" points={engineeringPoints} />{labels.map((label, index) => <text key={label} x={[120, 211, 207, 120, 33, 29][index]} y={[12, 63, 162, 204, 162, 63][index]}>{label}</text>)}</svg><div className="radar-legend"><span><i className="legend-ai" />{tx("AI / ML", "الذكاء الاصطناعي")}</span><span><i className="legend-engineering" />{tx("Engineering", "الهندسة")}</span></div></div>;
 }
 
 function QrIdentity({ isArabic, tx }: { isArabic: boolean; tx: (en: string, ar: string) => string }) {
@@ -156,6 +202,8 @@ function Home() {
   const isArabic = language === "ar";
   const isLight = theme === "light";
   const tx = (en: string, ar: string) => isArabic ? ar : en;
+  const experienceReveal = useScrollReveal<HTMLElement>(0.18);
+  const bookReveal = useScrollReveal<HTMLElement>(0.18);
   const switchLanguage = () => {
     const update = () => setLanguage((current) => current === "ar" ? "en" : "ar");
     const documentWithTransition = document as Document & { startViewTransition?: (callback: () => void) => void };
@@ -398,7 +446,7 @@ function Home() {
           <SkillLab isArabic={isArabic} tx={tx} />
         </section>
 
-        <section className="section section-experience" id="experience" aria-labelledby="experience-title">
+        <section ref={experienceReveal.ref} className={`section section-experience section-reveal ${experienceReveal.visible ? "is-visible" : "is-reveal"}`} id="experience" aria-labelledby="experience-title">
           <SectionIntro index="06" label={tx("Timeline", "الخط الزمني")} title={tx("EXPERIENCE", "الخبرة")}>
             <p className="intro-copy">{tx("A minimal timeline that expands as the record grows.", "خط زمني بسيط يتوسع مع نمو السجل المهني.")}</p>
           </SectionIntro>
@@ -412,7 +460,7 @@ function Home() {
           <div className="capability-grid">{capabilityMap.map((capability, index) => <button type="button" key={capability.label} onClick={() => showPlaceholder(`${capability.label} capability detail`)}><span>0{index + 1}</span><strong>{isArabic ? ["الهندسة", "الذكاء الاصطناعي", "الهندسة المعمارية", "التطوير", "التصميم", "الأمن", "المنتج", "حل المشكلات"][index] : capability.label}</strong><small>{isArabic ? ["الأنظمة والتنفيذ والعمق التقني.", "الذكاء والوكلاء والبيانات والبرمجيات المتكيفة.", "هيكل يجعل التعقيد قابلًا للفهم.", "من التفاعل الأول إلى المنتج المشحون.", "الواجهات والتدفقات ولغة المنتج.", "الثقة كخاصية في النظام.", "برمجيات مفيدة تشكلها رؤية واضحة.", "العثور على السؤال الأبسط داخل المشكلة الصعبة."][index] : capability.detail}</small><ArrowUpRight size={16} strokeWidth={1.2} /></button>)}</div>
         </section>
 
-        <section className="section section-creative" id="creative" aria-labelledby="creative-title">
+        <section ref={bookReveal.ref} className={`section section-creative section-reveal ${bookReveal.visible ? "is-visible" : "is-reveal"}`} id="creative" aria-labelledby="creative-title">
           <SectionIntro index="08" label={tx("A different register", "مساحة مختلفة")} title={tx("CREATIVE", "الإبداع")}>
             <p className="creative-intro">{tx("Writing, poetry, philosophy, books, ideas, and visual experiments — the work that begins before it has a category.", "الكتابة والشعر والفلسفة والكتب والأفكار والتجارب البصرية — العمل الذي يبدأ قبل أن يحمل تصنيفًا.")}</p>
           </SectionIntro>

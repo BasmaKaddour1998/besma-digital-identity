@@ -158,10 +158,28 @@ section, [id] { scroll-margin-top: 88px; }
 .chart-bars b.bar-engineering { background: var(--white); }
 .chart-bars strong { color: var(--white); font: 10px monospace; }
 .skill-lab-controls { border-top: 1px solid var(--line); transition: opacity 300ms var(--ease-out) 100ms, transform 300ms var(--ease-out) 100ms; }
+.skill-radar { margin: 0 0 22px; padding: 16px 0 14px; border-bottom: 1px solid var(--line); }
+.radar-heading { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px; color: var(--muted); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+.radar-heading small { color: var(--faint); font-size: 8px; }
+.skill-radar svg { display: block; width: 100%; height: 205px; overflow: visible; }
+.radar-grid polygon, .radar-grid line { fill: none; stroke: var(--line); stroke-width: 1; }
+.radar-grid line { stroke-dasharray: 2 3; }
+.radar-grid text { fill: var(--muted); }
+.skill-radar text { fill: var(--muted); font: 8px 'Space Grotesk', sans-serif; text-anchor: middle; }
+.radar-area { stroke-width: 1.5; transition: opacity 240ms var(--ease-out), transform 240ms var(--ease-out); transform-origin: 120px 105px; }
+.radar-ai { fill: rgba(215,182,93,.18); stroke: var(--gold); }
+.radar-engineering { fill: rgba(242,240,234,.09); stroke: var(--white); }
+.radar-legend { display: flex; gap: 14px; color: var(--muted); font-size: 9px; }
+.radar-legend span { display: inline-flex; align-items: center; gap: 5px; }
+.radar-legend i { display: inline-block; width: 6px; height: 6px; background: var(--gold); }
+.radar-legend span:last-child i { background: var(--white); }
+.lab-note-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
 .lab-legend { display: flex; gap: 18px; padding: 0 0 22px; color: var(--muted); font-size: 10px; }
 .lab-legend i { display: inline-block; width: 7px; height: 7px; margin-right: 6px; background: var(--gold); }
 .lab-legend .legend-engineering { background: var(--white); }
 .lab-note { margin: -12px 0 8px; color: var(--faint); font-size: 10px; line-height: 1.6; }
+.sound-toggle { flex: none; margin-top: -12px; color: var(--faint); border-bottom: 1px solid var(--line); font-size: 9px; letter-spacing: .08em; text-transform: uppercase; transition: color 180ms var(--ease-out), border-color 180ms var(--ease-out); }
+.sound-toggle:hover, .sound-toggle.is-on { color: var(--gold); border-color: var(--gold); }
 .skill-lab-controls button { display: grid; grid-template-columns: 30px 1fr auto; align-items: center; width: 100%; min-height: 49px; border-bottom: 1px solid var(--line); color: var(--muted); text-align: left; }
 .skill-lab-controls button b { color: var(--gold); font: 10px monospace; }
 .skill-lab-controls button small { color: var(--faint); font: 9px monospace; }
@@ -276,6 +294,10 @@ section, [id] { scroll-margin-top: 88px; }
 
 .section-experience { background: var(--black-soft); }
 .experience-list, .empty-panel { margin: 90px 0 0 clamp(52px, 12vw, 200px); }
+.section-reveal > .section-intro, .section-reveal > .experience-list, .section-reveal > .empty-panel, .section-reveal > .creative-layout { transition: opacity 420ms var(--ease-out), transform 420ms var(--ease-out); }
+.section-reveal.is-reveal > .section-intro, .section-reveal.is-reveal > .experience-list, .section-reveal.is-reveal > .empty-panel, .section-reveal.is-reveal > .creative-layout { opacity: 0; transform: translateY(22px); }
+.section-reveal.is-visible > .section-intro, .section-reveal.is-visible > .experience-list, .section-reveal.is-visible > .empty-panel, .section-reveal.is-visible > .creative-layout { opacity: 1; transform: translateY(0); }
+.section-reveal.is-visible > .experience-list, .section-reveal.is-visible > .creative-layout { transition-delay: 100ms; }
 .experience-list details { border-top: 1px solid var(--line); }
 .experience-list details:last-child { border-bottom: 1px solid var(--line); }
 .experience-list summary { display: grid; grid-template-columns: 100px 1fr 180px 20px; gap: 20px; align-items: center; min-height: 65px; list-style: none; cursor: pointer; }
