@@ -42,8 +42,7 @@ section, [id] { scroll-margin-top: 88px; }
 .site-shell, .site-shell * { transition: background-color 320ms var(--ease-out), border-color 320ms var(--ease-out), color 240ms var(--ease-out); }
 .theme-light { --black: #f3f0e8; --black-soft: #e8e3d7; --surface: #fbfaf6; --line: rgba(18,18,16,.16); --line-strong: rgba(18,18,16,.30); --white: #171714; --muted: #68665f; --faint: #8a877d; --gold: #9b771e; color: var(--white); }
 .theme-light .site-header { background: rgba(243,240,232,.84); }
-.theme-light .hero-portrait { mix-blend-mode: multiply; }
-.theme-light .hero-signature { mix-blend-mode: multiply; filter: grayscale(1) contrast(1.25) brightness(.7); }
+.theme-light .hero-portrait, .theme-light .hero-signature { mix-blend-mode: screen; }
 .theme-light .signal-field::before { background: radial-gradient(circle, rgba(155,119,30,.12), transparent 59%); }
 .theme-light .section-philosophy { background: var(--black-soft); }
 ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 260ms; animation-timing-function: var(--ease-in-out); }
@@ -276,6 +275,17 @@ section, [id] { scroll-margin-top: 88px; }
 .tech-items em { color: var(--faint); border-style: dashed; }
 
 .section-ai { position: relative; min-height: 760px; background: #10100e; overflow: hidden; }
+.section-fintech { background: var(--surface); }
+.fintech-layout { display: grid; grid-template-columns: minmax(210px, .75fr) minmax(0, 1.25fr); gap: clamp(38px, 8vw, 120px); margin: 90px 0 0 clamp(52px, 12vw, 200px); }
+.market-coverage { align-self: start; }
+.market-coverage > div { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+.market-coverage > div span { padding: 8px 10px; border: 1px solid var(--line); color: var(--muted); font-size: 10px; }
+.market-coverage p { max-width: 250px; margin: 28px 0 0; color: var(--faint); font-size: 11px; line-height: 1.7; }
+.fintech-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.fintech-cards article { min-height: 250px; padding: 22px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.fintech-cards article > span { color: var(--gold); font: 10px monospace; }
+.fintech-cards h3 { margin: 62px 0 14px; font-size: 16px; font-weight: 400; line-height: 1.15; }
+.fintech-cards p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.65; }
 .section-ai .section-intro { position: relative; z-index: 2; }
 .ai-headline { margin: 60px 0 0; font-size: clamp(36px, 5.7vw, 80px); font-weight: 300; letter-spacing: -.07em; line-height: .93; }
 .ai-bottom { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1.4fr; gap: 40px; margin: 100px 0 0 clamp(52px, 12vw, 200px); }
@@ -422,7 +432,7 @@ section, [id] { scroll-margin-top: 88px; }
   .hero h1 { font-size: clamp(39px, 9vw, 72px); }
   .section { padding-right: 20px; padding-left: 20px; }
   .section-intro { grid-template-columns: 36px minmax(0, 1fr); gap: 16px; }
-  .about-detail-grid, .engineering-layout, .technology-layout, .ai-bottom, .creative-layout, .cv-grid { grid-template-columns: 1fr; gap: 55px; margin-left: 52px; }
+  .about-detail-grid, .engineering-layout, .technology-layout, .ai-bottom, .creative-layout, .cv-grid, .fintech-layout { grid-template-columns: 1fr; gap: 55px; margin-left: 52px; }
   .skill-lab-grid { grid-template-columns: 1fr; gap: 45px; margin-left: 52px; }
   .qr-section { grid-template-columns: 1fr; gap: 65px; }
   .about-detail-grid, .creative-layout { margin-top: 72px; }
@@ -457,7 +467,7 @@ section, [id] { scroll-margin-top: 88px; }
   .section { padding-top: 100px; padding-bottom: 100px; }
   .section h2 { font-size: clamp(39px, 14vw, 66px); }
   .intro-copy { font-size: 13px; }
-  .about-detail-grid, .engineering-layout, .technology-layout, .ai-bottom, .creative-layout, .cv-grid, .experience-list, .empty-panel, .capability-grid, .library-grid, .filter-bar, .project-list, .project-footer, .library-footnote { margin-left: 0; }
+  .about-detail-grid, .engineering-layout, .technology-layout, .ai-bottom, .creative-layout, .cv-grid, .fintech-layout, .experience-list, .empty-panel, .capability-grid, .library-grid, .filter-bar, .project-list, .project-footer, .library-footnote { margin-left: 0; }
   .about-detail-grid { margin-top: 63px; }
   .display-quote { font-size: 38px; }
   .project-row { grid-template-columns: 27px 1fr 35px; gap: 10px; }
@@ -473,6 +483,7 @@ section, [id] { scroll-margin-top: 88px; }
   .ai-headline { margin-top: 45px; font-size: 47px; }
   .ai-bottom { margin-top: 70px; }
   .skill-lab-grid { margin-left: 0; }
+  .fintech-cards { grid-template-columns: 1fr; }
   .skill-lab-chart { min-height: 330px; }
   .chart-bars { right: 6%; left: 6%; }
   .chart-bars div { grid-template-columns: 80px 1fr 25px; font-size: 8px; }
@@ -525,16 +536,16 @@ section, [id] { scroll-margin-top: 88px; }
 .is-arabic .project-meta { justify-items: end; text-align: right; }
 .is-arabic .contact-links a:hover { padding-left: 0; padding-right: 10px; }
 .is-arabic .creative-watermark, .is-arabic .cv-watermark { right: auto; left: 6%; transform: rotate(5deg); }
-.is-arabic .skill-lab-grid, .is-arabic .engineering-layout, .is-arabic .technology-layout, .is-arabic .ai-bottom, .is-arabic .experience-list, .is-arabic .empty-panel, .is-arabic .capability-grid, .is-arabic .library-grid, .is-arabic .filter-bar, .is-arabic .project-list, .is-arabic .project-footer, .is-arabic .library-footnote, .is-arabic .cv-grid { margin-left: 0; margin-right: clamp(52px, 12vw, 200px); }
+.is-arabic .skill-lab-grid, .is-arabic .engineering-layout, .is-arabic .technology-layout, .is-arabic .ai-bottom, .is-arabic .fintech-layout, .is-arabic .experience-list, .is-arabic .empty-panel, .is-arabic .capability-grid, .is-arabic .library-grid, .is-arabic .filter-bar, .is-arabic .project-list, .is-arabic .project-footer, .is-arabic .library-footnote, .is-arabic .cv-grid { margin-left: 0; margin-right: clamp(52px, 12vw, 200px); }
 
 @media (max-width: 860px) {
   .is-arabic .hero-content { margin-left: 0; margin-right: 0; }
-  .is-arabic .section-intro, .is-arabic .about-detail-grid, .is-arabic .engineering-layout, .is-arabic .technology-layout, .is-arabic .ai-bottom, .is-arabic .creative-layout, .is-arabic .cv-grid, .is-arabic .experience-list, .is-arabic .empty-panel, .is-arabic .capability-grid, .is-arabic .library-grid, .is-arabic .filter-bar, .is-arabic .project-list, .is-arabic .project-footer, .is-arabic .library-footnote, .is-arabic .skill-lab-grid { margin-left: 0; margin-right: 52px; }
+  .is-arabic .section-intro, .is-arabic .about-detail-grid, .is-arabic .engineering-layout, .is-arabic .technology-layout, .is-arabic .ai-bottom, .is-arabic .fintech-layout, .is-arabic .creative-layout, .is-arabic .cv-grid, .is-arabic .experience-list, .is-arabic .empty-panel, .is-arabic .capability-grid, .is-arabic .library-grid, .is-arabic .filter-bar, .is-arabic .project-list, .is-arabic .project-footer, .is-arabic .library-footnote, .is-arabic .skill-lab-grid { margin-left: 0; margin-right: 52px; }
   .is-arabic .portrait-caption { left: -12px; }
 }
 
 @media (max-width: 590px) {
-  .is-arabic .section-intro, .is-arabic .about-detail-grid, .is-arabic .engineering-layout, .is-arabic .technology-layout, .is-arabic .ai-bottom, .is-arabic .creative-layout, .is-arabic .cv-grid, .is-arabic .experience-list, .is-arabic .empty-panel, .is-arabic .capability-grid, .is-arabic .library-grid, .is-arabic .filter-bar, .is-arabic .project-list, .is-arabic .project-footer, .is-arabic .library-footnote, .is-arabic .skill-lab-grid { margin-left: 0; margin-right: 0; }
+  .is-arabic .section-intro, .is-arabic .about-detail-grid, .is-arabic .engineering-layout, .is-arabic .technology-layout, .is-arabic .ai-bottom, .is-arabic .fintech-layout, .is-arabic .creative-layout, .is-arabic .cv-grid, .is-arabic .experience-list, .is-arabic .empty-panel, .is-arabic .capability-grid, .is-arabic .library-grid, .is-arabic .filter-bar, .is-arabic .project-list, .is-arabic .project-footer, .is-arabic .library-footnote, .is-arabic .skill-lab-grid { margin-left: 0; margin-right: 0; }
   .is-arabic .creative-watermark { left: -12%; right: auto; }
   .is-arabic .cv-watermark { left: -8%; right: auto; }
   .is-arabic .portrait-caption { left: 4px; }

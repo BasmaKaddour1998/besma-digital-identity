@@ -33,6 +33,7 @@ export const navigation = [
   { label: "Work", href: "#work" },
   { label: "Engineering", href: "#engineering" },
   { label: "AI", href: "#ai" },
+  { label: "FinTech", href: "#fintech" },
   { label: "Lab", href: "#lab" },
   { label: "Creative", href: "#creative" },
   { label: "Experience", href: "#experience" },
@@ -77,15 +78,15 @@ export const technologyCategories = [
 ];
 
 export const technologyLibrary: Record<string, string[]> = {
-  "Programming Languages": [],
-  Frameworks: [],
-  Libraries: [],
-  Databases: [],
-  "Cloud & Infrastructure": [],
-  "AI & ML": [],
-  "Development Tools": [],
-  Platforms: [],
-  "Design Tools": [],
+  "Programming Languages": ["TypeScript", "JavaScript", "Python", "PHP", "Kotlin", "Java", "HTML5", "CSS3"],
+  Frameworks: ["React", "Next.js", "Laravel", "Flutter", "React Native", "Capacitor"],
+  Libraries: ["REST APIs", "WebView applications", "Native mobile integration", "Real-time systems"],
+  Databases: ["PostgreSQL", "MySQL", "MongoDB", "Firebase"],
+  "Cloud & Infrastructure": ["Vercel", "Render", "Cloud services", "Environment configuration", "Production deployment"],
+  "AI & ML": ["Claude Code", "OpenCode", "AI coding agents", "AI-powered applications", "Conversational interfaces"],
+  "Development Tools": ["Git", "GitHub", "npm", "Gradle", "Android Studio", "Xcode", "Terminal workflows"],
+  Platforms: ["Android", "iOS", "Telegram Mini Apps", "Third-party APIs", "Authentication systems"],
+  "Design Tools": ["Responsive UI", "Dashboards", "Component architecture", "API-driven interfaces"],
 };
 
 export const aiAreas = [
@@ -97,6 +98,14 @@ export const aiAreas = [
   "Predictive Systems",
   "AI-assisted Development",
 ];
+
+export const financialTechnologyAreas = [
+  { en: "Market-data engineering", ar: "هندسة بيانات الأسواق", detailEn: "Processing external market data, technical signals, sessions, volatility, liquidity, and macro conditions.", detailAr: "معالجة بيانات الأسواق الخارجية والإشارات الفنية والجلسات والتذبذب والسيولة والظروف الاقتصادية الكلية." },
+  { en: "Decision and execution engines", ar: "محركات القرار والتنفيذ", detailEn: "Connecting analysis to entry validation, pending orders, execution, and position management.", detailAr: "ربط التحليل بالتحقق من الدخول والأوامر المعلقة والتنفيذ وإدارة الصفقات." },
+  { en: "Risk and capital protection", ar: "إدارة المخاطر وحماية رأس المال", detailEn: "Engineering logic for exposure, margin, drawdown, dynamic SL/TP, and profit protection.", detailAr: "هندسة منطق التعرض والهامش والسحب وإيقاف الخسارة والهدف الديناميكي وحماية الأرباح." },
+];
+
+export const marketCoverage = ["Forex", "Gold / XAUUSD", "Silver", "Major indices", "Cryptocurrencies", "DXY", "US Treasury yields"];
 
 export const projects: Project[] = [
   {

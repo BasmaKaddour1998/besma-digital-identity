@@ -22,8 +22,10 @@ import {
   contentModel,
   engineeringAreas,
   experience,
+  financialTechnologyAreas,
   focusAreas,
   librarySections,
+  marketCoverage,
   navigation,
   principles,
   projects,
@@ -215,7 +217,7 @@ function Home() {
     else update();
   };
   const switchTheme = () => setTheme((current) => current === "dark" ? "light" : "dark");
-  const navItems = isArabic ? ["عنّي", "الأعمال", "الهندسة", "الذكاء الاصطناعي", "المختبر", "الإبداع", "الخبرة", "تواصل"] : navigation.map((item) => item.label);
+  const navItems = isArabic ? ["عنّي", "الأعمال", "الهندسة", "الذكاء الاصطناعي", "التقنية المالية", "المختبر", "الإبداع", "الخبرة", "تواصل"] : navigation.map((item) => item.label);
   const aboutItems = isArabic ? ["الخلفية", "الهندسة", "الذكاء الاصطناعي", "تطوير المنتجات", "العمل الإبداعي", "الفلسفة"] : ["Background", "Engineering", "AI", "Product Development", "Creative Work", "Philosophy"];
   const categories = isArabic ? ["الكل", "الذكاء الاصطناعي", "البرمجيات", "الويب", "الهاتف", "الأنظمة", "الإبداع"] : ["ALL", "AI", "SOFTWARE", "WEB", "MOBILE", "SYSTEMS", "CREATIVE"];
 
@@ -441,6 +443,16 @@ function Home() {
             <p className="ai-headline">{tx("BUILDING SOFTWARE", "أبني برمجيات")}<br /><em>{tx("THAT THINKS, ADAPTS", "تفكر وتتكيّف")}<br />{tx("AND ACTS.", "وتتصرّف.")}</em></p>
           </SectionIntro>
           <div className="ai-bottom"><p className="muted-copy">{tx("AI is treated here as a practice and a field of questions — not a decoration. This space can hold agents, models, automations, applications, analysis, and research as they become real.", "يُتعامل مع الذكاء الاصطناعي هنا كممارسة ومجال من الأسئلة — لا كزينة. يمكن لهذا المكان أن يحتضن الوكلاء والنماذج والأتمتة والتطبيقات والتحليل والبحث.")}</p><div className="ai-areas">{aiAreas.map((area, index) => <span key={area}><b>0{index + 1}</b>{isArabic ? ["وكلاء الذكاء الاصطناعي", "تعلم الآلة", "الأتمتة الذكية", "تطبيقات الذكاء الاصطناعي", "تحليل البيانات", "الأنظمة التنبؤية", "التطوير المدعوم بالذكاء الاصطناعي"][index] : area}</span>)}</div></div>
+        </section>
+
+        <section className="section section-fintech" id="fintech" aria-labelledby="fintech-title">
+          <SectionIntro index="06" label={tx("Financial technology", "التقنية المالية")} title={tx("MARKET SYSTEMS", "أنظمة الأسواق")}>
+            <p className="intro-copy">{tx("Software engineering for financial systems — from market data and analysis to decision, execution, risk, and monitoring.", "هندسة برمجيات للأنظمة المالية — من بيانات السوق والتحليل إلى القرار والتنفيذ وإدارة المخاطر والمراقبة.")}</p>
+          </SectionIntro>
+          <div className="fintech-layout">
+            <div className="market-coverage"><span className="eyebrow">{tx("Market coverage", "نطاق الأسواق")}</span><div>{marketCoverage.map((market, index) => <span key={market}>{isArabic ? ["الفوركس", "الذهب / XAUUSD", "الفضة", "المؤشرات الرئيسية", "العملات الرقمية", "مؤشر الدولار DXY", "عوائد الخزانة الأمريكية"][index] : market}</span>)}</div><p>{tx("This is software engineering and market-analysis infrastructure, not financial advice or a profit guarantee.", "هذا عمل في هندسة البرمجيات وبنية تحليل الأسواق، وليس استشارة مالية أو ضماناً للأرباح.")}</p></div>
+            <div className="fintech-cards">{financialTechnologyAreas.map((area, index) => <article key={area.en}><span>0{index + 1}</span><h3>{isArabic ? area.ar : area.en}</h3><p>{isArabic ? area.detailAr : area.detailEn}</p></article>)}</div>
+          </div>
         </section>
 
         <section className="section section-lab" id="lab" aria-labelledby="lab-title">
