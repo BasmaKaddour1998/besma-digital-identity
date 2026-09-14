@@ -127,6 +127,11 @@ function Home() {
       <main id="main-content">
         <section className="hero" id="top" aria-labelledby="hero-title">
           <SignalField />
+          <div className="hero-portrait-wrap">
+            <div className="portrait-frame" aria-hidden="true" />
+            <img className="hero-portrait" src="/manus-storage/besma-portrait_2ec9064c.png" alt="Besma Kaddour" />
+            <span className="portrait-caption">BESMA / 01</span>
+          </div>
           <div className="hero-content">
             <div className="hero-kicker">
               <span className="status-dot" />
