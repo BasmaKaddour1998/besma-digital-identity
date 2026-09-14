@@ -5,9 +5,12 @@ import {
   ChevronDown,
   Download,
   Menu,
+  Moon,
   Plus,
+  Sun,
   X,
 } from "lucide-react";
+import { QRCodeCanvas } from "qrcode.react";
 import {
   aiAreas,
   capabilityMap,
@@ -68,6 +71,46 @@ function SignalField() {
   );
 }
 
+const skillChart = [
+  { en: "AI / ML", ar: "الذكاء الاصطناعي", ai: 91, engineering: 68 },
+  { en: "Agents", ar: "الوكلاء", ai: 86, engineering: 62 },
+  { en: "Architecture", ar: "المعمارية", ai: 72, engineering: 94 },
+  { en: "Full-Stack", ar: "التطوير المتكامل", ai: 66, engineering: 91 },
+  { en: "Systems", ar: "الأنظمة", ai: 70, engineering: 88 },
+  { en: "Security", ar: "الأمن", ai: 58, engineering: 76 },
+];
+
+function SkillLab({ isArabic, tx }: { isArabic: boolean; tx: (en: string, ar: string) => string }) {
+  const [active, setActive] = useState(0);
+  const item = skillChart[active];
+  return (
+    <div className="skill-lab-grid">
+      <div className="skill-lab-chart" role="img" aria-label={tx("Interactive comparison of AI and software engineering skills", "مقارنة تفاعلية بين مهارات الذكاء الاصطناعي وهندسة البرمجيات")}>
+        <div className="chart-orbit chart-orbit-one" /><div className="chart-orbit chart-orbit-two" />
+        <div className="chart-center"><span>0{active + 1}</span><strong>{isArabic ? item.ar : item.en}</strong></div>
+        <div className="chart-bars">
+          <div><span>{tx("AI / ML", "الذكاء الاصطناعي")}</span><i><b style={{ width: `${item.ai}%` }} /></i><strong>{item.ai}</strong></div>
+          <div><span>{tx("Software Engineering", "هندسة البرمجيات")}</span><i><b className="bar-engineering" style={{ width: `${item.engineering}%` }} /></i><strong>{item.engineering}</strong></div>
+        </div>
+      </div>
+      <div className="skill-lab-controls">
+        <div className="lab-legend"><span><i className="legend-ai" /> {tx("AI / ML", "الذكاء الاصطناعي")}</span><span><i className="legend-engineering" /> {tx("Engineering", "الهندسة")}</span></div>
+        {skillChart.map((skill, index) => <button type="button" key={skill.en} className={active === index ? "is-active" : ""} onClick={() => setActive(index)}><b>0{index + 1}</b><span>{isArabic ? skill.ar : skill.en}</span><small>{Math.max(skill.ai, skill.engineering)}%</small></button>)}
+      </div>
+    </div>
+  );
+}
+
+function QrIdentity({ isArabic, tx }: { isArabic: boolean; tx: (en: string, ar: string) => string }) {
+  const [url] = useState(() => window.location.origin + "/");
+  return (
+    <section className="section qr-section" id="qr" aria-labelledby="qr-title">
+      <div className="qr-copy"><span className="eyebrow">13 / {tx("Share the identity", "شاركي الهوية")}</span><h2 id="qr-title">{tx("CARRY THE\nSIGNAL.", "احملي\nالإشارة.")}</h2><p>{tx("Scan to open Besma Kaddour's digital identity. The portrait stays at the center, like a visual profile card.", "امسحي الرمز لفتح الهوية الرقمية لبسمة قدور. تبقى الصورة في المنتصف كأنها بطاقة ملف بصري.")}</p></div>
+      <div className="qr-card"><div className="qr-frame"><QRCodeCanvas value={url} size={250} level="H" bgColor="#f2f0ea" fgColor="#0a0a09" includeMargin /><img src="/manus-storage/besma-portrait_2ec9064c.png" alt={tx("Besma Kaddour profile image", "صورة ملف بسمة قدور")} /><span className="qr-corner qr-corner-tl" /><span className="qr-corner qr-corner-br" /></div><div className="qr-url">{tx("SCAN / BESMA KADDOUR", "امسحي / بسمة قدور")}<span>{url.replace(/^https?:\/\//, "")}</span></div></div>
+    </section>
+  );
+}
+
 function Home() {
   const [language, setLanguage] = useState<"en" | "ar">(() => {
     const saved = window.localStorage.getItem("besma-language");
@@ -79,7 +122,9 @@ function Home() {
   const [activeEngineering, setActiveEngineering] = useState(0);
   const [activeCategory, setActiveCategory] = useState("ALL");
   const [notice, setNotice] = useState("");
+  const [theme, setTheme] = useState<"dark" | "light">(() => window.localStorage.getItem("besma-theme") === "light" ? "light" : "dark");
   const isArabic = language === "ar";
+  const isLight = theme === "light";
   const tx = (en: string, ar: string) => isArabic ? ar : en;
   const switchLanguage = () => {
     const update = () => setLanguage((current) => current === "ar" ? "en" : "ar");
@@ -87,7 +132,8 @@ function Home() {
     if (documentWithTransition.startViewTransition) documentWithTransition.startViewTransition(update);
     else update();
   };
-  const navItems = isArabic ? ["عنّي", "الأعمال", "الهندسة", "الذكاء الاصطناعي", "الإبداع", "الخبرة", "تواصل"] : navigation.map((item) => item.label);
+  const switchTheme = () => setTheme((current) => current === "dark" ? "light" : "dark");
+  const navItems = isArabic ? ["عنّي", "الأعمال", "الهندسة", "الذكاء الاصطناعي", "المختبر", "الإبداع", "الخبرة", "تواصل"] : navigation.map((item) => item.label);
   const aboutItems = isArabic ? ["الخلفية", "الهندسة", "الذكاء الاصطناعي", "تطوير المنتجات", "العمل الإبداعي", "الفلسفة"] : ["Background", "Engineering", "AI", "Product Development", "Creative Work", "Philosophy"];
   const categories = isArabic ? ["الكل", "الذكاء الاصطناعي", "البرمجيات", "الويب", "الهاتف", "الأنظمة", "الإبداع"] : ["ALL", "AI", "SOFTWARE", "WEB", "MOBILE", "SYSTEMS", "CREATIVE"];
 
@@ -102,6 +148,10 @@ function Home() {
     document.documentElement.dir = isArabic ? "rtl" : "ltr";
     window.localStorage.setItem("besma-language", language);
   }, [isArabic, language]);
+
+  useEffect(() => {
+    window.localStorage.setItem("besma-theme", theme);
+  }, [theme]);
 
   useEffect(() => {
     const existing = document.querySelector('link[rel="canonical"]');
@@ -121,7 +171,7 @@ function Home() {
   };
 
   return (
-    <div className={`site-shell ${isArabic ? "is-arabic" : ""}`}>
+    <div className={`site-shell ${isArabic ? "is-arabic" : ""} ${isLight ? "theme-light" : ""}`}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
         "@graph": [
@@ -154,6 +204,9 @@ function Home() {
         </nav>
         <button type="button" className="language-toggle" onClick={switchLanguage} aria-label={tx("Switch to Arabic", "التبديل إلى الإنجليزية")}>
           {isArabic ? "EN" : "ع"}
+        </button>
+        <button type="button" className="theme-toggle" onClick={switchTheme} aria-label={isLight ? tx("Switch to dark mode", "التبديل إلى الوضع الداكن") : tx("Switch to light mode", "التبديل إلى الوضع الفاتح")}>
+          {isLight ? <Moon size={15} aria-hidden="true" /> : <Sun size={15} aria-hidden="true" />}
         </button>
         <button
           type="button"
@@ -308,6 +361,13 @@ function Home() {
           <div className="ai-bottom"><p className="muted-copy">{tx("AI is treated here as a practice and a field of questions — not a decoration. This space can hold agents, models, automations, applications, analysis, and research as they become real.", "يُتعامل مع الذكاء الاصطناعي هنا كممارسة ومجال من الأسئلة — لا كزينة. يمكن لهذا المكان أن يحتضن الوكلاء والنماذج والأتمتة والتطبيقات والتحليل والبحث.")}</p><div className="ai-areas">{aiAreas.map((area, index) => <span key={area}><b>0{index + 1}</b>{isArabic ? ["وكلاء الذكاء الاصطناعي", "تعلم الآلة", "الأتمتة الذكية", "تطبيقات الذكاء الاصطناعي", "تحليل البيانات", "الأنظمة التنبؤية", "التطوير المدعوم بالذكاء الاصطناعي"][index] : area}</span>)}</div></div>
         </section>
 
+        <section className="section section-lab" id="lab" aria-labelledby="lab-title">
+          <SectionIntro index="06" label={tx("Interactive laboratory", "مختبر تفاعلي")} title={tx("SKILL SIGNAL", "إشارة المهارات")}>
+            <p className="intro-copy">{tx("Explore the relationship between artificial intelligence and software engineering through a living visual index.", "استكشفي العلاقة بين الذكاء الاصطناعي وهندسة البرمجيات عبر مؤشر بصري حي.")}</p>
+          </SectionIntro>
+          <SkillLab isArabic={isArabic} tx={tx} />
+        </section>
+
         <section className="section section-experience" id="experience" aria-labelledby="experience-title">
           <SectionIntro index="06" label={tx("Timeline", "الخط الزمني")} title={tx("EXPERIENCE", "الخبرة")}>
             <p className="intro-copy">{tx("A minimal timeline that expands as the record grows.", "خط زمني بسيط يتوسع مع نمو السجل المهني.")}</p>
@@ -345,6 +405,8 @@ function Home() {
           </SectionIntro>
           <div className="cv-grid"><img className="section-watermark cv-watermark" src="/manus-storage/besma-signature_88629231.png" alt="" aria-hidden="true" /><div><p className="cv-profile">{tx("Profile, experience, education, skills, technologies, projects, languages, and achievements can be assembled here from the same editable source.", "يمكن تجميع الملف الشخصي والخبرة والتعليم والمهارات والتقنيات والمشاريع واللغات والإنجازات هنا من المصدر القابل للتحرير نفسه.")}</p><div className="cv-actions"><a className="button button-primary" href="/cv-besma-en.pdf" download="Besma-Kaddour-CV-English.pdf">{tx("Download CV · English", "تحميل السيرة · الإنجليزية")} <Download size={15} /></a><a className="button button-quiet" href="/cv-besma-ar.pdf" download="Besma-Kaddour-CV-Arabic.pdf">{tx("Download CV · Arabic", "تحميل السيرة · العربية")} <Download size={15} /></a></div></div><div className="cv-index">{["Profile", "Experience", "Education", "Skills", "Technologies", "Projects", "Languages", "Achievements"].map((item, index) => <span key={item}><b>0{index + 1}</b>{isArabic ? ["الملف الشخصي", "الخبرة", "التعليم", "المهارات", "التقنيات", "المشاريع", "اللغات", "الإنجازات"][index] : item}</span>)}</div></div>
         </section>
+
+        <QrIdentity isArabic={isArabic} tx={tx} />
 
         <section className="section section-contact" id="contact" aria-labelledby="contact-title"><div className="contact-top"><span className="eyebrow">12 / {tx("Closing chapter", "الفصل الختامي")}</span><span className="contact-status"><span className="status-dot" /> {tx("Open to meaningful work", "منفتحة على الأعمال الهادفة")}</span></div><h2 id="contact-title">{tx("LET'S BUILD", "لنبنِ")}<br /><em>{tx("SOMETHING", "شيئًا")}</em><br />{tx("MEANINGFUL.", "هادفًا.")}</h2><p className="contact-copy">{tx("For collaborations, conversations, and work that deserves a thoughtful system.", "للتعاون والمحادثات والعمل الذي يستحق نظامًا مدروسًا.")}</p><div className="contact-links">{contactLinks.map((link) => <a key={link.label} href={link.href} onClick={(event) => { if (link.href === "#contact") { event.preventDefault(); showPlaceholder(link.label); } }}><span>{isArabic ? { Email: "البريد", LinkedIn: "لينكدإن", GitHub: "جيت هب", Other: "أخرى" }[link.label] : link.label}</span><strong>{isArabic ? "عنصر قابل للتحرير — أضيفي الرابط" : link.value}</strong><ArrowUpRight size={17} strokeWidth={1.2} /></a>)}</div></section>
       </main>

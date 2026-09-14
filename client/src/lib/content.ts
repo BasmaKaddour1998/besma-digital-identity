@@ -33,6 +33,7 @@ export const navigation = [
   { label: "Work", href: "#work" },
   { label: "Engineering", href: "#engineering" },
   { label: "AI", href: "#ai" },
+  { label: "Lab", href: "#lab" },
   { label: "Creative", href: "#creative" },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
@@ -143,7 +144,7 @@ export const principles = [
 
 export const contactLinks = [
   { label: "Email", value: "Placeholder — add email", href: "#contact" },
-  { label: "LinkedIn", value: "Placeholder — add profile URL", href: "#contact" },
+  { label: "LinkedIn", value: "linkedin.com/in/beasma-kaddour-6b32312b8", href: "https://www.linkedin.com/in/beasma-kaddour-6b32312b8" },
   { label: "GitHub", value: "Placeholder — add profile URL", href: "#contact" },
   { label: "Other", value: "Placeholder — add professional links", href: "#contact" },
 ];
