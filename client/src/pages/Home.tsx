@@ -4,13 +4,16 @@ import {
   ArrowUpRight,
   ChevronDown,
   Download,
+  Github,
+  Mail,
+  MessageCircle,
   Menu,
   Moon,
   Plus,
   Sun,
   X,
 } from "lucide-react";
-import { QRCodeCanvas } from "qrcode.react";
+import { QRCodeCanvas, QRCodeSVG } from "qrcode.react";
 import {
   aiAreas,
   capabilityMap,
@@ -72,12 +75,12 @@ function SignalField() {
 }
 
 const skillChart = [
-  { en: "AI / ML", ar: "الذكاء الاصطناعي", ai: 91, engineering: 68 },
-  { en: "Agents", ar: "الوكلاء", ai: 86, engineering: 62 },
-  { en: "Architecture", ar: "المعمارية", ai: 72, engineering: 94 },
-  { en: "Full-Stack", ar: "التطوير المتكامل", ai: 66, engineering: 91 },
-  { en: "Systems", ar: "الأنظمة", ai: 70, engineering: 88 },
-  { en: "Security", ar: "الأمن", ai: 58, engineering: 76 },
+  { en: "AI / ML", ar: "الذكاء الاصطناعي", ai: null, engineering: null },
+  { en: "Agents", ar: "الوكلاء", ai: null, engineering: null },
+  { en: "Architecture", ar: "المعمارية", ai: null, engineering: null },
+  { en: "Full-Stack", ar: "التطوير المتكامل", ai: null, engineering: null },
+  { en: "Systems", ar: "الأنظمة", ai: null, engineering: null },
+  { en: "Security", ar: "الأمن", ai: null, engineering: null },
 ];
 
 function SkillLab({ isArabic, tx }: { isArabic: boolean; tx: (en: string, ar: string) => string }) {
@@ -89,13 +92,13 @@ function SkillLab({ isArabic, tx }: { isArabic: boolean; tx: (en: string, ar: st
         <div className="chart-orbit chart-orbit-one" /><div className="chart-orbit chart-orbit-two" />
         <div className="chart-center"><span>0{active + 1}</span><strong>{isArabic ? item.ar : item.en}</strong></div>
         <div className="chart-bars">
-          <div><span>{tx("AI / ML", "الذكاء الاصطناعي")}</span><i><b style={{ width: `${item.ai}%` }} /></i><strong>{item.ai}</strong></div>
-          <div><span>{tx("Software Engineering", "هندسة البرمجيات")}</span><i><b className="bar-engineering" style={{ width: `${item.engineering}%` }} /></i><strong>{item.engineering}</strong></div>
+          <div><span>{tx("AI / ML", "الذكاء الاصطناعي")}</span><i><b style={{ width: `${item.ai ?? 0}%` }} /></i><strong>{item.ai ?? "—"}</strong></div>
+          <div><span>{tx("Software Engineering", "هندسة البرمجيات")}</span><i><b className="bar-engineering" style={{ width: `${item.engineering ?? 0}%` }} /></i><strong>{item.engineering ?? "—"}</strong></div>
         </div>
       </div>
       <div className="skill-lab-controls">
-        <div className="lab-legend"><span><i className="legend-ai" /> {tx("AI / ML", "الذكاء الاصطناعي")}</span><span><i className="legend-engineering" /> {tx("Engineering", "الهندسة")}</span></div>
-        {skillChart.map((skill, index) => <button type="button" key={skill.en} className={active === index ? "is-active" : ""} onClick={() => setActive(index)}><b>0{index + 1}</b><span>{isArabic ? skill.ar : skill.en}</span><small>{Math.max(skill.ai, skill.engineering)}%</small></button>)}
+        <div className="lab-legend"><span><i className="legend-ai" /> {tx("AI / ML", "الذكاء الاصطناعي")}</span><span><i className="legend-engineering" /> {tx("Engineering", "الهندسة")}</span></div><p className="lab-note">{tx("Verified percentages will appear here when added to the professional profile.", "ستظهر النسب الموثقة هنا عند إضافتها إلى الملف المهني.")}</p>
+        {skillChart.map((skill, index) => <button type="button" key={skill.en} className={active === index ? "is-active" : ""} onClick={() => setActive(index)}><b>0{index + 1}</b><span>{isArabic ? skill.ar : skill.en}</span><small>{skill.ai === null && skill.engineering === null ? tx("ADD %", "أضيفي النسبة") : `${Math.max(skill.ai ?? 0, skill.engineering ?? 0)}%`}</small></button>)}
       </div>
     </div>
   );
@@ -103,10 +106,22 @@ function SkillLab({ isArabic, tx }: { isArabic: boolean; tx: (en: string, ar: st
 
 function QrIdentity({ isArabic, tx }: { isArabic: boolean; tx: (en: string, ar: string) => string }) {
   const [url] = useState(() => window.location.origin + "/");
+  const downloadQr = (format: "png" | "svg") => {
+    if (format === "png") {
+      const canvas = document.querySelector("#besma-qr canvas") as HTMLCanvasElement | null;
+      if (!canvas) return;
+      const link = document.createElement("a"); link.download = "besma-kaddour-qr.png"; link.href = canvas.toDataURL("image/png"); link.click();
+      return;
+    }
+    const svg = document.querySelector("#besma-qr svg") as SVGElement | null;
+    if (!svg) return;
+    const blob = new Blob([new XMLSerializer().serializeToString(svg)], { type: "image/svg+xml;charset=utf-8" });
+    const link = document.createElement("a"); link.download = "besma-kaddour-qr.svg"; link.href = URL.createObjectURL(blob); link.click(); URL.revokeObjectURL(link.href);
+  };
   return (
     <section className="section qr-section" id="qr" aria-labelledby="qr-title">
       <div className="qr-copy"><span className="eyebrow">13 / {tx("Share the identity", "شاركي الهوية")}</span><h2 id="qr-title">{tx("CARRY THE\nSIGNAL.", "احملي\nالإشارة.")}</h2><p>{tx("Scan to open Besma Kaddour's digital identity. The portrait stays at the center, like a visual profile card.", "امسحي الرمز لفتح الهوية الرقمية لبسمة قدور. تبقى الصورة في المنتصف كأنها بطاقة ملف بصري.")}</p></div>
-      <div className="qr-card"><div className="qr-frame"><QRCodeCanvas value={url} size={250} level="H" bgColor="#f2f0ea" fgColor="#0a0a09" includeMargin /><img src="/manus-storage/besma-portrait_2ec9064c.png" alt={tx("Besma Kaddour profile image", "صورة ملف بسمة قدور")} /><span className="qr-corner qr-corner-tl" /><span className="qr-corner qr-corner-br" /></div><div className="qr-url">{tx("SCAN / BESMA KADDOUR", "امسحي / بسمة قدور")}<span>{url.replace(/^https?:\/\//, "")}</span></div></div>
+      <div className="qr-card" id="besma-qr"><div className="qr-frame"><QRCodeCanvas value={url} size={250} level="H" bgColor="#f2f0ea" fgColor="#0a0a09" includeMargin /><QRCodeSVG value={url} size={250} level="H" bgColor="#f2f0ea" fgColor="#0a0a09" includeMargin className="qr-svg-source" /><img src="/manus-storage/besma-portrait_2ec9064c.png" alt={tx("Besma Kaddour profile image", "صورة ملف بسمة قدور")} /><span className="qr-corner qr-corner-tl" /><span className="qr-corner qr-corner-br" /></div><div className="qr-url">{tx("SCAN / BESMA KADDOUR", "امسحي / بسمة قدور")}<span>{url.replace(/^https?:\/\//, "")}</span></div><div className="qr-actions"><button type="button" className="button button-quiet" onClick={() => downloadQr("png")}>{tx("Download PNG", "تحميل PNG")} <Download size={14} /></button><button type="button" className="button button-quiet" onClick={() => downloadQr("svg")}>{tx("Download SVG", "تحميل SVG")} <Download size={14} /></button></div></div>
     </section>
   );
 }
@@ -408,7 +423,7 @@ function Home() {
 
         <QrIdentity isArabic={isArabic} tx={tx} />
 
-        <section className="section section-contact" id="contact" aria-labelledby="contact-title"><div className="contact-top"><span className="eyebrow">12 / {tx("Closing chapter", "الفصل الختامي")}</span><span className="contact-status"><span className="status-dot" /> {tx("Open to meaningful work", "منفتحة على الأعمال الهادفة")}</span></div><h2 id="contact-title">{tx("LET'S BUILD", "لنبنِ")}<br /><em>{tx("SOMETHING", "شيئًا")}</em><br />{tx("MEANINGFUL.", "هادفًا.")}</h2><p className="contact-copy">{tx("For collaborations, conversations, and work that deserves a thoughtful system.", "للتعاون والمحادثات والعمل الذي يستحق نظامًا مدروسًا.")}</p><div className="contact-links">{contactLinks.map((link) => <a key={link.label} href={link.href} onClick={(event) => { if (link.href === "#contact") { event.preventDefault(); showPlaceholder(link.label); } }}><span>{isArabic ? { Email: "البريد", LinkedIn: "لينكدإن", GitHub: "جيت هب", Other: "أخرى" }[link.label] : link.label}</span><strong>{isArabic ? "عنصر قابل للتحرير — أضيفي الرابط" : link.value}</strong><ArrowUpRight size={17} strokeWidth={1.2} /></a>)}</div></section>
+        <section className="section section-contact" id="contact" aria-labelledby="contact-title"><div className="contact-top"><span className="eyebrow">12 / {tx("Closing chapter", "الفصل الختامي")}</span><span className="contact-status"><span className="status-dot" /> {tx("Open to meaningful work", "منفتحة على الأعمال الهادفة")}</span></div><h2 id="contact-title">{tx("LET'S BUILD", "لنبنِ")}<br /><em>{tx("SOMETHING", "شيئًا")}</em><br />{tx("MEANINGFUL.", "هادفًا.")}</h2><p className="contact-copy">{tx("For collaborations, conversations, and work that deserves a thoughtful system.", "للتعاون والمحادثات والعمل الذي يستحق نظامًا مدروسًا.")}</p><div className="contact-links">{contactLinks.map((link) => <a key={link.label} href={link.href}><span className="contact-label">{link.label === "WhatsApp" ? <MessageCircle size={15} /> : link.label === "Email" ? <Mail size={15} /> : link.label === "LinkedIn" ? <span className="social-letter">in</span> : <Github size={15} />}<b>{isArabic ? { WhatsApp: "واتساب", Email: "البريد الإلكتروني", LinkedIn: "لينكدإن", GitHub: "جيت هب" }[link.label] : link.label}</b></span><strong>{link.value}</strong><ArrowUpRight size={17} strokeWidth={1.2} /></a>)}</div></section>
       </main>
 
       <footer className="site-footer"><span>{tx("© 2024–2026 BESMA KADDOUR — ALL RIGHTS RESERVED", "© 2024–2026 بسمة قدور — جميع الحقوق محفوظة")}</span><span>{tx("ALL CONTENT, DESIGN &amp; CODE BELONG TO BESMA KADDOUR", "جميع المحتويات والتصميم والبرمجة ملك لبسمة قدور")}</span><a href="#top">{tx("Back to top", "العودة إلى الأعلى")} <ArrowUpRight size={14} /></a></footer>

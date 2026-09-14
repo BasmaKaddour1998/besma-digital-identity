@@ -143,10 +143,10 @@ export const principles = [
 ];
 
 export const contactLinks = [
-  { label: "Email", value: "Placeholder — add email", href: "#contact" },
+  { label: "WhatsApp", value: "+213 784 598 883", href: "https://wa.me/213784598883" },
+  { label: "Email", value: "basmakaddour57@gmail.com", href: "mailto:basmakaddour57@gmail.com" },
   { label: "LinkedIn", value: "linkedin.com/in/beasma-kaddour-6b32312b8", href: "https://www.linkedin.com/in/beasma-kaddour-6b32312b8" },
-  { label: "GitHub", value: "Placeholder — add profile URL", href: "#contact" },
-  { label: "Other", value: "Placeholder — add professional links", href: "#contact" },
+  { label: "GitHub", value: "github.com/BasmaKaddour1998", href: "https://github.com/BasmaKaddour1998" },
 ];
 
 export const contentModel = [
