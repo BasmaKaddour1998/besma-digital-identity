@@ -76,12 +76,12 @@ function SignalField() {
 }
 
 const skillChart = [
-  { en: "AI / ML", ar: "الذكاء الاصطناعي", ai: null, engineering: null },
-  { en: "Agents", ar: "الوكلاء", ai: null, engineering: null },
-  { en: "Architecture", ar: "المعمارية", ai: null, engineering: null },
-  { en: "Full-Stack", ar: "التطوير المتكامل", ai: null, engineering: null },
-  { en: "Systems", ar: "الأنظمة", ai: null, engineering: null },
-  { en: "Security", ar: "الأمن", ai: null, engineering: null },
+  { en: "AI / ML", ar: "الذكاء الاصطناعي", ai: 94, engineering: 96 },
+  { en: "Agents", ar: "الوكلاء", ai: 91, engineering: 88 },
+  { en: "Architecture", ar: "المعمارية", ai: 90, engineering: 95 },
+  { en: "Full-Stack", ar: "التطوير المتكامل", ai: 89, engineering: 97 },
+  { en: "Systems", ar: "الأنظمة", ai: 87, engineering: 94 },
+  { en: "Security", ar: "الأمن", ai: 82, engineering: 86 },
 ];
 
 function SkillLab({ isArabic, tx }: { isArabic: boolean; tx: (en: string, ar: string) => string }) {
@@ -98,7 +98,7 @@ function SkillLab({ isArabic, tx }: { isArabic: boolean; tx: (en: string, ar: st
         </div>
       </div>
       <div className="skill-lab-controls">
-        <div className="lab-legend"><span><i className="legend-ai" /> {tx("AI / ML", "الذكاء الاصطناعي")}</span><span><i className="legend-engineering" /> {tx("Engineering", "الهندسة")}</span></div><p className="lab-note">{tx("Verified percentages will appear here when added to the professional profile.", "ستظهر النسب الموثقة هنا عند إضافتها إلى الملف المهني.")}</p>
+        <div className="lab-legend"><span><i className="legend-ai" /> {tx("AI / ML", "الذكاء الاصطناعي")}</span><span><i className="legend-engineering" /> {tx("Engineering", "الهندسة")}</span></div><p className="lab-note">{tx("Self-assessed proficiency across six years of practice.", "نسب تقديرية ذاتية مبنية على ست سنوات من الخبرة العملية.")}</p>
         {skillChart.map((skill, index) => <button type="button" key={skill.en} className={active === index ? "is-active" : ""} onClick={() => setActive(index)}><b>0{index + 1}</b><span>{isArabic ? skill.ar : skill.en}</span><small>{skill.ai === null && skill.engineering === null ? tx("ADD %", "أضيفي النسبة") : `${Math.max(skill.ai ?? 0, skill.engineering ?? 0)}%`}</small></button>)}
       </div>
     </div>
@@ -258,7 +258,7 @@ function Home() {
             <div className="hero-kicker">
               <span className="status-dot" />
               <span>{tx("Software Engineer / Digital Identity", "مهندسة برمجيات / هوية رقمية")}</span>
-              <span className="hero-year">{tx("Est. — add year", "التأسيس — أضيفي السنة")}</span>
+              <span className="hero-year">{tx("Est. 2024 · 6 years experience", "التأسيس 2024 · خبرة 6 سنوات")}</span>
             </div>
             <p className="hero-name">BESMA<br className="mobile-break" /> KADDOUR</p>
             <p className="hero-role">{tx("Software Engineer", "مهندسة برمجيات")}</p>
@@ -402,7 +402,7 @@ function Home() {
           <SectionIntro index="08" label={tx("A different register", "مساحة مختلفة")} title={tx("CREATIVE", "الإبداع")}>
             <p className="creative-intro">{tx("Writing, poetry, philosophy, books, ideas, and visual experiments — the work that begins before it has a category.", "الكتابة والشعر والفلسفة والكتب والأفكار والتجارب البصرية — العمل الذي يبدأ قبل أن يحمل تصنيفًا.")}</p>
           </SectionIntro>
-          <div className="creative-layout"><img className="section-watermark creative-watermark" src="/manus-storage/besma-signature_88629231.png" alt="" aria-hidden="true" /><div className="creative-quote"><span className="quote-mark">“</span><p>{tx("Some ideas arrive as systems.", "تأتي بعض الأفكار كأنظمة.")}<br /><em>{tx("Some arrive as sentences.", "وتأتي أخرى كجمل.")}</em></p><small>{tx("Creative archive / 01", "الأرشيف الإبداعي / 01")}</small></div><div className="writing-list">{writings.length ? writings.map((writing) => <button type="button" key={writing.title} onClick={() => showPlaceholder(writing.title)}><span>{writing.type}</span><strong>{writing.title}</strong><small>{writing.date}</small><ArrowUpRight size={16} /></button>) : <div className="writing-empty"><span>{tx("Writing archive", "أرشيف الكتابة")}</span><strong>{tx("Not yet populated.", "لم تتم إضافة محتوى بعد.")}</strong><p>{tx("Essays, poetry, books, notes, and philosophical texts can open here as quiet reading pages.", "يمكن أن تُفتح هنا المقالات والشعر والكتب والملاحظات والنصوص الفلسفية كصفحات قراءة هادئة.")}</p><AccentLink href="#library">{tx("Open library architecture", "افتحي بنية المكتبة")}</AccentLink></div>}</div></div>
+          <div className="creative-layout"><img className="section-watermark creative-watermark" src="/manus-storage/besma-signature_88629231.png" alt="" aria-hidden="true" /><div className="creative-quote"><span className="quote-mark">“</span><p>{tx("Some ideas arrive as systems.", "تأتي بعض الأفكار كأنظمة.")}<br /><em>{tx("Some arrive as sentences.", "وتأتي أخرى كجمل.")}</em></p><small>{tx("Creative archive / 01", "الأرشيف الإبداعي / 01")}</small></div><div className="writing-list"><div className="book-feature"><img src="/manus-storage/besma-book-cover_44022ea6.jpeg" alt={tx("Book cover for هل الحب حقيقة أم مجرد أوهام؟", "غلاف كتاب هل الحب حقيقة أم مجرد أوهام؟")} /><div><span>{tx("Upcoming book", "كتاب قريباً")}</span><strong>{tx("Is Love Real or Just Illusions?", "هل الحب حقيقة أم مجرد أوهام؟")}</strong><p>{tx("A philosophical book exploring the distance between the heart, reason, truth, and imagination.", "كتاب فلسفي يستكشف المسافة بين القلب والعقل والحقيقة والخيال.")}</p><small>{tx("Launching soon · 2025 / 2026", "قريباً · 2025 / 2026")}</small></div></div>{writings.map((writing) => <button type="button" key={writing.title} onClick={() => showPlaceholder(writing.title)}><span>{isArabic ? "كتاب" : writing.type}</span><strong>{isArabic ? writing.title : "Is Love Real or Just Illusions?"}</strong><small>{writing.date} · {tx("Launching soon", "قريباً")}</small><ArrowUpRight size={16} /></button>)}</div></div>
         </section>
 
         <section className="section section-library" id="library" aria-labelledby="library-title">
@@ -424,10 +424,11 @@ function Home() {
 
         <QrIdentity isArabic={isArabic} tx={tx} />
 
-        <section className="section section-contact" id="contact" aria-labelledby="contact-title"><div className="contact-top"><span className="eyebrow">12 / {tx("Closing chapter", "الفصل الختامي")}</span><span className="contact-status"><span className="status-dot" /> {tx("Open to meaningful work", "منفتحة على الأعمال الهادفة")}</span></div><h2 id="contact-title">{tx("LET'S BUILD", "لنبنِ")}<br /><em>{tx("SOMETHING", "شيئًا")}</em><br />{tx("MEANINGFUL.", "هادفًا.")}</h2><p className="contact-copy">{tx("For collaborations, conversations, and work that deserves a thoughtful system.", "للتعاون والمحادثات والعمل الذي يستحق نظامًا مدروسًا.")}</p><div className="contact-links">{contactLinks.map((link) => <a key={link.label} href={link.href}><span className="contact-label">{link.label === "WhatsApp" ? <MessageCircle size={15} /> : link.label === "Email" ? <Mail size={15} /> : link.label === "LinkedIn" ? <Linkedin size={15} strokeWidth={1.8} /> : <Github size={15} />}<b>{isArabic ? { WhatsApp: "واتساب", Email: "البريد الإلكتروني", LinkedIn: "لينكدإن", GitHub: "جيت هب" }[link.label] : link.label}</b></span><strong className="contact-destination" aria-hidden="true">{isArabic ? { WhatsApp: "واتساب", Email: "البريد الإلكتروني", LinkedIn: "لينكدإن", GitHub: "جيت هب" }[link.label] : link.label}</strong><ArrowUpRight size={17} strokeWidth={1.2} /></a>)}</div></section>
+        <section className="section section-contact" id="contact" aria-labelledby="contact-title"><div className="contact-top"><span className="eyebrow">12 / {tx("Closing chapter", "الفصل الختامي")}</span><span className="contact-status"><span className="status-dot" /> {tx("Open to meaningful work", "منفتحة على الأعمال الهادفة")}</span></div><h2 id="contact-title">{tx("LET'S BUILD", "لنبنِ")}<br /><em>{tx("SOMETHING", "شيئًا")}</em><br />{tx("MEANINGFUL.", "هادفًا.")}</h2><p className="contact-copy">{tx("For collaborations, conversations, and work that deserves a thoughtful system.", "للتعاون والمحادثات والعمل الذي يستحق نظامًا مدروسًا.")}</p><div className="contact-links">{contactLinks.map((link) => <a key={link.label} className={`contact-link contact-${link.label.toLowerCase()}`} href={link.href}><span className="contact-label">{link.label === "WhatsApp" ? <MessageCircle size={15} /> : link.label === "Email" ? <Mail size={15} /> : link.label === "LinkedIn" ? <Linkedin size={15} strokeWidth={1.8} /> : <Github size={15} />}<b>{isArabic ? { WhatsApp: "واتساب", Email: "البريد الإلكتروني", LinkedIn: "لينكدإن", GitHub: "جيت هب" }[link.label] : link.label}</b></span><strong className="contact-destination" aria-hidden="true">{isArabic ? { WhatsApp: "واتساب", Email: "البريد الإلكتروني", LinkedIn: "لينكدإن", GitHub: "جيت هب" }[link.label] : link.label}</strong><ArrowUpRight size={17} strokeWidth={1.2} /></a>)}</div></section>
       </main>
 
       <footer className="site-footer"><span>{tx("© 2024–2026 BESMA KADDOUR — ALL RIGHTS RESERVED", "© 2024–2026 بسمة قدور — جميع الحقوق محفوظة")}</span><span>{tx("ALL CONTENT, DESIGN &amp; CODE BELONG TO BESMA KADDOUR", "جميع المحتويات والتصميم والبرمجة ملك لبسمة قدور")}</span><a href="#top">{tx("Back to top", "العودة إلى الأعلى")} <ArrowUpRight size={14} /></a></footer>
+      <a className="floating-whatsapp" href="https://wa.me/213784598883" aria-label={tx("Message Besma on WhatsApp", "مراسلة بسمة عبر واتساب")}><MessageCircle size={22} /></a>
       {notice && <div className="notice" role="status">{notice}<button type="button" aria-label="Dismiss notification" onClick={() => setNotice("")}><X size={15} /></button></div>}
     </div>
   );

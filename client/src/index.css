@@ -288,6 +288,12 @@ section, [id] { scroll-margin-top: 88px; }
 .creative-quote p em { color: var(--gold); }
 .creative-quote small { color: var(--faint); font-size: 9px; letter-spacing: .12em; text-transform: uppercase; }
 .writing-list { border-top: 1px solid var(--line); }
+.book-feature { display: grid; grid-template-columns: 108px 1fr; gap: 18px; padding: 0 0 22px; border-bottom: 1px solid var(--line); }
+.book-feature img { width: 108px; height: 145px; object-fit: cover; object-position: center; filter: grayscale(.2) contrast(1.05); transition: transform 240ms var(--ease-out), filter 240ms var(--ease-out); }
+.book-feature:hover img { transform: translateY(-4px) rotate(-2deg); filter: grayscale(0) contrast(1.08); }
+.book-feature span, .book-feature small { color: var(--faint); font-size: 9px; letter-spacing: .11em; text-transform: uppercase; }
+.book-feature strong { display: block; margin: 12px 0 8px; font-family: 'Noto Naskh Arabic', 'Cormorant Garamond', serif; font-size: 23px; font-weight: 500; line-height: 1.1; }
+.book-feature p { max-width: 290px; margin: 0 0 12px; color: var(--muted); font-size: 11px; line-height: 1.6; }
 .writing-list > button { display: grid; grid-template-columns: 75px 1fr auto; gap: 12px; align-items: center; width: 100%; min-height: 62px; border-bottom: 1px solid var(--line); text-align: left; }
 .writing-list > button span, .writing-list > button small { color: var(--faint); font-size: 9px; letter-spacing: .11em; text-transform: uppercase; }
 .writing-list > button strong { font-size: 13px; font-weight: 400; }
@@ -340,6 +346,17 @@ section, [id] { scroll-margin-top: 88px; }
 .contact-links a svg { color: var(--gold); transition: transform 180ms var(--ease-out); }
 .contact-links a:hover strong { color: var(--white); }
 .contact-links a:hover svg { transform: translate(3px, -3px); }
+.contact-link { transition: color 180ms var(--ease-out), background-color 180ms var(--ease-out), border-color 180ms var(--ease-out); }
+.contact-link:hover { padding-left: 10px; }
+.contact-whatsapp:hover { color: #25d366; background: rgba(37,211,102,.08); }
+.contact-whatsapp:hover .contact-label, .contact-whatsapp:hover svg { color: #25d366; }
+.contact-email:hover { color: #ea4335; background: rgba(234,67,53,.08); }
+.contact-email:hover .contact-label, .contact-email:hover svg { color: #ea4335; }
+.contact-linkedin:hover { color: #0a66c2; background: rgba(10,102,194,.1); }
+.contact-linkedin:hover .contact-label, .contact-linkedin:hover svg { color: #0a66c2; }
+.contact-github:hover { color: #c9d1d9; background: rgba(201,209,217,.08); }
+.contact-github:hover .contact-label, .contact-github:hover svg { color: #c9d1d9; }
+.floating-whatsapp { display: none; }
 .site-footer { display: flex; justify-content: space-between; gap: 20px; padding: 23px clamp(20px, 4vw, 64px); color: var(--faint); border-top: 1px solid var(--line); font-size: 9px; letter-spacing: .1em; text-transform: uppercase; }
 .site-footer span:first-child { color: var(--gold); }
 .site-footer a { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); }
@@ -432,6 +449,9 @@ section, [id] { scroll-margin-top: 88px; }
   .capability-grid small { font-size: 10px; }
   .creative-intro { font-size: 33px; }
   .creative-layout { margin-top: 72px; }
+  .book-feature { grid-template-columns: 84px 1fr; gap: 14px; }
+  .book-feature img { width: 84px; height: 116px; }
+  .book-feature strong { font-size: 20px; }
   .creative-quote p { font-size: 42px; }
   .library-grid button { min-height: 130px; padding: 15px; }
   .library-grid svg { top: 15px; right: 15px; }
@@ -449,6 +469,9 @@ section, [id] { scroll-margin-top: 88px; }
   .creative-watermark { right: -12%; bottom: -3%; width: 80%; opacity: .045; }
   .cv-watermark { right: -8%; bottom: -6%; width: 70%; opacity: .045; }
   .notice { right: 12px; bottom: 12px; left: 12px; }
+  .floating-whatsapp { position: fixed; z-index: 25; right: 16px; bottom: 17px; display: grid; place-items: center; width: 52px; height: 52px; color: #fff; background: #25d366; border: 2px solid rgba(255,255,255,.72); border-radius: 50%; box-shadow: 0 10px 28px rgba(0,0,0,.35); transition: transform 180ms var(--ease-out), box-shadow 180ms var(--ease-out); }
+  .floating-whatsapp:hover, .floating-whatsapp:focus-visible { color: #fff; transform: translateY(-4px) scale(1.04); box-shadow: 0 14px 34px rgba(37,211,102,.34); }
+  .floating-whatsapp:active { transform: scale(.96); }
 }
 
 @media (min-width: 591px) { .mobile-break { display: none; } }

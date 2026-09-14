@@ -112,7 +112,15 @@ export const projects: Project[] = [
   },
 ];
 
-export const experience: ExperienceEntry[] = [];
+export const experience: ExperienceEntry[] = [
+  {
+    year: "2024 — Present",
+    role: "Software Engineer / Digital Identity",
+    context: "6 years of experience",
+    description: "A growing professional practice across software engineering, AI, architecture, digital products, and creative technology.",
+    technologies: [],
+  },
+];
 
 export const capabilityMap = [
   { label: "Engineering", detail: "Systems, implementation, and technical depth." },
@@ -125,7 +133,15 @@ export const capabilityMap = [
   { label: "Problem Solving", detail: "Finding the simpler question inside the difficult one." },
 ];
 
-export const writings: WritingEntry[] = [];
+export const writings: WritingEntry[] = [
+  {
+    title: "هل الحب حقيقة أم مجرد أوهام؟",
+    type: "Book",
+    description: "رحلة بين العقل والقلب والحقيقة والخيال.",
+    date: "2025 / 2026",
+    status: "Launching soon",
+  },
+];
 
 export const librarySections = [
   { label: "Projects", count: "Add entries" },
