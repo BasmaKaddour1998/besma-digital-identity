@@ -69,7 +69,11 @@ function SignalField() {
 }
 
 function Home() {
-  const [language, setLanguage] = useState<"en" | "ar">("en");
+  const [language, setLanguage] = useState<"en" | "ar">(() => {
+    const saved = window.localStorage.getItem("besma-language");
+    if (saved === "ar" || saved === "en") return saved;
+    return window.navigator.language.toLowerCase().startsWith("ar") ? "ar" : "en";
+  });
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openAbout, setOpenAbout] = useState<string | null>(null);
   const [activeEngineering, setActiveEngineering] = useState(0);
@@ -77,6 +81,12 @@ function Home() {
   const [notice, setNotice] = useState("");
   const isArabic = language === "ar";
   const tx = (en: string, ar: string) => isArabic ? ar : en;
+  const switchLanguage = () => {
+    const update = () => setLanguage((current) => current === "ar" ? "en" : "ar");
+    const documentWithTransition = document as Document & { startViewTransition?: (callback: () => void) => void };
+    if (documentWithTransition.startViewTransition) documentWithTransition.startViewTransition(update);
+    else update();
+  };
   const navItems = isArabic ? ["عنّي", "الأعمال", "الهندسة", "الذكاء الاصطناعي", "الإبداع", "الخبرة", "تواصل"] : navigation.map((item) => item.label);
   const aboutItems = isArabic ? ["الخلفية", "الهندسة", "الذكاء الاصطناعي", "تطوير المنتجات", "العمل الإبداعي", "الفلسفة"] : ["Background", "Engineering", "AI", "Product Development", "Creative Work", "Philosophy"];
   const categories = isArabic ? ["الكل", "الذكاء الاصطناعي", "البرمجيات", "الويب", "الهاتف", "الأنظمة", "الإبداع"] : ["ALL", "AI", "SOFTWARE", "WEB", "MOBILE", "SYSTEMS", "CREATIVE"];
@@ -90,6 +100,7 @@ function Home() {
   useEffect(() => {
     document.documentElement.lang = language;
     document.documentElement.dir = isArabic ? "rtl" : "ltr";
+    window.localStorage.setItem("besma-language", language);
   }, [isArabic, language]);
 
   useEffect(() => {
@@ -141,7 +152,7 @@ function Home() {
             <a key={navigation[index].href} href={navigation[index].href}>{label}</a>
           ))}
         </nav>
-        <button type="button" className="language-toggle" onClick={() => setLanguage(isArabic ? "en" : "ar")} aria-label={tx("Switch to Arabic", "التبديل إلى الإنجليزية")}>
+        <button type="button" className="language-toggle" onClick={switchLanguage} aria-label={tx("Switch to Arabic", "التبديل إلى الإنجليزية")}>
           {isArabic ? "EN" : "ع"}
         </button>
         <button
@@ -332,7 +343,7 @@ function Home() {
           <SectionIntro index="11" label={tx("Professional profile", "الملف المهني")} title="CV">
             <p className="intro-copy">{tx("A dedicated, detailed layer for the conventional record — kept separate from the experience of the site.", "طبقة مخصصة ومفصلة للسجل المهني التقليدي — منفصلة عن تجربة الموقع.")}</p>
           </SectionIntro>
-          <div className="cv-grid"><img className="section-watermark cv-watermark" src="/manus-storage/besma-signature_88629231.png" alt="" aria-hidden="true" /><div><p className="cv-profile">{tx("Profile, experience, education, skills, technologies, projects, languages, and achievements can be assembled here from the same editable source.", "يمكن تجميع الملف الشخصي والخبرة والتعليم والمهارات والتقنيات والمشاريع واللغات والإنجازات هنا من المصدر القابل للتحرير نفسه.")}</p><div className="cv-actions"><button type="button" className="button button-primary" onClick={() => showPlaceholder("CV document")}>{tx("View CV", "عرض السيرة")} <ArrowUpRight size={15} /></button><button type="button" className="button button-quiet" onClick={() => showPlaceholder("CV download")}>{tx("Download CV", "تحميل السيرة")} <Download size={15} /></button></div></div><div className="cv-index">{["Profile", "Experience", "Education", "Skills", "Technologies", "Projects", "Languages", "Achievements"].map((item, index) => <span key={item}><b>0{index + 1}</b>{isArabic ? ["الملف الشخصي", "الخبرة", "التعليم", "المهارات", "التقنيات", "المشاريع", "اللغات", "الإنجازات"][index] : item}</span>)}</div></div>
+          <div className="cv-grid"><img className="section-watermark cv-watermark" src="/manus-storage/besma-signature_88629231.png" alt="" aria-hidden="true" /><div><p className="cv-profile">{tx("Profile, experience, education, skills, technologies, projects, languages, and achievements can be assembled here from the same editable source.", "يمكن تجميع الملف الشخصي والخبرة والتعليم والمهارات والتقنيات والمشاريع واللغات والإنجازات هنا من المصدر القابل للتحرير نفسه.")}</p><div className="cv-actions"><a className="button button-primary" href="/cv-besma-en.pdf" download="Besma-Kaddour-CV-English.pdf">{tx("Download CV · English", "تحميل السيرة · الإنجليزية")} <Download size={15} /></a><a className="button button-quiet" href="/cv-besma-ar.pdf" download="Besma-Kaddour-CV-Arabic.pdf">{tx("Download CV · Arabic", "تحميل السيرة · العربية")} <Download size={15} /></a></div></div><div className="cv-index">{["Profile", "Experience", "Education", "Skills", "Technologies", "Projects", "Languages", "Achievements"].map((item, index) => <span key={item}><b>0{index + 1}</b>{isArabic ? ["الملف الشخصي", "الخبرة", "التعليم", "المهارات", "التقنيات", "المشاريع", "اللغات", "الإنجازات"][index] : item}</span>)}</div></div>
         </section>
 
         <section className="section section-contact" id="contact" aria-labelledby="contact-title"><div className="contact-top"><span className="eyebrow">12 / {tx("Closing chapter", "الفصل الختامي")}</span><span className="contact-status"><span className="status-dot" /> {tx("Open to meaningful work", "منفتحة على الأعمال الهادفة")}</span></div><h2 id="contact-title">{tx("LET'S BUILD", "لنبنِ")}<br /><em>{tx("SOMETHING", "شيئًا")}</em><br />{tx("MEANINGFUL.", "هادفًا.")}</h2><p className="contact-copy">{tx("For collaborations, conversations, and work that deserves a thoughtful system.", "للتعاون والمحادثات والعمل الذي يستحق نظامًا مدروسًا.")}</p><div className="contact-links">{contactLinks.map((link) => <a key={link.label} href={link.href} onClick={(event) => { if (link.href === "#contact") { event.preventDefault(); showPlaceholder(link.label); } }}><span>{isArabic ? { Email: "البريد", LinkedIn: "لينكدإن", GitHub: "جيت هب", Other: "أخرى" }[link.label] : link.label}</span><strong>{isArabic ? "عنصر قابل للتحرير — أضيفي الرابط" : link.value}</strong><ArrowUpRight size={17} strokeWidth={1.2} /></a>)}</div></section>
