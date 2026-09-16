@@ -555,3 +555,26 @@ section, [id] { scroll-margin-top: 88px; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+/* Keep the editorial composition fixed while only the reading direction changes. */
+.is-arabic .site-header { direction: ltr; }
+.is-arabic .mobile-nav { direction: rtl; }
+.is-arabic .hero-portrait-wrap { right: clamp(24px, 8vw, 140px); left: auto; }
+.is-arabic .portrait-caption { right: -18px; left: auto; transform: rotate(-90deg); }
+.is-arabic .hero-content { text-align: right; }
+.is-arabic .creative-watermark, .is-arabic .cv-watermark { right: -3%; left: auto; transform: rotate(-7deg); }
+.is-arabic .skill-lab-grid, .is-arabic .engineering-layout, .is-arabic .technology-layout, .is-arabic .ai-bottom, .is-arabic .fintech-layout, .is-arabic .experience-list, .is-arabic .empty-panel, .is-arabic .capability-grid, .is-arabic .library-grid, .is-arabic .filter-bar, .is-arabic .project-list, .is-arabic .project-footer, .is-arabic .library-footnote, .is-arabic .cv-grid { margin-right: 0; margin-left: clamp(52px, 12vw, 200px); }
+
+@media (max-width: 860px) {
+  .is-arabic .hero-portrait-wrap { right: -9%; left: auto; }
+  .is-arabic .portrait-caption { right: -12px; left: auto; }
+  .is-arabic .section-intro, .is-arabic .about-detail-grid, .is-arabic .engineering-layout, .is-arabic .technology-layout, .is-arabic .ai-bottom, .is-arabic .fintech-layout, .is-arabic .creative-layout, .is-arabic .cv-grid, .is-arabic .experience-list, .is-arabic .empty-panel, .is-arabic .capability-grid, .is-arabic .library-grid, .is-arabic .filter-bar, .is-arabic .project-list, .is-arabic .project-footer, .is-arabic .library-footnote, .is-arabic .skill-lab-grid { margin-right: 0; margin-left: 52px; }
+}
+
+@media (max-width: 590px) {
+  .is-arabic .hero-portrait-wrap { right: -25%; left: auto; }
+  .is-arabic .portrait-caption { right: 4px; left: auto; }
+  .is-arabic .section-intro, .is-arabic .about-detail-grid, .is-arabic .engineering-layout, .is-arabic .technology-layout, .is-arabic .ai-bottom, .is-arabic .fintech-layout, .is-arabic .creative-layout, .is-arabic .cv-grid, .is-arabic .experience-list, .is-arabic .empty-panel, .is-arabic .capability-grid, .is-arabic .library-grid, .is-arabic .filter-bar, .is-arabic .project-list, .is-arabic .project-footer, .is-arabic .library-footnote, .is-arabic .skill-lab-grid { margin-right: 0; margin-left: 0; }
+  .is-arabic .creative-watermark { right: -12%; left: auto; }
+  .is-arabic .cv-watermark { right: -8%; left: auto; }
+}

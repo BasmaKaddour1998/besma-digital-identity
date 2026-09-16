@@ -190,9 +190,10 @@ function QrIdentity({ isArabic, tx }: { isArabic: boolean; tx: (en: string, ar: 
 }
 
 function Home() {
-  const [language, setLanguage] = useState<"en" | "ar">(() => {
+  const [language, setLanguage] = useState<"en" | "ar" | "fr">(() => {
     const saved = window.localStorage.getItem("besma-language");
-    if (saved === "ar" || saved === "en") return saved;
+    if (saved === "ar" || saved === "en" || saved === "fr") return saved;
+    if (window.navigator.language.toLowerCase().startsWith("fr")) return "fr";
     return window.navigator.language.toLowerCase().startsWith("ar") ? "ar" : "en";
   });
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -202,24 +203,26 @@ function Home() {
   const [notice, setNotice] = useState("");
   const [theme, setTheme] = useState<"dark" | "light">(() => window.localStorage.getItem("besma-theme") === "light" ? "light" : "dark");
   const isArabic = language === "ar";
+  const isFrench = language === "fr";
   const isLight = theme === "light";
-  const tx = (en: string, ar: string) => isArabic ? ar : en;
+  const tx = (en: string, ar: string, fr = en) => isArabic ? ar : isFrench ? fr : en;
   const experienceReveal = useScrollReveal<HTMLElement>(0.18);
   const bookReveal = useScrollReveal<HTMLElement>(0.18);
   const switchLanguage = () => {
+    const nextLanguage = language === "en" ? "ar" : language === "ar" ? "fr" : "en";
     const update = () => {
-      setLanguage((current) => current === "ar" ? "en" : "ar");
+      setLanguage(nextLanguage);
       setOpenAbout(null);
-      setActiveCategory((current) => current === "ALL" || current === "الكل" ? (language === "ar" ? "ALL" : "الكل") : current);
+      setActiveCategory((current) => current === "ALL" || current === "الكل" || current === "TOUT" ? (nextLanguage === "ar" ? "الكل" : nextLanguage === "fr" ? "TOUT" : "ALL") : current);
     };
     const documentWithTransition = document as Document & { startViewTransition?: (callback: () => void) => void };
     if (documentWithTransition.startViewTransition) documentWithTransition.startViewTransition(update);
     else update();
   };
   const switchTheme = () => setTheme((current) => current === "dark" ? "light" : "dark");
-  const navItems = isArabic ? ["عنّي", "الأعمال", "الهندسة", "الذكاء الاصطناعي", "التقنية المالية", "المختبر", "الإبداع", "الخبرة", "تواصل"] : navigation.map((item) => item.label);
+  const navItems = isArabic ? ["عنّي", "الأعمال", "الهندسة", "الذكاء الاصطناعي", "التقنية المالية", "المختبر", "الإبداع", "الخبرة", "تواصل"] : isFrench ? ["À PROPOS", "PROJETS", "INGÉNIERIE", "IA", "FINTECH", "LABORATOIRE", "CRÉATIF", "EXPÉRIENCE", "CONTACT"] : navigation.map((item) => item.label);
   const aboutItems = isArabic ? ["الخلفية", "الهندسة", "الذكاء الاصطناعي", "تطوير المنتجات", "العمل الإبداعي", "الفلسفة"] : ["Background", "Engineering", "AI", "Product Development", "Creative Work", "Philosophy"];
-  const categories = isArabic ? ["الكل", "الذكاء الاصطناعي", "البرمجيات", "الويب", "الهاتف", "الأنظمة", "الإبداع"] : ["ALL", "AI", "SOFTWARE", "WEB", "MOBILE", "SYSTEMS", "CREATIVE"];
+  const categories = isArabic ? ["الكل", "الذكاء الاصطناعي", "البرمجيات", "الويب", "الهاتف", "الأنظمة", "الإبداع"] : isFrench ? ["TOUT", "IA", "LOGICIEL", "WEB", "MOBILE", "SYSTÈMES", "CRÉATIF"] : ["ALL", "AI", "SOFTWARE", "WEB", "MOBILE", "SYSTEMS", "CREATIVE"];
 
   useEffect(() => {
     if (!notice) return;
@@ -245,10 +248,15 @@ function Home() {
     if (!existing) document.head.appendChild(canonical);
   }, []);
 
-  const filteredProjects = useMemo(
-    () => projects.filter((project) => activeCategory === "ALL" || activeCategory === "الكل" || project.category.toUpperCase() === activeCategory),
-    [activeCategory, isArabic],
-  );
+  const filteredProjects = useMemo(() => {
+    const categoryIndex = categories.indexOf(activeCategory);
+    const normalizedCategory = isArabic
+      ? ["ALL", "AI", "SOFTWARE", "WEB", "MOBILE", "SYSTEMS", "CREATIVE"][categoryIndex]
+      : isFrench
+        ? ["ALL", "AI", "SOFTWARE", "WEB", "MOBILE", "SYSTEMS", "CREATIVE"][categoryIndex]
+        : activeCategory;
+    return projects.filter((project) => normalizedCategory === "ALL" || project.category.toUpperCase() === normalizedCategory);
+  }, [activeCategory, categories, isArabic, isFrench]);
 
   const showPlaceholder = (label: string) => {
     setNotice(tx(`${label} is an editable placeholder — add the real detail in the content registry.`, `${label} عنصر قابل للتحرير — أضيفي التفاصيل الحقيقية في سجل المحتوى.`));
@@ -286,8 +294,8 @@ function Home() {
             <a key={navigation[index].href} href={navigation[index].href}>{label}</a>
           ))}
         </nav>
-        <button type="button" className="language-toggle" onClick={switchLanguage} aria-label={tx("Switch to Arabic", "التبديل إلى الإنجليزية")}>
-          {isArabic ? "EN" : "ع"}
+        <button type="button" className="language-toggle" onClick={switchLanguage} aria-label={tx("Switch to Arabic", "التبديل إلى الفرنسية", "Passer à l’anglais")}>
+          {isArabic ? "FR" : isFrench ? "EN" : "ع"}
         </button>
         <button type="button" className="theme-toggle" onClick={switchTheme} aria-label={isLight ? tx("Switch to dark mode", "التبديل إلى الوضع الداكن") : tx("Switch to light mode", "التبديل إلى الوضع الفاتح")}>
           {isLight ? <Moon size={15} aria-hidden="true" /> : <Sun size={15} aria-hidden="true" />}
@@ -325,13 +333,13 @@ function Home() {
           <div className="hero-content">
             <div className="hero-kicker">
               <span className="status-dot" />
-              <span>{tx("Software Engineer / Digital Identity", "مهندسة برمجيات / هوية رقمية")}</span>
-              <span className="hero-year">{tx("Est. 2024 · 6 years experience", "التأسيس 2024 · خبرة 6 سنوات")}</span>
+              <span>{tx("Software Engineer / Digital Identity", "مهندسة برمجيات / هوية رقمية", "Ingénieure logicielle / Identité numérique")}</span>
+              <span className="hero-year">{tx("Est. 2024 · 6 years experience", "التأسيس 2024 · خبرة 6 سنوات", "Depuis 2024 · 6 ans d’expérience")}</span>
             </div>
             <p className="hero-name">BESMA<br className="mobile-break" /> KADDOUR</p>
-            <p className="hero-role">{tx("Software Engineer", "مهندسة برمجيات")}</p>
-            <h1 id="hero-title">{tx("BUILDING SOFTWARE.", "أبني البرمجيات.")}<br />{tx("EXPLORING INTELLIGENCE.", "أستكشف الذكاء.")}<br /><em>{tx("CREATING IDEAS.", "وأصنع الأفكار.")}</em></h1>
-            <p className="hero-summary">{tx("Software Engineer working across Full-Stack Development, AI, Software Architecture, Digital Innovation, and creative technology.", "مهندسة برمجيات أعمل عبر التطوير المتكامل، والذكاء الاصطناعي، وهندسة البرمجيات، والابتكار الرقمي، والتقنية الإبداعية.")}</p>
+            <p className="hero-role">{tx("Software Engineer", "مهندسة برمجيات", "Ingénieure logicielle")}</p>
+            <h1 id="hero-title">{tx("BUILDING SOFTWARE.", "أبني البرمجيات.", "JE CONÇOIS DES LOGICIELS.")}<br />{tx("EXPLORING INTELLIGENCE.", "أستكشف الذكاء.", "J’EXPLORE L’INTELLIGENCE.")}<br /><em>{tx("CREATING IDEAS.", "وأصنع الأفكار.", "JE DONNE VIE AUX IDÉES.")}</em></h1>
+            <p className="hero-summary">{tx("Software Engineer working across Full-Stack Development, AI, Software Architecture, Digital Innovation, and creative technology.", "مهندسة برمجيات أعمل عبر التطوير المتكامل، والذكاء الاصطناعي، وهندسة البرمجيات، والابتكار الرقمي، والتقنية الإبداعية.", "Ingénieure logicielle spécialisée en développement Full-Stack, IA, architecture logicielle, innovation numérique et technologie créative.")}</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#work">{tx("Explore", "استكشفي")} <ArrowDown size={15} aria-hidden="true" /></a>
               <a className="button button-quiet" href="#about">{tx("About", "عنّي")} <ArrowDown size={15} aria-hidden="true" /></a>
