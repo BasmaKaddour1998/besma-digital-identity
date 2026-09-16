@@ -182,7 +182,7 @@ function QrIdentity({ isArabic, tx }: { isArabic: boolean; tx: (en: string, ar: 
     const link = document.createElement("a"); link.download = "besma-kaddour-qr.svg"; link.href = URL.createObjectURL(blob); link.click(); URL.revokeObjectURL(link.href);
   };
   return (
-    <section className="section qr-section" id="qr" aria-labelledby="qr-title">
+    <section className="section qr-section scroll-section" id="qr" aria-labelledby="qr-title">
       <div className="qr-copy"><span className="eyebrow">13 / {tx("Share the identity", "شاركي الهوية")}</span><h2 id="qr-title">{tx("CARRY THE\nSIGNAL.", "احملي\nالإشارة.")}</h2><p>{tx("Scan to open Besma Kaddour's digital identity. The portrait stays at the center, like a visual profile card.", "امسحي الرمز لفتح الهوية الرقمية لبسمة قدور. تبقى الصورة في المنتصف كأنها بطاقة ملف بصري.")}</p></div>
       <div className="qr-card" id="besma-qr"><div className="qr-frame"><QRCodeCanvas value={url} size={250} level="H" bgColor="#f2f0ea" fgColor="#0a0a09" includeMargin /><QRCodeSVG value={url} size={250} level="H" bgColor="#f2f0ea" fgColor="#0a0a09" includeMargin className="qr-svg-source" /><img src="/manus-storage/besma-portrait_2ec9064c.png" alt={tx("Besma Kaddour profile image", "صورة ملف بسمة قدور")} /><span className="qr-corner qr-corner-tl" /><span className="qr-corner qr-corner-br" /></div><div className="qr-url">{tx("SCAN / BESMA KADDOUR", "امسحي / بسمة قدور")}<span>{url.replace(/^https?:\/\//, "")}</span></div><div className="qr-actions"><button type="button" className="button button-quiet" onClick={() => downloadQr("png")}>{tx("Download PNG", "تحميل PNG")} <Download size={14} /></button><button type="button" className="button button-quiet" onClick={() => downloadQr("svg")}>{tx("Download SVG", "تحميل SVG")} <Download size={14} /></button></div></div>
     </section>
@@ -239,6 +239,24 @@ function Home() {
   useEffect(() => {
     window.localStorage.setItem("besma-theme", theme);
   }, [theme]);
+
+  useEffect(() => {
+    const sections = Array.from(document.querySelectorAll<HTMLElement>(".scroll-section"));
+    document.documentElement.classList.add("has-scroll-reveal");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    sections.forEach((section) => observer.observe(section));
+    return () => {
+      observer.disconnect();
+      document.documentElement.classList.remove("has-scroll-reveal");
+    };
+  }, [language]);
 
   useEffect(() => {
     const existing = document.querySelector('link[rel="canonical"]');
@@ -342,6 +360,7 @@ function Home() {
             <p className="hero-summary">{tx("Software Engineer working across Full-Stack Development, AI, Software Architecture, Digital Innovation, and creative technology.", "مهندسة برمجيات أعمل عبر التطوير المتكامل، والذكاء الاصطناعي، وهندسة البرمجيات، والابتكار الرقمي، والتقنية الإبداعية.", "Ingénieure logicielle spécialisée en développement Full-Stack, IA, architecture logicielle, innovation numérique et technologie créative.")}</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#work">{tx("Explore", "استكشفي")} <ArrowDown size={15} aria-hidden="true" /></a>
+              <a className="button button-cv" href="/cv-besma-en.pdf" download="Besma-Kaddour-CV-English.pdf">{tx("Download CV", "تحميل السيرة", "Télécharger le CV")} <Download size={15} aria-hidden="true" /></a>
               <a className="button button-quiet" href="#about">{tx("About", "عنّي")} <ArrowDown size={15} aria-hidden="true" /></a>
             </div>
           </div>
@@ -352,7 +371,7 @@ function Home() {
           </div>
         </section>
 
-        <section className="section section-about" id="about" aria-labelledby="about-title">
+        <section className="section section-about scroll-section" id="about" aria-labelledby="about-title">
           <SectionIntro index="01" label={tx("About", "عنّي")} title={tx("WHO I AM", "من أنا")}>
             <p className="intro-copy">{tx("A Software Engineer interested in building software systems, intelligent products, AI-driven experiences, and digital solutions.", "مهندسة برمجيات تهتم ببناء الأنظمة البرمجية، والمنتجات الذكية، والتجارب المدفوعة بالذكاء الاصطناعي، والحلول الرقمية.")}</p>
           </SectionIntro>
@@ -378,7 +397,7 @@ function Home() {
           </div>
         </section>
 
-        <section className="section section-work" id="work" aria-labelledby="work-title">
+        <section className="section section-work scroll-section" id="work" aria-labelledby="work-title">
           <SectionIntro index="02" label={tx("Selected work", "أعمال مختارة")} title={tx("WORK", "الأعمال")}>
             <p className="intro-copy">{tx("A living archive of products, systems, applications, and experiments.", "أرشيف حي للمنتجات والأنظمة والتطبيقات والتجارب.")}</p>
           </SectionIntro>
@@ -406,7 +425,7 @@ function Home() {
           <div className="project-footer"><span>{tx("Archive structure / 01", "هيكل الأرشيف / 01")}</span><span>{tx("More projects can be added without changing the interface.", "يمكن إضافة المزيد من المشاريع دون تغيير الواجهة.")}</span></div>
         </section>
 
-        <section className="section section-engineering" id="engineering" aria-labelledby="engineering-title">
+        <section className="section section-engineering scroll-section" id="engineering" aria-labelledby="engineering-title">
           <SectionIntro index="03" label={tx("Systems thinking", "تفكير منظومي")} title={tx("ENGINEERING", "الهندسة")}>
             <p className="intro-copy">{tx("The areas of practice are arranged as a typographic map — select one to open its next layer.", "مجالات الممارسة مرتبة كخريطة طباعية — اختاري مجالًا لفتح طبقته التالية.")}</p>
           </SectionIntro>
@@ -427,7 +446,7 @@ function Home() {
           </div>
         </section>
 
-        <section className="section section-technology" id="technology" aria-labelledby="technology-title">
+        <section className="section section-technology scroll-section" id="technology" aria-labelledby="technology-title">
           <SectionIntro index="04" label={tx("Library", "المكتبة")} title={tx("TECHNOLOGY", "التقنيات")}>
             <p className="intro-copy">{tx("A blank, expandable library by design. Technologies appear here only when they are explicitly added.", "مكتبة قابلة للتوسع وفارغة عمدًا. تظهر التقنيات هنا فقط عند إضافتها صراحةً.")}</p>
           </SectionIntro>
@@ -445,7 +464,7 @@ function Home() {
           </div>
         </section>
 
-        <section className="section section-ai" id="ai" aria-labelledby="ai-title">
+        <section className="section section-ai scroll-section" id="ai" aria-labelledby="ai-title">
           <div className="ai-orbit" aria-hidden="true"><div /><div /><div /><span>AI</span></div>
           <SectionIntro index="05" label={tx("Intelligence", "الذكاء")} title="AI">
             <p className="ai-headline">{tx("BUILDING SOFTWARE", "أبني برمجيات")}<br /><em>{tx("THAT THINKS, ADAPTS", "تفكر وتتكيّف")}<br />{tx("AND ACTS.", "وتتصرّف.")}</em></p>
@@ -453,7 +472,7 @@ function Home() {
           <div className="ai-bottom"><p className="muted-copy">{tx("AI is treated here as a practice and a field of questions — not a decoration. This space can hold agents, models, automations, applications, analysis, and research as they become real.", "يُتعامل مع الذكاء الاصطناعي هنا كممارسة ومجال من الأسئلة — لا كزينة. يمكن لهذا المكان أن يحتضن الوكلاء والنماذج والأتمتة والتطبيقات والتحليل والبحث.")}</p><div className="ai-areas">{aiAreas.map((area, index) => <span key={area}><b>0{index + 1}</b>{isArabic ? ["وكلاء الذكاء الاصطناعي", "تعلم الآلة", "الأتمتة الذكية", "تطبيقات الذكاء الاصطناعي", "تحليل البيانات", "الأنظمة التنبؤية", "التطوير المدعوم بالذكاء الاصطناعي"][index] : area}</span>)}</div></div>
         </section>
 
-        <section className="section section-fintech" id="fintech" aria-labelledby="fintech-title">
+        <section className="section section-fintech scroll-section" id="fintech" aria-labelledby="fintech-title">
           <SectionIntro index="06" label={tx("Financial technology", "التقنية المالية")} title={tx("MARKET SYSTEMS", "أنظمة الأسواق")}>
             <p className="intro-copy">{tx("Software engineering for financial systems — from market data and analysis to decision, execution, risk, and monitoring.", "هندسة برمجيات للأنظمة المالية — من بيانات السوق والتحليل إلى القرار والتنفيذ وإدارة المخاطر والمراقبة.")}</p>
           </SectionIntro>
@@ -463,7 +482,7 @@ function Home() {
           </div>
         </section>
 
-        <section className="section section-lab" id="lab" aria-labelledby="lab-title">
+        <section className="section section-lab scroll-section" id="lab" aria-labelledby="lab-title">
           <SectionIntro index="06" label={tx("Interactive laboratory", "مختبر تفاعلي")} title={tx("SKILL SIGNAL", "إشارة المهارات")}>
             <p className="intro-copy">{tx("Explore the relationship between artificial intelligence and software engineering through a living visual index.", "استكشفي العلاقة بين الذكاء الاصطناعي وهندسة البرمجيات عبر مؤشر بصري حي.")}</p>
           </SectionIntro>
@@ -477,7 +496,7 @@ function Home() {
           {experience.length ? <div className="experience-list">{experience.map((entry) => <details key={`${entry.year}-${entry.role}`}><summary><span>{isArabic ? "2024 — الآن" : entry.year}</span><strong>{isArabic ? "مهندسة برمجيات / هوية رقمية" : entry.role}</strong><em>{isArabic ? "6 سنوات من الخبرة" : entry.context}</em><ChevronDown size={16} /></summary><div><p>{isArabic ? "ممارسة مهنية متنامية عبر هندسة البرمجيات والذكاء الاصطناعي والمعمارية والمنتجات الرقمية والتقنية الإبداعية." : entry.description}</p><small>{entry.technologies.join(" / ")}</small></div></details>)}</div> : <div className="empty-panel"><div className="empty-panel-top"><span>{tx("YEAR", "السنة")}</span><span>{tx("ROLE / PROJECT / COMPANY", "الدور / المشروع / الشركة")}</span><span>{tx("DESCRIPTION", "الوصف")}</span></div><p>{tx("Editable timeline placeholder — add experience entries without changing the layout.", "خط زمني قابل للتحرير — أضيفي الخبرات دون تغيير التخطيط.")}</p></div>}
         </section>
 
-        <section className="section section-capabilities" id="skills" aria-labelledby="skills-title">
+        <section className="section section-capabilities scroll-section" id="skills" aria-labelledby="skills-title">
           <SectionIntro index="07" label={tx("Capability map", "خريطة القدرات")} title={tx("SKILLS", "المهارات")}>
             <p className="intro-copy">{tx("No percentages. No progress bars. Only the kinds of problems and practices this identity can hold.", "لا نسب مئوية ولا أشرطة تقدم. فقط أنواع المشكلات والممارسات التي يمكن لهذه الهوية أن تحتضنها.")}</p>
           </SectionIntro>
@@ -491,7 +510,7 @@ function Home() {
           <div className="creative-layout"><img className="section-watermark creative-watermark" src="/manus-storage/besma-signature_88629231.png" alt="" aria-hidden="true" /><div className="creative-quote"><span className="quote-mark">“</span><p>{tx("Some ideas arrive as systems.", "تأتي بعض الأفكار كأنظمة.")}<br /><em>{tx("Some arrive as sentences.", "وتأتي أخرى كجمل.")}</em></p><small>{tx("Creative archive / 01", "الأرشيف الإبداعي / 01")}</small></div><div className="writing-list"><div className="book-feature"><img src="/manus-storage/besma-book-cover_44022ea6.jpeg" alt={tx("Book cover for هل الحب حقيقة أم مجرد أوهام؟", "غلاف كتاب هل الحب حقيقة أم مجرد أوهام؟")} /><div><span>{tx("Upcoming book", "كتاب قريباً")}</span><strong>{tx("Is Love Real or Just Illusions?", "هل الحب حقيقة أم مجرد أوهام؟")}</strong><p>{tx("A philosophical book exploring the distance between the heart, reason, truth, and imagination.", "كتاب فلسفي يستكشف المسافة بين القلب والعقل والحقيقة والخيال.")}</p><small>{tx("Launching soon · 2025 / 2026", "قريباً · 2025 / 2026")}</small></div></div>{writings.map((writing) => <button type="button" key={writing.title} onClick={() => showPlaceholder(writing.title)}><span>{isArabic ? "كتاب" : writing.type}</span><strong>{isArabic ? writing.title : "Is Love Real or Just Illusions?"}</strong><small>{writing.date} · {tx("Launching soon", "قريباً")}</small><ArrowUpRight size={16} /></button>)}</div></div>
         </section>
 
-        <section className="section section-library" id="library" aria-labelledby="library-title">
+        <section className="section section-library scroll-section" id="library" aria-labelledby="library-title">
           <SectionIntro index="09" label={tx("Digital archive", "الأرشيف الرقمي")} title={tx("LIBRARY", "المكتبة")}>
             <p className="intro-copy">{tx("A private-looking, public-facing structure for the work behind the work.", "هيكل يبدو خاصًا ومتاحًا للعامة، يحتضن العمل خلف العمل.")}</p>
           </SectionIntro>
@@ -499,9 +518,9 @@ function Home() {
           <div className="library-footnote"><span>{tx("Content model", "نموذج المحتوى")}</span><p>{isArabic ? "الملف الشخصي / السيرة الذاتية / الخبرة / التقنيات / الخبرة العملية / المشاريع / الكتابة / الكتب / البحث / التجارب / المستندات / الروابط" : contentModel.join(" / ")}</p></div>
         </section>
 
-        <section className="section section-philosophy" id="philosophy" aria-labelledby="philosophy-title"><div className="philosophy-line" /><div className="philosophy-content"><span className="eyebrow">10 / {tx("Personal philosophy", "الفلسفة الشخصية")}</span><h2>{isArabic ? "يجب أن توجد التعقيدات داخل النظام — لا داخل التجربة." : principles[0]}</h2><button type="button" className="text-link" onClick={() => showPlaceholder("Additional principles")}>{tx("Add another principle", "أضيفي مبدأً آخر")} <Plus size={15} /></button></div></section>
+        <section className="section section-philosophy scroll-section" id="philosophy" aria-labelledby="philosophy-title"><div className="philosophy-line" /><div className="philosophy-content"><span className="eyebrow">10 / {tx("Personal philosophy", "الفلسفة الشخصية")}</span><h2>{isArabic ? "يجب أن توجد التعقيدات داخل النظام — لا داخل التجربة." : principles[0]}</h2><button type="button" className="text-link" onClick={() => showPlaceholder("Additional principles")}>{tx("Add another principle", "أضيفي مبدأً آخر")} <Plus size={15} /></button></div></section>
 
-        <section className="section section-cv" id="cv" aria-labelledby="cv-title">
+        <section className="section section-cv scroll-section" id="cv" aria-labelledby="cv-title">
           <SectionIntro index="11" label={tx("Professional profile", "الملف المهني")} title="CV">
             <p className="intro-copy">{tx("A dedicated, detailed layer for the conventional record — kept separate from the experience of the site.", "طبقة مخصصة ومفصلة للسجل المهني التقليدي — منفصلة عن تجربة الموقع.")}</p>
           </SectionIntro>
@@ -510,7 +529,7 @@ function Home() {
 
         <QrIdentity isArabic={isArabic} tx={tx} />
 
-        <section className="section section-contact" id="contact" aria-labelledby="contact-title"><div className="contact-top"><span className="eyebrow">12 / {tx("Closing chapter", "الفصل الختامي")}</span><span className="contact-status"><span className="status-dot" /> {tx("Open to meaningful work", "منفتحة على الأعمال الهادفة")}</span></div><h2 id="contact-title">{tx("LET'S BUILD", "لنبنِ")}<br /><em>{tx("SOMETHING", "شيئًا")}</em><br />{tx("MEANINGFUL.", "هادفًا.")}</h2><p className="contact-copy">{tx("For collaborations, conversations, and work that deserves a thoughtful system.", "للتعاون والمحادثات والعمل الذي يستحق نظامًا مدروسًا.")}</p><div className="contact-links">{contactLinks.map((link) => <a key={link.label} className={`contact-link contact-${link.label.toLowerCase()}`} href={link.href}><span className="contact-label">{link.label === "WhatsApp" ? <MessageCircle size={15} /> : link.label === "Email" ? <Mail size={15} /> : link.label === "LinkedIn" ? <Linkedin size={15} strokeWidth={1.8} /> : <Github size={15} />}<b>{isArabic ? { WhatsApp: "واتساب", Email: "البريد الإلكتروني", LinkedIn: "لينكدإن", GitHub: "جيت هب" }[link.label] : link.label}</b></span><strong className="contact-destination" aria-hidden="true">{isArabic ? { WhatsApp: "واتساب", Email: "البريد الإلكتروني", LinkedIn: "لينكدإن", GitHub: "جيت هب" }[link.label] : link.label}</strong><ArrowUpRight size={17} strokeWidth={1.2} /></a>)}</div></section>
+        <section className="section section-contact scroll-section" id="contact" aria-labelledby="contact-title"><div className="contact-top"><span className="eyebrow">12 / {tx("Closing chapter", "الفصل الختامي")}</span><span className="contact-status"><span className="status-dot" /> {tx("Open to meaningful work", "منفتحة على الأعمال الهادفة")}</span></div><h2 id="contact-title">{tx("LET'S BUILD", "لنبنِ")}<br /><em>{tx("SOMETHING", "شيئًا")}</em><br />{tx("MEANINGFUL.", "هادفًا.")}</h2><p className="contact-copy">{tx("For collaborations, conversations, and work that deserves a thoughtful system.", "للتعاون والمحادثات والعمل الذي يستحق نظامًا مدروسًا.")}</p><div className="contact-links">{contactLinks.map((link) => <a key={link.label} className={`contact-link contact-${link.label.toLowerCase()}`} href={link.href}><span className="contact-label">{link.label === "WhatsApp" ? <MessageCircle size={15} /> : link.label === "Email" ? <Mail size={15} /> : link.label === "LinkedIn" ? <Linkedin size={15} strokeWidth={1.8} /> : <Github size={15} />}<b>{isArabic ? { WhatsApp: "واتساب", Email: "البريد الإلكتروني", LinkedIn: "لينكدإن", GitHub: "جيت هب" }[link.label] : link.label}</b></span><strong className="contact-destination" aria-hidden="true">{isArabic ? { WhatsApp: "واتساب", Email: "البريد الإلكتروني", LinkedIn: "لينكدإن", GitHub: "جيت هب" }[link.label] : link.label}</strong><ArrowUpRight size={17} strokeWidth={1.2} /></a>)}</div></section>
       </main>
 
       <footer className="site-footer"><span>{tx("© 2024–2026 BESMA KADDOUR — ALL RIGHTS RESERVED", "© 2024–2026 بسمة قدور — جميع الحقوق محفوظة")}</span><span>{tx("ALL CONTENT, DESIGN &amp; CODE BELONG TO BESMA KADDOUR", "جميع المحتويات والتصميم والبرمجة ملك لبسمة قدور")}</span><a href="#top">{tx("Back to top", "العودة إلى الأعلى")} <ArrowUpRight size={14} /></a></footer>
