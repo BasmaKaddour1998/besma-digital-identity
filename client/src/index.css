@@ -594,3 +594,14 @@ section, [id] { scroll-margin-top: 88px; }
   .is-arabic .creative-watermark { right: -12%; left: auto; }
   .is-arabic .cv-watermark { right: -8%; left: auto; }
 }
+
+@media (max-width: 590px) {
+  /* Keep Arabic mobile content inside the same columns and give its script room to wrap. */
+  .is-arabic .hero-content { width: 100%; max-width: 100%; }
+  .is-arabic .hero-kicker { gap: 7px; line-height: 1.65; }
+  .is-arabic .hero-year { margin-right: 0; margin-left: 0; }
+  .is-arabic .hero h1 { margin-top: 32px; font-size: clamp(35px, 11vw, 54px); line-height: 1.2; }
+  .is-arabic .hero-summary { max-width: 100%; line-height: 1.9; }
+  .is-arabic .section-intro, .is-arabic .about-detail-grid, .is-arabic .engineering-layout, .is-arabic .technology-layout, .is-arabic .ai-bottom, .is-arabic .fintech-layout, .is-arabic .creative-layout, .is-arabic .cv-grid, .is-arabic .experience-list, .is-arabic .empty-panel, .is-arabic .capability-grid, .is-arabic .library-grid, .is-arabic .filter-bar, .is-arabic .project-list, .is-arabic .project-footer, .is-arabic .library-footnote, .is-arabic .skill-lab-grid { direction: ltr; }
+  .is-arabic .section-intro > *, .is-arabic .about-detail-grid > *, .is-arabic .engineering-layout > *, .is-arabic .technology-layout > *, .is-arabic .ai-bottom > *, .is-arabic .fintech-layout > *, .is-arabic .creative-layout > *, .is-arabic .cv-grid > *, .is-arabic .experience-list > *, .is-arabic .empty-panel > *, .is-arabic .capability-grid > *, .is-arabic .library-grid > *, .is-arabic .filter-bar > *, .is-arabic .project-list > *, .is-arabic .project-footer > *, .is-arabic .library-footnote > *, .is-arabic .skill-lab-grid > * { text-align: right; }
+}
