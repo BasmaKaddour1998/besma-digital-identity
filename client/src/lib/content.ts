@@ -105,7 +105,7 @@ export const financialTechnologyAreas = [
   { en: "Market systems engineering", ar: "هندسة أنظمة الأسواق", detailEn: "Building software systems for research, monitoring, visualization, reporting, and disciplined financial analysis.", detailAr: "بناء أنظمة برمجية للبحث والمراقبة والتصور وإعداد التقارير والتحليل المالي المنضبط." },
 ];
 
-export const marketCoverage = ["Equities", "Fixed income", "Foreign exchange", "Commodities", "Major indices", "DXY", "US Treasury yields"];
+export const marketCoverage = ["Equities", "Fixed income", "Foreign exchange", "Commodities", "Major indices", "DXY"];
 
 export const projects: Project[] = [
   {

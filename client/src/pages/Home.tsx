@@ -479,7 +479,7 @@ function Home() {
             <p className="intro-copy">{tx("Software engineering for financial market analysis, monitoring, visualization, and research systems.", "هندسة برمجيات لتحليل الأسواق المالية ومراقبتها وتصوير بياناتها وبناء أنظمة البحث.")}</p>
           </SectionIntro>
           <div className="fintech-layout">
-            <div className="market-coverage"><span className="eyebrow">{tx("Market coverage", "نطاق الأسواق")}</span><div>{marketCoverage.map((market, index) => <span key={market}>{isArabic ? ["الأسهم", "الدخل الثابت", "أسواق الصرف", "السلع", "المؤشرات الرئيسية", "مؤشر الدولار DXY", "عوائد الخزانة الأمريكية"][index] : market}</span>)}</div><p>{tx("This is software engineering for financial market analysis and monitoring, not financial advice or a profit guarantee.", "هذا عمل في هندسة البرمجيات لتحليل الأسواق المالية ومراقبتها، وليس استشارة مالية أو ضماناً للأرباح.")}</p></div>
+            <div className="market-coverage"><span className="eyebrow">{tx("Market coverage", "نطاق الأسواق")}</span><div>{marketCoverage.map((market, index) => <span key={market}>{isArabic ? ["الأسهم", "الدخل الثابت", "أسواق الصرف", "السلع", "المؤشرات الرئيسية", "مؤشر الدولار DXY"][index] : market}</span>)}</div><p>{tx("Software systems for market-data analysis, monitoring, visualization, and research.", "أنظمة برمجية لتحليل بيانات الأسواق ومراقبتها وتصويرها والبحث فيها.")}</p></div>
             <div className="fintech-cards">{financialTechnologyAreas.map((area, index) => <article key={area.en}><span>0{index + 1}</span><h3>{isArabic ? area.ar : area.en}</h3><p>{isArabic ? area.detailAr : area.detailEn}</p></article>)}</div>
           </div>
         </section>
