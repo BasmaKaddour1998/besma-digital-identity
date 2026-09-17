@@ -363,7 +363,6 @@ function Home() {
             <p className="hero-summary">{tx("Software Engineer working across Full-Stack Development, AI, Software Architecture, Digital Innovation, and creative technology.", "مهندسة برمجيات أعمل عبر التطوير المتكامل، والذكاء الاصطناعي، وهندسة البرمجيات، والابتكار الرقمي، والتقنية الإبداعية.", "Ingénieure logicielle spécialisée en développement Full-Stack, IA, architecture logicielle, innovation numérique et technologie créative.")}</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#work">{tx("Explore", "استكشفي")} <ArrowDown size={15} aria-hidden="true" /></a>
-              <a className="button button-cv" href={isArabic ? "/cv-besma-ar.pdf" : isFrench ? "/cv-besma-fr.pdf" : "/cv-besma-en.pdf"} download={isArabic ? "Besma-Kaddour-CV-Arabic.pdf" : isFrench ? "Besma-Kaddour-CV-French.pdf" : "Besma-Kaddour-CV-English.pdf"}>{tx("Download CV", "تحميل السيرة", "Télécharger le CV")} <Download size={15} aria-hidden="true" /></a>
               <a className="button button-quiet" href="#about">{tx("About", "عنّي")} <ArrowDown size={15} aria-hidden="true" /></a>
             </div>
           </div>
