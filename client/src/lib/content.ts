@@ -33,7 +33,6 @@ export const navigation = [
   { label: "Work", href: "#work" },
   { label: "Engineering", href: "#engineering" },
   { label: "AI", href: "#ai" },
-  { label: "FinTech", href: "#fintech" },
   { label: "Lab", href: "#lab" },
   { label: "Creative", href: "#creative" },
   { label: "Experience", href: "#experience" },
@@ -99,13 +98,13 @@ export const aiAreas = [
   "AI-assisted Development",
 ];
 
-export const financialTechnologyAreas = [
-  { en: "Market-data engineering", ar: "هندسة بيانات الأسواق", detailEn: "Processing external market data, technical signals, sessions, volatility, liquidity, and macro conditions.", detailAr: "معالجة بيانات الأسواق الخارجية والإشارات الفنية والجلسات والتذبذب والسيولة والظروف الاقتصادية الكلية." },
-  { en: "Financial market analysis", ar: "تحليل الأسواق المالية", detailEn: "Designing analytical workflows for price structure, volatility, liquidity, sessions, and macroeconomic context.", detailAr: "تصميم مسارات تحليلية لبنية الأسعار والتذبذب والسيولة والجلسات والسياق الاقتصادي الكلي." },
-  { en: "Market systems engineering", ar: "هندسة أنظمة الأسواق", detailEn: "Building software systems for research, monitoring, visualization, reporting, and disciplined financial analysis.", detailAr: "بناء أنظمة برمجية للبحث والمراقبة والتصور وإعداد التقارير والتحليل المالي المنضبط." },
+export const dataResearchAreas = [
+  { en: "Financial market analysis software", ar: "برمجيات تحليل الأسواق المالية", detailEn: "Designing professional software and applications for financial market analysis, visualization, monitoring, and research.", detailAr: "تصميم برامج وتطبيقات احترافية لتحليل الأسواق المالية وتصوير بياناتها ومراقبتها والبحث فيها." },
+  { en: "Research workflows", ar: "مسارات البحث", detailEn: "Designing clear workflows for investigation, analysis, visualization, and documentation.", detailAr: "تصميم مسارات واضحة للتحقيق والتحليل والتصور والتوثيق." },
+  { en: "Systems monitoring", ar: "مراقبة الأنظمة", detailEn: "Building software for observability, reporting, quality checks, and dependable operations.", detailAr: "بناء برمجيات للرصد وإعداد التقارير وفحوص الجودة والتشغيل الموثوق." },
 ];
 
-export const marketCoverage = ["Equities", "Fixed income", "Foreign exchange", "Commodities", "Major indices", "DXY"];
+export const dataCoverage = ["Structured data", "Research tools", "Dashboards", "Reporting", "Visualization", "Automation"];
 
 export const projects: Project[] = [
   {

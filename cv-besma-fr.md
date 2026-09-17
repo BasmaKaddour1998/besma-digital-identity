@@ -1,13 +1,13 @@
 # BESMA KADDOUR
 
 ## Ingénieure logiciel Full Stack · Ingénieure logiciel assistée par l’IA
-### Applications web et mobiles · Systèmes logiciels · Analyse des marchés financiers
+### Applications web et mobiles · Systèmes logiciels · Logiciels d’analyse des marchés financiers
 
 **Contact :** WhatsApp · Email · [LinkedIn](https://www.linkedin.com/in/beasma-kaddour-6b32312b8) · [GitHub](https://github.com/BasmaKaddour1998)
 
 ## Profil professionnel
 
-Ingénieure logiciel travaillant sur les applications web et mobiles, les systèmes backend, les tableaux de bord, les plateformes numériques, les applications assistées par l’IA, l’automatisation et les logiciels d’analyse des marchés financiers. Intervient sur les besoins, l’architecture, l’implémentation UI/UX, le frontend et le backend, les bases de données, les API REST, l’authentification, les intégrations tierces, les tests, le débogage, le déploiement, la maintenance en production et l’optimisation des performances.
+Ingénieure logiciel concevant des logiciels et applications professionnels pour l’analyse des marchés financiers, ainsi que des applications web et mobiles, des systèmes backend, des tableaux de bord, des plateformes numériques, des applications assistées par l’IA et des solutions d’automatisation. Intervient sur les besoins, l’architecture, l’implémentation UI/UX, le frontend et le backend, les bases de données, les API REST, l’authentification, les intégrations tierces, les tests, le débogage, le déploiement, la maintenance en production et l’optimisation des performances.
 
 L’IA est utilisée comme outil d’ingénierie pour analyser les bases de code, générer et relire du code, déboguer, refactoriser, tester, documenter, étudier les problèmes techniques et automatiser le développement. La revue technique, la validation et l’intégration en production restent centrales.
 
@@ -27,23 +27,23 @@ L’IA est utilisée comme outil d’ingénierie pour analyser les bases de code
 
 Ingénierie logicielle assistée par l’IA pour l’analyse d’architecture, la génération et la revue de code, le débogage, la refactorisation, les tests, la documentation, la résolution de problèmes, les modifications multi-fichiers et l’automatisation du développement. Les domaines incluent les applications IA, les interfaces conversationnelles, les agents IA et l’automatisation intelligente. Outils et méthodes : Claude Code, OpenCode, agents de codage IA, revue d’ingénierie, validation et intégration en production.
 
-## Marchés financiers et technologie du trading
+## Logiciels et applications d’analyse des marchés financiers
 
-Ingénierie logicielle liée à l’analyse des marchés financiers et aux systèmes de données de marché, notamment le Forex, l’or/XAUUSD, l’argent, les principaux indices, le DXY, l’analyse technique et fondamentale, l’action des prix, la structure de marché, les sessions, la volatilité, la liquidité, les actualités économiques, les conditions macroéconomiques, les données externes et l’analyse multifactorielle des signaux.
+Ingénierie logicielle professionnelle pour l’analyse des marchés financiers, le traitement des données, la visualisation, les tableaux de bord, les workflows de recherche, le reporting et l’analyse multifactorielle.
 
-L’architecture de technologie du trading couvre le traitement des données de marché, les workflows d’analyse, la logique de décision et d’exécution, les ordres en attente, la validation d’entrée, les composants de gestion du risque, la logique Stop Loss / Take Profit dynamique, la protection des profits, le suivi de l’exposition et de la marge, la gestion des positions, le filtrage des actualités et l’analyse des sessions.
+L’architecture des systèmes comprend l’ingestion, la validation et la transformation des données, les workflows d’aide à la décision, la supervision, le reporting, le contrôle des accès et des expériences utilisateur fiables.
 
 ## Expérience professionnelle
 
 ### Ingénieure logiciel / Identité numérique
 **2024 — Présent · Six années d’expérience indiquées par la personne propriétaire du profil**
 
-Pratique professionnelle en ingénierie logicielle Full Stack, développement assisté par l’IA, architecture logicielle, produits numériques, applications mobiles et web, technologie financière, automatisation et technologie créative.
+Pratique professionnelle en ingénierie logicielle Full Stack, développement assisté par l’IA, architecture logicielle, produits numériques, applications mobiles et web, produits numériques, automatisation et technologie créative.
 
 - Construire et maintenir des applications web et mobiles, des systèmes backend, des tableaux de bord, des API et des plateformes numériques.
 - Intervenir sur les besoins, l’architecture, l’implémentation, l’intégration, les tests, le débogage, le déploiement et la maintenance.
 - Développer des applications utilisant l’IA et des workflows d’ingénierie assistés par l’IA.
-- Concevoir des logiciels pour l’analyse de marché, la logique de décision, l’exécution, la gestion des positions et les systèmes de gestion du risque.
+- Concevoir des logiciels pour l’analyse de données, les workflows d’aide à la décision, la supervision, le reporting et les systèmes d’information fiables.
 - Étudier des bases de code existantes, effectuer des modifications multi-fichiers, refactoriser les systèmes et valider le comportement en production.
 
 ## Projets et expérience technique
@@ -58,7 +58,7 @@ Les projets suivants proviennent uniquement des informations fournies. Aucun nom
 - **Applications Android et iOS :** deux applications mobiles pour Android et iOS.
 - **Applications et programmes informatiques :** développement d’applications et de programmes informatiques.
 - **Recherche en physique et électronique :** recherche technique et travaux pratiques en électronique.
-- **Systèmes de marchés financiers :** concepts logiciels pour l’analyse technique et fondamentale du Forex, les données de marché et la technologie du trading.
+- **Systèmes de données et de recherche :** concepts logiciels pour le traitement des données structurées, la visualisation, le reporting et la recherche technique.
 
 ## Compétences techniques
 

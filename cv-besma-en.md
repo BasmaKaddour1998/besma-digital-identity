@@ -1,13 +1,13 @@
 # BESMA KADDOUR
 
 ## Full Stack Software Engineer · AI-Assisted Software Engineer
-### Web & Mobile Applications · Software Systems · Financial Market Analysis
+### Web & Mobile Applications · Software Systems · Financial Market Analysis Software
 
 **Contact:** WhatsApp · Email · [LinkedIn](https://www.linkedin.com/in/beasma-kaddour-6b32312b8) · [GitHub](https://github.com/BasmaKaddour1998)
 
 ## Professional Summary
 
-Full Stack Software Engineer working across web applications, mobile applications, backend systems, dashboards, digital platforms, AI-assisted development, automation, and financial market analysis software. Works across requirements, architecture, UI/UX implementation, frontend and backend development, database design, REST APIs, authentication, third-party integrations, testing, debugging, deployment, production maintenance, and performance optimization.
+Full Stack Software Engineer designing professional software and applications for financial market analysis, alongside web applications, mobile applications, backend systems, dashboards, digital platforms, AI-assisted development, and automation. Works across requirements, architecture, UI/UX implementation, frontend and backend development, database design, REST APIs, authentication, third-party integrations, testing, debugging, deployment, production maintenance, and performance optimization.
 
 AI is used as an engineering tool for codebase analysis, code generation and review, debugging, refactoring, testing, documentation, technical investigation, and development automation. Engineering judgment, validation, and production integration remain central to the workflow.
 
@@ -27,23 +27,23 @@ AI is used as an engineering tool for codebase analysis, code generation and rev
 
 Practical AI-assisted software engineering for architecture analysis, code generation, code review, debugging, refactoring, testing, documentation, problem solving, multi-file changes, and development automation. Experience areas include AI applications, conversational interfaces, AI agents, and intelligent automation workflows. Tools and working patterns include Claude Code, OpenCode, AI coding agents, engineering review, validation, and production integration.
 
-## Financial Markets & Trading Technology
+## Financial Market Analysis Software & Applications
 
-Software engineering related to financial market analysis and market-data systems, including Forex, gold/XAUUSD, silver, major market indices, DXY, technical analysis, fundamental analysis, price action, market structure, sessions, volatility, liquidity, economic news, macroeconomic conditions, external market data, and multi-factor signal analysis.
+Professional software engineering for financial market analysis, data processing, visualization, dashboards, research workflows, reporting, structured information, and multi-factor analysis.
 
-Trading-technology architecture includes market-data processing, analysis workflows, decision logic, execution logic, pending-order logic, entry validation, risk-management components, dynamic Stop Loss / Take Profit logic, profit protection, drawdown protection, exposure monitoring, margin monitoring, position management, news filtering, and market-session analysis.
+Systems architecture includes data ingestion, validation, transformation, decision-support workflows, monitoring, reporting, access control, and reliable user experiences.
 
 ## Professional Experience
 
 ### Software Engineer / Digital Identity
 **2024 — Present · Six years of experience stated by the profile owner**
 
-A professional practice across full-stack software engineering, AI-assisted development, software architecture, digital products, mobile and web applications, financial technology, automation, and creative technology.
+A professional practice across full-stack software engineering, AI-assisted development, software architecture, digital products, mobile and web applications, digital products, automation, and creative technology.
 
 - Build and maintain web applications, mobile applications, backend systems, dashboards, APIs, and digital platforms.
 - Work across requirements, architecture, implementation, integration, testing, debugging, deployment, and production maintenance.
 - Develop AI-powered applications and practical AI-assisted engineering workflows.
-- Design software for market analysis, automated trading, decision logic, execution, position management, and risk-management systems.
+- Design software for data analysis, decision-support workflows, monitoring, reporting, and reliable information systems.
 - Investigate existing codebases, implement multi-file changes, refactor systems, and validate production behavior.
 
 ## Projects & Technical Experience
@@ -58,7 +58,7 @@ The following projects and experience areas are included from the supplied profi
 - **Android and iOS applications:** Two mobile applications for Android and iOS.
 - **Applications and computer programs:** Software development across application and desktop-program concepts.
 - **Research in Physics & Electronics:** Technical research and practical electronics work.
-- **Financial market systems:** Software concepts for Forex technical and fundamental analysis, market data, and trading technology.
+- **Data and research systems:** Software concepts for structured data processing, visualization, reporting, and technical research.
 
 ## Technical Skills
 

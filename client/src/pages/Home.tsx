@@ -20,12 +20,12 @@ import {
   capabilityMap,
   contactLinks,
   contentModel,
+  dataCoverage,
+  dataResearchAreas,
   engineeringAreas,
   experience,
-  financialTechnologyAreas,
   focusAreas,
   librarySections,
-  marketCoverage,
   navigation,
   principles,
   projects,
@@ -220,7 +220,7 @@ function Home() {
     else update();
   };
   const switchTheme = () => setTheme((current) => current === "dark" ? "light" : "dark");
-  const navItems = isArabic ? ["عنّي", "الأعمال", "الهندسة", "الذكاء الاصطناعي", "التقنية المالية", "المختبر", "الإبداع", "الخبرة", "تواصل"] : isFrench ? ["À PROPOS", "PROJETS", "INGÉNIERIE", "IA", "FINTECH", "LABORATOIRE", "CRÉATIF", "EXPÉRIENCE", "CONTACT"] : navigation.map((item) => item.label);
+  const navItems = isArabic ? ["عنّي", "الأعمال", "الهندسة", "الذكاء الاصطناعي", "أنظمة البيانات", "المختبر", "الإبداع", "الخبرة", "تواصل"] : isFrench ? ["À PROPOS", "PROJETS", "INGÉNIERIE", "IA", "DATA SYSTEMS", "LABORATOIRE", "CRÉATIF", "EXPÉRIENCE", "CONTACT"] : navigation.map((item) => item.label);
   const aboutItems = isArabic ? ["الخلفية", "الهندسة", "الذكاء الاصطناعي", "تطوير المنتجات", "العمل الإبداعي", "الفلسفة"] : ["Background", "Engineering", "AI", "Product Development", "Creative Work", "Philosophy"];
   const categories = isArabic ? ["الكل", "الذكاء الاصطناعي", "البرمجيات", "الويب", "الهاتف", "الأنظمة", "الإبداع"] : isFrench ? ["TOUT", "IA", "LOGICIEL", "WEB", "MOBILE", "SYSTÈMES", "CRÉATIF"] : ["ALL", "AI", "SOFTWARE", "WEB", "MOBILE", "SYSTEMS", "CREATIVE"];
 
@@ -289,7 +289,8 @@ function Home() {
             "@type": "Person",
             "name": "Besma Kaddour",
             "jobTitle": "Software Engineer",
-            "description": "Software Engineer working across full-stack development, AI, software architecture, digital innovation, cybersecurity, and creative technology.",
+            "description": "Software engineer designing professional software and applications for financial market analysis, web, mobile, AI, and data systems.",
+            "knowsAbout": ["Financial market analysis software", "Financial market analysis applications", "Full-stack software engineering", "Artificial intelligence", "Web and mobile applications"],
             "url": window.location.origin,
             "image": `${window.location.origin}/assets/besma-portrait.png`
           },
@@ -297,7 +298,7 @@ function Home() {
             "@type": "WebSite",
             "name": "BESMA KADDOUR — Digital Identity",
             "url": window.location.origin,
-            "description": "A digital identity across software engineering, AI, product creation, and creative work."
+            "description": "Professional software and applications for financial market analysis, web, mobile, AI, and data systems."
           }
         ]
       }) }} />
@@ -474,13 +475,13 @@ function Home() {
           <div className="ai-bottom"><p className="muted-copy">{tx("AI is treated here as a practice and a field of questions — not a decoration. This space can hold agents, models, automations, applications, analysis, and research as they become real.", "يُتعامل مع الذكاء الاصطناعي هنا كممارسة ومجال من الأسئلة — لا كزينة. يمكن لهذا المكان أن يحتضن الوكلاء والنماذج والأتمتة والتطبيقات والتحليل والبحث.")}</p><div className="ai-areas">{aiAreas.map((area, index) => <span key={area}><b>0{index + 1}</b>{isArabic ? ["وكلاء الذكاء الاصطناعي", "تعلم الآلة", "الأتمتة الذكية", "تطبيقات الذكاء الاصطناعي", "تحليل البيانات", "الأنظمة التنبؤية", "التطوير المدعوم بالذكاء الاصطناعي"][index] : area}</span>)}</div></div>
         </section>
 
-        <section className="section section-fintech scroll-section" id="fintech" aria-labelledby="fintech-title">
-          <SectionIntro index="06" label={tx("Financial technology", "التقنية المالية")} title={tx("MARKET SYSTEMS", "أنظمة الأسواق")}>
-            <p className="intro-copy">{tx("Software engineering for financial market analysis, monitoring, visualization, and research systems.", "هندسة برمجيات لتحليل الأسواق المالية ومراقبتها وتصوير بياناتها وبناء أنظمة البحث.")}</p>
+        <section className="section section-data scroll-section" id="data-systems" aria-labelledby="data-title">
+          <SectionIntro index="06" label={tx("Data systems", "أنظمة البيانات")} title={tx("DATA SYSTEMS", "أنظمة البيانات")}>
+            <p className="intro-copy">{tx("Designing professional software and applications for financial market analysis, monitoring, visualization, and research.", "تصميم برامج وتطبيقات احترافية لتحليل الأسواق المالية ومراقبتها وتصوير بياناتها والبحث فيها.")}</p>
           </SectionIntro>
-          <div className="fintech-layout">
-            <div className="market-coverage"><span className="eyebrow">{tx("Market coverage", "نطاق الأسواق")}</span><div>{marketCoverage.map((market, index) => <span key={market}>{isArabic ? ["الأسهم", "الدخل الثابت", "أسواق الصرف", "السلع", "المؤشرات الرئيسية", "مؤشر الدولار DXY"][index] : market}</span>)}</div><p>{tx("Software systems for market-data analysis, monitoring, visualization, and research.", "أنظمة برمجية لتحليل بيانات الأسواق ومراقبتها وتصويرها والبحث فيها.")}</p></div>
-            <div className="fintech-cards">{financialTechnologyAreas.map((area, index) => <article key={area.en}><span>0{index + 1}</span><h3>{isArabic ? area.ar : area.en}</h3><p>{isArabic ? area.detailAr : area.detailEn}</p></article>)}</div>
+          <div className="data-layout">
+            <div className="market-coverage"><span className="eyebrow">{tx("Financial market analysis systems", "أنظمة تحليل الأسواق المالية")}</span><div>{dataCoverage.map((item) => <span key={item}>{isArabic ? ({"Structured data":"البيانات المنظمة", "Research tools":"أدوات البحث", "Dashboards":"لوحات المعلومات", "Reporting":"إعداد التقارير", "Visualization":"التصور", "Automation":"الأتمتة"}[item] || item) : item}</span>)}</div><p>{tx("Professional software systems for financial market analysis, monitoring, visualization, and research.", "أنظمة برمجية احترافية لتحليل الأسواق المالية ومراقبتها وتصوير بياناتها والبحث فيها.")}</p></div>
+            <div className="data-cards">{dataResearchAreas.map((area, index) => <article key={area.en}><span>0{index + 1}</span><h3>{isArabic ? area.ar : area.en}</h3><p>{isArabic ? area.detailAr : area.detailEn}</p></article>)}</div>
           </div>
         </section>
 
