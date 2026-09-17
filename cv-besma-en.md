@@ -1,82 +1,77 @@
 # BESMA KADDOUR
 
 ## Full Stack Software Engineer · AI-Assisted Software Engineer
-### Web & Mobile Applications · Financial Technology / Trading Systems
+### Web & Mobile Applications · Software Systems · Financial Market Analysis
 
 **Contact:** WhatsApp · Email · [LinkedIn](https://www.linkedin.com/in/beasma-kaddour-6b32312b8) · [GitHub](https://github.com/BasmaKaddour1998)
 
 ## Professional Summary
 
-Practical Full Stack Software Engineer building web applications, mobile applications, backend systems, dashboards, digital platforms, AI-powered applications, automation systems, and financial-technology software. Works across requirements and architecture, UI/UX implementation, frontend and backend development, database design, REST APIs, authentication, third-party integrations, testing, debugging, deployment, production maintenance, and performance optimization.
+Full Stack Software Engineer working across web applications, mobile applications, backend systems, dashboards, digital platforms, AI-assisted development, automation, and financial market analysis software. Works across requirements, architecture, UI/UX implementation, frontend and backend development, database design, REST APIs, authentication, third-party integrations, testing, debugging, deployment, production maintenance, and performance optimization.
 
-Uses AI-assisted software engineering throughout the development lifecycle to analyze codebases, generate and review code, debug, refactor, test, document, investigate technical issues, and accelerate implementation. The workflow remains engineering-led: AI assistance, review, implementation, testing, debugging, validation, and production integration.
+AI is used as an engineering tool for codebase analysis, code generation and review, debugging, refactoring, testing, documentation, technical investigation, and development automation. Engineering judgment, validation, and production integration remain central to the workflow.
 
 ## Core Engineering Expertise
 
 - Full-stack, frontend, and backend architecture
 - Responsive web applications, dashboards, APIs, and digital platforms
-- Mobile and cross-platform development
+- Mobile and cross-platform development for Android and iOS
 - Database architecture, data modeling, query optimization, and API integration
 - Authentication and security-conscious development
 - Cloud deployment, environment configuration, and production maintenance
-- Automated testing, integration testing, regression testing, and build validation
+- Automated, integration, regression, and build validation
 - Systematic debugging across network, authentication, database, mobile, and production environments
-- Code refactoring, version control, software maintenance, and performance optimization
+- Refactoring, version control, software maintenance, and performance optimization
 
-## AI & AI-Assisted Software Engineering
+## AI, Agents & Automation
 
-Practical experience using AI as an engineering tool for architecture analysis, code generation, codebase understanding, debugging, refactoring, code review, testing, documentation, problem solving, development automation, multi-file changes, and technical investigation.
+Practical AI-assisted software engineering for architecture analysis, code generation, code review, debugging, refactoring, testing, documentation, problem solving, multi-file changes, and development automation. Experience areas include AI applications, conversational interfaces, AI agents, and intelligent automation workflows. Tools and working patterns include Claude Code, OpenCode, AI coding agents, engineering review, validation, and production integration.
 
-**Tools and working patterns:** Claude Code, OpenCode, AI coding agents, engineering review, validation, and production integration. AI is used to accelerate engineering work, not as a substitute for technical judgment.
+## Financial Markets & Trading Technology
 
-## Financial Technology & Market Analysis
+Software engineering related to financial market analysis and market-data systems, including Forex, gold/XAUUSD, silver, major market indices, cryptocurrencies, DXY, technical analysis, fundamental analysis, price action, market structure, sessions, volatility, liquidity, economic news, macroeconomic conditions, external market data, and multi-factor signal analysis.
 
-Software engineering experience related to financial market analysis and automated trading systems. Areas include Forex, gold / XAUUSD, silver, major market indices, cryptocurrencies, DXY, US Treasury yields, global market conditions, market-data processing, technical analysis, price action, market structure, sessions, volatility, liquidity, economic news, macroeconomic conditions, external market data, and multi-factor signal analysis.
-
-Trading-system components include automated trading engines, decision engines, execution engines, pending-order engines, entry gates, risk management, Auto Lot, dynamic Stop Loss / Take Profit, smart SL/TP logic, profit protection, drawdown protection, capital protection, exposure monitoring, margin monitoring, position management, news filtering, and market-session analysis.
-
-This profile describes software engineering for financial systems. It does not present financial advice, guaranteed returns, or unsupported trading performance claims.
-
-## Trading-System Architecture
-
-Market Data → Market Analysis → Technical / Fundamental / Macro Signals → Decision Engine → Risk Management → Entry Validation → Order Execution → Position Management → Profit Protection → Monitoring
+Trading-technology architecture includes market-data processing, analysis workflows, decision logic, execution logic, pending-order logic, entry validation, risk-management components, dynamic Stop Loss / Take Profit logic, profit protection, drawdown protection, exposure monitoring, margin monitoring, position management, news filtering, and market-session analysis.
 
 ## Professional Experience
 
 ### Software Engineer / Digital Identity
 **2024 — Present · Six years of experience stated by the profile owner**
 
-A growing professional practice across full-stack software engineering, AI-assisted development, software architecture, digital products, mobile and web applications, financial technology, automation, and creative technology.
+A professional practice across full-stack software engineering, AI-assisted development, software architecture, digital products, mobile and web applications, financial technology, automation, and creative technology.
 
 - Build and maintain web applications, mobile applications, backend systems, dashboards, APIs, and digital platforms.
 - Work across requirements, architecture, implementation, integration, testing, debugging, deployment, and production maintenance.
 - Develop AI-powered applications and practical AI-assisted engineering workflows.
 - Design software for market analysis, automated trading, decision logic, execution, position management, and risk-management systems.
-- Investigate existing codebases, implement complex changes across multiple files, refactor systems, and validate production behavior.
+- Investigate existing codebases, implement multi-file changes, refactor systems, and validate production behavior.
 
-## Selected Project Experience
+## Projects & Technical Experience
 
-The following project categories are supported by the supplied profile. Add verified project names, links, dates, and outcomes before publishing detailed case studies.
+The following projects and experience areas are included from the supplied profile. No unverified client names, dates, links, or performance claims have been added.
 
-- Digital platforms — **[ADD VERIFIED PROJECT NAME / SCOPE]**
-- Enterprise-style management systems — **[ADD VERIFIED PROJECT NAME / SCOPE]**
-- Web and mobile applications — **[ADD VERIFIED PROJECT NAME / TECHNOLOGIES]**
-- AI-powered applications and conversational interfaces — **[ADD VERIFIED PROJECT NAME / SCOPE]**
-- Automated trading and financial market analysis systems — **[ADD VERIFIED PROJECT NAME / ARCHITECTURE]**
-- Dashboards, analytics platforms, API-driven applications, and automation systems — **[ADD VERIFIED PROJECT DETAILS]**
+- **Smart Home:** Research and development work in connected-home concepts and automation.
+- **Smart Door Lock:** A magnetic-card access-control project.
+- **Android application:** An Android application published on Amazon.
+- **Modern computer mice:** A computer-hardware project.
+- **Glasses for the blind:** An assistive-technology project.
+- **Android and iOS applications:** Two mobile applications for Android and iOS.
+- **Applications and computer programs:** Software development across application and desktop-program concepts.
+- **Research in Physics & Electronics:** Technical research and practical electronics work.
+- **Financial market systems:** Software concepts for Forex and cryptocurrency technical and fundamental analysis, market data, and trading technology.
 
 ## Technical Skills
 
 ### Programming Languages
-TypeScript, JavaScript, Python, PHP, Kotlin, Java, HTML5, CSS3.
+TypeScript, JavaScript, Python, Java, Kotlin, PHP, HTML5, CSS3, and Arduino.
 
-### Frontend
+### Web Development
 React, Next.js, responsive interfaces, component architecture, dashboards, API integration, authentication, real-time interfaces, performance, and modern frontend architecture.
 
-### Backend
-Node.js, Python, PHP, Laravel, REST APIs, authentication, database-driven applications, business logic, external API integrations, production APIs, and cloud services.
+### Backend & Software Development
+Node.js, Python, PHP, Laravel, REST APIs, authentication, database-driven applications, business logic, external API integrations, production APIs, cloud services, and computer programs.
 
-### Mobile & Cross-Platform
+### Mobile Development
 Flutter, React Native, Android, Kotlin, Java, Capacitor, iOS integration, WebView-based architectures, native bridges, API connectivity, authentication, network handling, mobile UI, and production builds.
 
 ### Databases
@@ -92,19 +87,23 @@ Telegram Mini Apps, WebView applications, native mobile integration, third-party
 
 Automated testing, API testing, integration testing, regression testing, production troubleshooting, build troubleshooting, network debugging, authentication debugging, database debugging, mobile debugging, deployment validation, systematic debugging, and verification before production integration.
 
-## Education
-
-**[ADD UNIVERSITY / INSTITUTION]**
-
-**[ADD DEGREE OR PROGRAM]** · **[ADD DATES]**
-
 ## Certifications & Training
 
-**[ADD VERIFIED CERTIFICATION OR TRAINING]**
+### NASA International Space Apps Challenge
+
+**GALACTIC PROBLEM SOLVER** — certificate presented to **basma Kaddour** for outstanding participation in efforts to address challenges facing Earth and space. **Date shown on certificate: October 5–6, 2024.**
+
+![NASA International Space Apps Challenge certificate — Galactic Problem Solver](client/public/assets/nasa-certificate.png)
+
+Additional verified learning listed in the supplied profile includes certificates or courses in **Kotlin, Python, Java, and Arduino**. No institution, credential title, or date has been added where it was not provided.
+
+## Education
+
+Research in Physics & Electronics is included from the supplied profile. University, institution, degree, and dates were not provided and are therefore not invented.
 
 ## Languages
 
-**[ADD SPOKEN LANGUAGE AND PROFICIENCY]**
+Arabic and English.
 
 ## Professional Links
 
@@ -116,4 +115,4 @@ Automated testing, API testing, integration testing, regression testing, product
 
 © 2024–2026 BESMA KADDOUR — ALL RIGHTS RESERVED
 
-*Unknown education, certifications, spoken-language proficiency, project names, clients, dates, and measurable outcomes remain explicit placeholders rather than invented information.*
+*Unknown institution names, credential titles, project dates, clients, links, and measurable outcomes remain omitted rather than invented.*
