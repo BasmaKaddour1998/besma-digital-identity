@@ -29,7 +29,7 @@ Practical AI-assisted software engineering for architecture analysis, code gener
 
 ## Financial Markets & Trading Technology
 
-Software engineering related to financial market analysis and market-data systems, including Forex, gold/XAUUSD, silver, major market indices, cryptocurrencies, DXY, technical analysis, fundamental analysis, price action, market structure, sessions, volatility, liquidity, economic news, macroeconomic conditions, external market data, and multi-factor signal analysis.
+Software engineering related to financial market analysis and market-data systems, including Forex, gold/XAUUSD, silver, major market indices, DXY, technical analysis, fundamental analysis, price action, market structure, sessions, volatility, liquidity, economic news, macroeconomic conditions, external market data, and multi-factor signal analysis.
 
 Trading-technology architecture includes market-data processing, analysis workflows, decision logic, execution logic, pending-order logic, entry validation, risk-management components, dynamic Stop Loss / Take Profit logic, profit protection, drawdown protection, exposure monitoring, margin monitoring, position management, news filtering, and market-session analysis.
 
@@ -58,7 +58,7 @@ The following projects and experience areas are included from the supplied profi
 - **Android and iOS applications:** Two mobile applications for Android and iOS.
 - **Applications and computer programs:** Software development across application and desktop-program concepts.
 - **Research in Physics & Electronics:** Technical research and practical electronics work.
-- **Financial market systems:** Software concepts for Forex and cryptocurrency technical and fundamental analysis, market data, and trading technology.
+- **Financial market systems:** Software concepts for Forex technical and fundamental analysis, market data, and trading technology.
 
 ## Technical Skills
 

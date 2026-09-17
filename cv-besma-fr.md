@@ -29,7 +29,7 @@ Ingénierie logicielle assistée par l’IA pour l’analyse d’architecture, l
 
 ## Marchés financiers et technologie du trading
 
-Ingénierie logicielle liée à l’analyse des marchés financiers et aux systèmes de données de marché, notamment le Forex, l’or/XAUUSD, l’argent, les principaux indices, les cryptomonnaies, le DXY, l’analyse technique et fondamentale, l’action des prix, la structure de marché, les sessions, la volatilité, la liquidité, les actualités économiques, les conditions macroéconomiques, les données externes et l’analyse multifactorielle des signaux.
+Ingénierie logicielle liée à l’analyse des marchés financiers et aux systèmes de données de marché, notamment le Forex, l’or/XAUUSD, l’argent, les principaux indices, le DXY, l’analyse technique et fondamentale, l’action des prix, la structure de marché, les sessions, la volatilité, la liquidité, les actualités économiques, les conditions macroéconomiques, les données externes et l’analyse multifactorielle des signaux.
 
 L’architecture de technologie du trading couvre le traitement des données de marché, les workflows d’analyse, la logique de décision et d’exécution, les ordres en attente, la validation d’entrée, les composants de gestion du risque, la logique Stop Loss / Take Profit dynamique, la protection des profits, le suivi de l’exposition et de la marge, la gestion des positions, le filtrage des actualités et l’analyse des sessions.
 
@@ -58,7 +58,7 @@ Les projets suivants proviennent uniquement des informations fournies. Aucun nom
 - **Applications Android et iOS :** deux applications mobiles pour Android et iOS.
 - **Applications et programmes informatiques :** développement d’applications et de programmes informatiques.
 - **Recherche en physique et électronique :** recherche technique et travaux pratiques en électronique.
-- **Systèmes de marchés financiers :** concepts logiciels pour l’analyse technique et fondamentale du Forex et des cryptomonnaies, les données de marché et la technologie du trading.
+- **Systèmes de marchés financiers :** concepts logiciels pour l’analyse technique et fondamentale du Forex, les données de marché et la technologie du trading.
 
 ## Compétences techniques
 
