@@ -52,17 +52,17 @@ export const focusAreas = [
 ];
 
 export const engineeringAreas = [
-  { label: "Software Engineering", short: "Systems", detail: "A home for engineering principles, implementation notes, and future case studies." },
-  { label: "Full-Stack Development", short: "Product", detail: "Interfaces, services, APIs, and the connective tissue between them." },
-  { label: "Frontend", short: "Interface", detail: "A place for interaction design, responsive systems, and interface experiments." },
-  { label: "Backend", short: "Logic", detail: "A place for service design, data flow, and resilient foundations." },
-  { label: "APIs", short: "Connect", detail: "Documented integrations and reusable product capabilities can live here." },
-  { label: "System Architecture", short: "Structure", detail: "A growing archive of diagrams, decisions, and architectural thinking." },
-  { label: "Databases", short: "Data", detail: "Reserved for data models, storage choices, and system notes." },
-  { label: "Cloud & DevOps", short: "Delivery", detail: "A future home for deployment patterns, automation, and operational notes." },
-  { label: "Cybersecurity", short: "Trust", detail: "A future home for security-minded engineering practice." },
-  { label: "Automation", short: "Flow", detail: "A place for repeatable systems, scripts, and intelligent workflows." },
-  { label: "Mobile Development", short: "Touch", detail: "Reserved for mobile products and platform experiments." },
+  { label: "Software Engineering", short: "Systems", detail: "Requirements, architecture, implementation, testing, debugging, deployment, and maintenance." },
+  { label: "Full-Stack Development", short: "Product", detail: "Web applications, dashboards, services, APIs, data, authentication, and delivery." },
+  { label: "Frontend", short: "Interface", detail: "Responsive interfaces, component architecture, API integration, and performance." },
+  { label: "Backend", short: "Logic", detail: "Business logic, production APIs, integrations, authentication, and resilient services." },
+  { label: "APIs", short: "Connect", detail: "REST APIs, third-party integrations, real-time systems, and connected products." },
+  { label: "System Architecture", short: "Structure", detail: "Clear system boundaries, data flow, maintainable structure, and technical decisions." },
+  { label: "Databases", short: "Data", detail: "PostgreSQL, MySQL, MongoDB, Firebase, data modeling, and query optimization." },
+  { label: "Cloud & DevOps", short: "Delivery", detail: "Environment configuration, cloud services, production deployment, and maintenance." },
+  { label: "Cybersecurity", short: "Trust", detail: "Authentication, security-conscious development, and systematic production debugging." },
+  { label: "Automation", short: "Flow", detail: "AI-assisted engineering, repeatable workflows, testing, documentation, and development automation." },
+  { label: "Mobile Development", short: "Touch", detail: "Flutter, React Native, Android, iOS integration, WebView architectures, and native bridges." },
 ];
 
 export const technologyCategories = [

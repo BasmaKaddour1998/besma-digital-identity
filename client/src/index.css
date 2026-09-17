@@ -48,6 +48,8 @@ section, [id] { scroll-margin-top: 88px; }
 .theme-light .section-watermark { mix-blend-mode: multiply; filter: grayscale(1) contrast(1.15) invert(1); opacity: .08; }
 .theme-light .signal-field::before { background: radial-gradient(circle, rgba(155,119,30,.12), transparent 59%); }
 .theme-light .section-philosophy { background: var(--black-soft); }
+.theme-light .button-quiet { color: var(--white); border-color: var(--line-strong); background: rgba(255,255,255,.28); }
+.theme-light .button-quiet:hover { color: var(--black); background: var(--gold); }
 ::view-transition-old(root), ::view-transition-new(root) { animation-duration: 260ms; animation-timing-function: var(--ease-in-out); }
 ::view-transition-old(root) { animation-name: rtl-fade-out; }
 ::view-transition-new(root) { animation-name: rtl-fade-in; }
@@ -466,7 +468,7 @@ section, [id] { scroll-margin-top: 88px; }
   .theme-toggle { min-width: 32px; }
   .hero { min-height: 800px; padding-top: 125px; padding-bottom: 82px; align-items: flex-start; }
   .hero > .hero-neural-video { opacity: .2; object-position: 52% center; }
-  .hero-portrait-wrap { top: 8%; right: -17%; width: 82vw; height: 72%; opacity: 1; }
+  .hero-portrait-wrap { top: 5%; right: -17%; width: 82vw; height: 72%; opacity: 1; }
   .hero-portrait { opacity: 1; }
   .is-arabic .hero-portrait-wrap { right: auto; left: -17%; }
   .portrait-frame { inset: 3% 2% 8% 10%; }
@@ -605,6 +607,9 @@ section, [id] { scroll-margin-top: 88px; }
   .is-arabic .hero-year { margin-right: 0; margin-left: 0; }
   .is-arabic .hero h1 { margin-top: 32px; font-size: clamp(35px, 11vw, 54px); line-height: 1.2; }
   .is-arabic .hero-summary { max-width: 100%; line-height: 1.9; }
+  .is-french .hero h1 { max-width: 92%; font-size: clamp(34px, 9.5vw, 50px); line-height: 1.04; }
+  .is-french .hero-summary { max-width: 92%; font-size: 12px; line-height: 1.6; }
+  .is-french .hero-kicker { gap: 6px; font-size: 8px; letter-spacing: .08em; }
   .is-arabic .section-intro, .is-arabic .about-detail-grid, .is-arabic .engineering-layout, .is-arabic .technology-layout, .is-arabic .ai-bottom, .is-arabic .fintech-layout, .is-arabic .creative-layout, .is-arabic .cv-grid, .is-arabic .experience-list, .is-arabic .empty-panel, .is-arabic .capability-grid, .is-arabic .library-grid, .is-arabic .filter-bar, .is-arabic .project-list, .is-arabic .project-footer, .is-arabic .library-footnote, .is-arabic .skill-lab-grid { direction: ltr; }
   .is-arabic .section-intro > *, .is-arabic .about-detail-grid > *, .is-arabic .engineering-layout > *, .is-arabic .technology-layout > *, .is-arabic .ai-bottom > *, .is-arabic .fintech-layout > *, .is-arabic .creative-layout > *, .is-arabic .cv-grid > *, .is-arabic .experience-list > *, .is-arabic .empty-panel > *, .is-arabic .capability-grid > *, .is-arabic .library-grid > *, .is-arabic .filter-bar > *, .is-arabic .project-list > *, .is-arabic .project-footer > *, .is-arabic .library-footnote > *, .is-arabic .skill-lab-grid > * { text-align: right; }
 }

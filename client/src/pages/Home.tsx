@@ -281,7 +281,7 @@ function Home() {
   };
 
   return (
-    <div className={`site-shell ${isArabic ? "is-arabic" : ""} ${isLight ? "theme-light" : ""}`}>
+    <div className={`site-shell ${isArabic ? "is-arabic" : ""} ${isFrench ? "is-french" : ""} ${isLight ? "theme-light" : ""}`}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
         "@graph": [
