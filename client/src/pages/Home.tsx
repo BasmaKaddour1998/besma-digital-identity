@@ -341,6 +341,9 @@ function Home() {
 
       <main id="main-content">
         <section className="hero" id="top" aria-labelledby="hero-title">
+          <video className="hero-neural-video" autoPlay loop muted playsInline preload="metadata" aria-hidden="true">
+            <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663961505897/pTXgsMEJAOjrFngH.mp4" type="video/mp4" />
+          </video>
           <SignalField />
           <div className="hero-portrait-wrap">
             <div className="portrait-frame" aria-hidden="true" />

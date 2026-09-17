@@ -68,10 +68,12 @@ section, [id] { scroll-margin-top: 88px; }
 .mobile-nav a span { color: var(--gold); font-size: 9px; }
 
 .hero { position: relative; display: flex; min-height: 100svh; padding: 150px clamp(20px, 8vw, 150px) 72px; align-items: center; border-bottom: 1px solid var(--line); isolation: isolate; }
+.hero > .hero-neural-video { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: .46; mix-blend-mode: screen; filter: saturate(.88) contrast(1.08); -webkit-mask-image: radial-gradient(ellipse at center, #000 20%, #000 68%, transparent 100%); mask-image: radial-gradient(ellipse at center, #000 20%, #000 68%, transparent 100%); pointer-events: none; }
 .hero-content { position: relative; z-index: 3; width: min(920px, 100%); }
 .hero-portrait-wrap { position: absolute; z-index: 2; top: 11%; right: clamp(24px, 8vw, 140px); width: clamp(300px, 31vw, 470px); height: 78%; pointer-events: none; }
+.hero-portrait-wrap .hero-neural-video { display: none; }
 .portrait-frame { position: absolute; inset: 4% -8% 7% 10%; border: 1px solid rgba(215,182,93,.42); transform: rotate(4deg); }
-.hero-portrait { position: absolute; right: 0; bottom: 0; width: 100%; height: 100%; object-fit: contain; object-position: center bottom; filter: grayscale(.16) contrast(1.06); mix-blend-mode: screen; opacity: .93; -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 9%, #000 83%, transparent 100%); mask-image: linear-gradient(to bottom, transparent 0%, #000 9%, #000 83%, transparent 100%); }
+.hero-portrait { position: absolute; z-index: 2; right: 0; bottom: 0; width: 100%; height: 100%; object-fit: contain; object-position: center bottom; filter: grayscale(.16) contrast(1.06); mix-blend-mode: screen; opacity: .93; -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 9%, #000 83%, transparent 100%); mask-image: linear-gradient(to bottom, transparent 0%, #000 9%, #000 83%, transparent 100%); }
 .hero-signature { position: absolute; z-index: 4; right: 8%; bottom: -5%; width: 78%; height: auto; object-fit: contain; opacity: .88; mix-blend-mode: screen; filter: grayscale(1) contrast(1.18) brightness(1.12); -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%); mask-image: linear-gradient(to right, transparent 0%, #000 8%, #000 92%, transparent 100%); }
 .portrait-caption { position: absolute; right: -18px; bottom: 10%; color: var(--gold); font-family: monospace; font-size: 9px; letter-spacing: .16em; transform: rotate(-90deg); }
 .hero-kicker { display: flex; align-items: center; gap: 10px; margin-bottom: 38px; color: var(--muted); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; }
@@ -129,6 +131,7 @@ section, [id] { scroll-margin-top: 88px; }
 @keyframes orbit { from { transform: rotate(30deg); } to { transform: rotate(390deg); } }
 @keyframes orbit-reverse { from { transform: rotate(60deg); } to { transform: rotate(-300deg); } }
 @keyframes pulse { 0%,100% { opacity: .35; transform: scale(.8); } 50% { opacity: 1; transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) { .hero-neural-video { display: none; } }
 
 .section { padding: clamp(96px, 13vw, 180px) clamp(20px, 8vw, 150px); border-bottom: 1px solid var(--line); }
 .has-scroll-reveal .scroll-section:not(.is-visible) { opacity: 0; transform: translateY(24px); }
