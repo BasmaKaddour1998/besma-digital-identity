@@ -101,11 +101,11 @@ export const aiAreas = [
 
 export const financialTechnologyAreas = [
   { en: "Market-data engineering", ar: "هندسة بيانات الأسواق", detailEn: "Processing external market data, technical signals, sessions, volatility, liquidity, and macro conditions.", detailAr: "معالجة بيانات الأسواق الخارجية والإشارات الفنية والجلسات والتذبذب والسيولة والظروف الاقتصادية الكلية." },
-  { en: "Decision and execution engines", ar: "محركات القرار والتنفيذ", detailEn: "Connecting analysis to entry validation, pending orders, execution, and position management.", detailAr: "ربط التحليل بالتحقق من الدخول والأوامر المعلقة والتنفيذ وإدارة الصفقات." },
-  { en: "Risk and capital protection", ar: "إدارة المخاطر وحماية رأس المال", detailEn: "Engineering logic for exposure, margin, drawdown, dynamic SL/TP, and profit protection.", detailAr: "هندسة منطق التعرض والهامش والسحب وإيقاف الخسارة والهدف الديناميكي وحماية الأرباح." },
+  { en: "Financial market analysis", ar: "تحليل الأسواق المالية", detailEn: "Designing analytical workflows for price structure, volatility, liquidity, sessions, and macroeconomic context.", detailAr: "تصميم مسارات تحليلية لبنية الأسعار والتذبذب والسيولة والجلسات والسياق الاقتصادي الكلي." },
+  { en: "Market systems engineering", ar: "هندسة أنظمة الأسواق", detailEn: "Building software systems for research, monitoring, visualization, reporting, and disciplined financial analysis.", detailAr: "بناء أنظمة برمجية للبحث والمراقبة والتصور وإعداد التقارير والتحليل المالي المنضبط." },
 ];
 
-export const marketCoverage = ["Forex", "Gold / XAUUSD", "Silver", "Major indices", "Cryptocurrencies", "DXY", "US Treasury yields"];
+export const marketCoverage = ["Equities", "Fixed income", "Foreign exchange", "Commodities", "Major indices", "DXY", "US Treasury yields"];
 
 export const projects: Project[] = [
   {

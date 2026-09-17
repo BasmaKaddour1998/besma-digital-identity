@@ -476,10 +476,10 @@ function Home() {
 
         <section className="section section-fintech scroll-section" id="fintech" aria-labelledby="fintech-title">
           <SectionIntro index="06" label={tx("Financial technology", "التقنية المالية")} title={tx("MARKET SYSTEMS", "أنظمة الأسواق")}>
-            <p className="intro-copy">{tx("Software engineering for financial systems — from market data and analysis to decision, execution, risk, and monitoring.", "هندسة برمجيات للأنظمة المالية — من بيانات السوق والتحليل إلى القرار والتنفيذ وإدارة المخاطر والمراقبة.")}</p>
+            <p className="intro-copy">{tx("Software engineering for financial market analysis, monitoring, visualization, and research systems.", "هندسة برمجيات لتحليل الأسواق المالية ومراقبتها وتصوير بياناتها وبناء أنظمة البحث.")}</p>
           </SectionIntro>
           <div className="fintech-layout">
-            <div className="market-coverage"><span className="eyebrow">{tx("Market coverage", "نطاق الأسواق")}</span><div>{marketCoverage.map((market, index) => <span key={market}>{isArabic ? ["الفوركس", "الذهب / XAUUSD", "الفضة", "المؤشرات الرئيسية", "العملات الرقمية", "مؤشر الدولار DXY", "عوائد الخزانة الأمريكية"][index] : market}</span>)}</div><p>{tx("This is software engineering and market-analysis infrastructure, not financial advice or a profit guarantee.", "هذا عمل في هندسة البرمجيات وبنية تحليل الأسواق، وليس استشارة مالية أو ضماناً للأرباح.")}</p></div>
+            <div className="market-coverage"><span className="eyebrow">{tx("Market coverage", "نطاق الأسواق")}</span><div>{marketCoverage.map((market, index) => <span key={market}>{isArabic ? ["الأسهم", "الدخل الثابت", "أسواق الصرف", "السلع", "المؤشرات الرئيسية", "مؤشر الدولار DXY", "عوائد الخزانة الأمريكية"][index] : market}</span>)}</div><p>{tx("This is software engineering for financial market analysis and monitoring, not financial advice or a profit guarantee.", "هذا عمل في هندسة البرمجيات لتحليل الأسواق المالية ومراقبتها، وليس استشارة مالية أو ضماناً للأرباح.")}</p></div>
             <div className="fintech-cards">{financialTechnologyAreas.map((area, index) => <article key={area.en}><span>0{index + 1}</span><h3>{isArabic ? area.ar : area.en}</h3><p>{isArabic ? area.detailAr : area.detailEn}</p></article>)}</div>
           </div>
         </section>

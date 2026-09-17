@@ -463,7 +463,7 @@ section, [id] { scroll-margin-top: 88px; }
   .theme-toggle { min-width: 32px; }
   .hero { min-height: 800px; padding-top: 125px; padding-bottom: 82px; align-items: flex-start; }
   .hero > .hero-neural-video { opacity: .2; object-position: 52% center; }
-  .hero-portrait-wrap { top: 15%; right: -25%; width: 82vw; height: 61%; opacity: 1; }
+  .hero-portrait-wrap { top: 15%; right: -17%; width: 82vw; height: 72%; opacity: 1; }
   .hero-portrait { opacity: 1; }
   .is-arabic .hero-portrait-wrap { right: auto; left: -25%; }
   .portrait-frame { inset: 3% 2% 8% 10%; }
@@ -588,7 +588,7 @@ section, [id] { scroll-margin-top: 88px; }
 .is-arabic .section-intro > *, .is-arabic .about-detail-grid > *, .is-arabic .engineering-layout > *, .is-arabic .technology-layout > *, .is-arabic .ai-bottom > *, .is-arabic .fintech-layout > *, .is-arabic .creative-layout > *, .is-arabic .cv-grid > *, .is-arabic .skill-lab-grid > * { text-align: right; }
 
 @media (max-width: 590px) {
-  .is-arabic .hero-portrait-wrap { right: -25%; left: auto; }
+  .is-arabic .hero-portrait-wrap { right: -17%; left: auto; }
   .is-arabic .portrait-caption { right: 4px; left: auto; }
   .is-arabic .section-intro, .is-arabic .about-detail-grid, .is-arabic .engineering-layout, .is-arabic .technology-layout, .is-arabic .ai-bottom, .is-arabic .fintech-layout, .is-arabic .creative-layout, .is-arabic .cv-grid, .is-arabic .experience-list, .is-arabic .empty-panel, .is-arabic .capability-grid, .is-arabic .library-grid, .is-arabic .filter-bar, .is-arabic .project-list, .is-arabic .project-footer, .is-arabic .library-footnote, .is-arabic .skill-lab-grid { margin-right: 0; margin-left: 0; }
   .is-arabic .creative-watermark { right: -12%; left: auto; }
