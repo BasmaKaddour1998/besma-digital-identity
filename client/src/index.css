@@ -430,8 +430,10 @@ section, [id] { scroll-margin-top: 88px; }
   .language-toggle { margin-left: auto; margin-right: 8px; }
   .theme-toggle { margin-left: 0; }
   .hero { padding-right: 20px; padding-left: 20px; }
+  .hero > .hero-neural-video { opacity: .28; object-position: center center; }
   .signal-field { top: 18%; right: -25%; width: 110vw; height: 110vw; opacity: .3; }
-  .hero-portrait-wrap { top: 13%; right: -9%; width: min(55vw, 410px); height: 70%; opacity: .42; }
+  .hero-portrait-wrap { top: 13%; right: -9%; width: min(55vw, 410px); height: 70%; opacity: 1; }
+  .hero-portrait { opacity: .98; }
   .is-arabic .hero-content { width: 100%; margin-right: 0; }
   .is-arabic .hero-portrait-wrap { right: auto; left: -9%; }
   .portrait-frame { inset: 4% -6% 8% 8%; }
@@ -460,10 +462,12 @@ section, [id] { scroll-margin-top: 88px; }
   .language-toggle { min-width: 32px; margin-right: 2px; }
   .theme-toggle { min-width: 32px; }
   .hero { min-height: 800px; padding-top: 125px; padding-bottom: 82px; align-items: flex-start; }
-  .hero-portrait-wrap { top: 15%; right: -25%; width: 82vw; height: 61%; opacity: .25; }
+  .hero > .hero-neural-video { opacity: .2; object-position: 52% center; }
+  .hero-portrait-wrap { top: 15%; right: -25%; width: 82vw; height: 61%; opacity: 1; }
+  .hero-portrait { opacity: 1; }
   .is-arabic .hero-portrait-wrap { right: auto; left: -25%; }
   .portrait-frame { inset: 3% 2% 8% 10%; }
-  .hero-signature { right: 0; bottom: -4%; width: 58%; opacity: .68; }
+  .hero-signature { right: 0; bottom: -4%; width: 58%; opacity: .92; }
   .portrait-caption { right: 4px; bottom: 13%; }
   .hero-kicker { flex-wrap: wrap; margin-bottom: 32px; font-size: 8px; line-height: 1.4; }
   .hero-year { width: 100%; margin: 8px 0 0 16px; }
