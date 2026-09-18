@@ -621,3 +621,11 @@ section, [id] { scroll-margin-top: 88px; }
   .is-arabic .section-intro, .is-arabic .about-detail-grid, .is-arabic .engineering-layout, .is-arabic .technology-layout, .is-arabic .ai-bottom, .is-arabic .data-layout, .is-arabic .creative-layout, .is-arabic .cv-grid, .is-arabic .experience-list, .is-arabic .empty-panel, .is-arabic .capability-grid, .is-arabic .library-grid, .is-arabic .filter-bar, .is-arabic .project-list, .is-arabic .project-footer, .is-arabic .library-footnote, .is-arabic .skill-lab-grid { direction: ltr; }
   .is-arabic .section-intro > *, .is-arabic .about-detail-grid > *, .is-arabic .engineering-layout > *, .is-arabic .technology-layout > *, .is-arabic .ai-bottom > *, .is-arabic .data-layout > *, .is-arabic .creative-layout > *, .is-arabic .cv-grid > *, .is-arabic .experience-list > *, .is-arabic .empty-panel > *, .is-arabic .capability-grid > *, .is-arabic .library-grid > *, .is-arabic .filter-bar > *, .is-arabic .project-list > *, .is-arabic .project-footer > *, .is-arabic .library-footnote > *, .is-arabic .skill-lab-grid > * { text-align: right; }
 }
+
+.runtime-fallback { min-height: 100vh; display: grid; place-items: center; padding: 32px; color: #f2f0ea; background: radial-gradient(circle at 50% 20%, #2a1d3f, #111018 58%, #080808); font-family: 'Space Grotesk', system-ui, sans-serif; text-align: center; }
+.runtime-fallback-card { width: min(520px, 100%); padding: clamp(28px, 7vw, 60px); border: 1px solid rgba(215,182,93,.5); background: rgba(18,16,24,.92); box-shadow: 0 24px 80px rgba(0,0,0,.42); }
+.runtime-fallback-label { color: #d7b65d; font-size: 11px; letter-spacing: .18em; }
+.runtime-fallback h1 { margin: 18px 0 12px; font-size: clamp(28px, 7vw, 52px); font-weight: 300; }
+.runtime-fallback p { margin: 0 auto 26px; max-width: 340px; color: #b7b0c2; font-size: 14px; line-height: 1.65; }
+.runtime-fallback button { min-height: 44px; padding: 0 18px; color: #0a0a09; background: #f2f0ea; border: 1px solid #f2f0ea; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; cursor: pointer; }
+.runtime-fallback button:hover { color: #0a0a09; background: #d7b65d; border-color: #d7b65d; }

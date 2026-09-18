@@ -1,5 +1,44 @@
+import { Component, type ErrorInfo, type ReactNode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
 
-createRoot(document.getElementById("root")!).render(<App />);
+type BoundaryProps = { children: ReactNode };
+type BoundaryState = { hasError: boolean };
+
+class AppErrorBoundary extends Component<BoundaryProps, BoundaryState> {
+  state: BoundaryState = { hasError: false };
+
+  static getDerivedStateFromError(): BoundaryState {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error: Error, info: ErrorInfo) {
+    console.error("Portfolio application error", error, info);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <main className="runtime-fallback" role="alert">
+          <div className="runtime-fallback-card">
+            <span className="runtime-fallback-label">BESMA KADDOUR</span>
+            <h1>Software Engineer</h1>
+            <p>The portfolio is temporarily refreshing. Please reload the page.</p>
+            <button type="button" onClick={() => window.location.reload()}>Reload portfolio</button>
+          </div>
+        </main>
+      );
+    }
+    return this.props.children;
+  }
+}
+
+const root = document.getElementById("root");
+if (root) {
+  createRoot(root).render(
+    <AppErrorBoundary>
+      <App />
+    </AppErrorBoundary>,
+  );
+}
