@@ -201,7 +201,7 @@ function Home() {
   const [activeEngineering, setActiveEngineering] = useState(0);
   const [activeCategory, setActiveCategory] = useState("ALL");
   const [notice, setNotice] = useState("");
-  const [theme, setTheme] = useState<"dark" | "light">(() => window.localStorage.getItem("besma-theme") === "light" ? "light" : "dark");
+  const [theme, setTheme] = useState<"dark" | "light">(() => window.localStorage.getItem("besma-theme-v2") === "dark" ? "dark" : "light");
   const isArabic = language === "ar";
   const isFrench = language === "fr";
   const isLight = theme === "light";
@@ -237,7 +237,7 @@ function Home() {
   }, [isArabic, language]);
 
   useEffect(() => {
-    window.localStorage.setItem("besma-theme", theme);
+    window.localStorage.setItem("besma-theme-v2", theme);
   }, [theme]);
 
   useEffect(() => {
