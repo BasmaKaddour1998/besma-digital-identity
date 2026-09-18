@@ -1,10 +1,23 @@
 import { Component, type ErrorInfo, type ReactNode } from "react";
 import { createRoot } from "react-dom/client";
-import App from "./App";
 import "./index.css";
 
 type BoundaryProps = { children: ReactNode };
 type BoundaryState = { hasError: boolean };
+
+function showRuntimeFallback() {
+  const root = document.getElementById("root");
+  if (!root) return;
+  root.innerHTML = `
+    <main class="runtime-fallback" role="alert">
+      <div class="runtime-fallback-card">
+        <span class="runtime-fallback-label">BESMA KADDOUR</span>
+        <h1>Software Engineer</h1>
+        <p>The portfolio could not finish loading in this browser. Please open it in Chrome, Safari, or Firefox.</p>
+        <button type="button" onclick="window.location.reload()">Reload portfolio</button>
+      </div>
+    </main>`;
+}
 
 class AppErrorBoundary extends Component<BoundaryProps, BoundaryState> {
   state: BoundaryState = { hasError: false };
@@ -36,9 +49,18 @@ class AppErrorBoundary extends Component<BoundaryProps, BoundaryState> {
 
 const root = document.getElementById("root");
 if (root) {
-  createRoot(root).render(
-    <AppErrorBoundary>
-      <App />
-    </AppErrorBoundary>,
-  );
+  // Load the app separately so stale cached chunks show a useful message
+  // instead of leaving the user with a blank dark page.
+  import("./App")
+    .then(({ default: App }) => {
+      createRoot(root).render(
+        <AppErrorBoundary>
+          <App />
+        </AppErrorBoundary>,
+      );
+    })
+    .catch((error: unknown) => {
+      console.error("Portfolio bootstrap error", error);
+      showRuntimeFallback();
+    });
 }
