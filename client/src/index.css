@@ -75,6 +75,7 @@ section, [id] { scroll-margin-top: 88px; }
 
 .hero { position: relative; display: flex; min-height: 100vh; min-height: 100svh; overflow: hidden; padding: 150px clamp(20px, 8vw, 150px) 72px; align-items: center; border-bottom: 1px solid var(--line); isolation: isolate; }
 .hero > .hero-neural-video { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; opacity: .46; mix-blend-mode: screen; filter: saturate(.88) contrast(1.08); -webkit-mask-image: radial-gradient(ellipse at center, #000 20%, #000 68%, transparent 100%); mask-image: radial-gradient(ellipse at center, #000 20%, #000 68%, transparent 100%); pointer-events: none; }
+.hero > .hero-neural-backdrop { background: radial-gradient(ellipse at 56% 48%, rgba(117,82,173,.52) 0%, rgba(52,37,73,.42) 25%, rgba(12,12,12,.08) 62%), radial-gradient(circle at 28% 32%, rgba(215,182,93,.26), transparent 28%), #0a0a09; }
 .hero-content { position: relative; z-index: 3; width: min(920px, 100%); }
 .hero-portrait-wrap { position: absolute; z-index: 2; top: 11%; right: clamp(24px, 8vw, 140px); width: clamp(300px, 31vw, 470px); height: 78%; pointer-events: none; }
 .hero-portrait-wrap .hero-neural-video { display: none; }
