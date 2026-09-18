@@ -140,7 +140,8 @@ section, [id] { scroll-margin-top: 88px; }
 @media (prefers-reduced-motion: reduce) { .hero-neural-video { display: none; } }
 
 .section { padding: clamp(96px, 13vw, 180px) clamp(20px, 8vw, 150px); border-bottom: 1px solid var(--line); }
-.has-scroll-reveal .scroll-section:not(.is-visible) { opacity: 0; transform: translateY(24px); }
+/* Keep content visible even when a browser delays or omits IntersectionObserver callbacks. */
+.has-scroll-reveal .scroll-section:not(.is-visible):not(.hero) { opacity: 1; transform: none; }
 .scroll-section { transition: opacity 520ms var(--ease-out), transform 520ms var(--ease-out); }
 .scroll-section.is-visible { opacity: 1; transform: translateY(0); }
 .section-lab { background: linear-gradient(135deg, var(--black-soft), var(--black)); }
