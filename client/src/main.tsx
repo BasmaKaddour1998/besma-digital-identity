@@ -1,5 +1,6 @@
 import { Component, type ErrorInfo, type ReactNode } from "react";
 import { createRoot } from "react-dom/client";
+import App from "./App";
 import "./index.css";
 
 type BoundaryProps = { children: ReactNode };
@@ -49,18 +50,9 @@ class AppErrorBoundary extends Component<BoundaryProps, BoundaryState> {
 
 const root = document.getElementById("root");
 if (root) {
-  // Load the app separately so stale cached chunks show a useful message
-  // instead of leaving the user with a blank dark page.
-  import("./App")
-    .then(({ default: App }) => {
-      createRoot(root).render(
-        <AppErrorBoundary>
-          <App />
-        </AppErrorBoundary>,
-      );
-    })
-    .catch((error: unknown) => {
-      console.error("Portfolio bootstrap error", error);
-      showRuntimeFallback();
-    });
+  createRoot(root).render(
+    <AppErrorBoundary>
+      <App />
+    </AppErrorBoundary>,
+  );
 }
