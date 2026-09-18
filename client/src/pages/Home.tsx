@@ -122,7 +122,7 @@ function HeroVideo() {
   return (
     <>
       <video ref={videoRef} className="hero-neural-video" autoPlay loop muted playsInline preload="metadata" controls={false} aria-hidden="true">
-        <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663961505897/pTXgsMEJAOjrFngH.mp4" type="video/mp4" />
+      <source src="/assets/hero-neural.mp4" type="video/mp4" />
       </video>
       {needsPlay && <button type="button" className="video-playback-button" onClick={() => { const video = videoRef.current; if (video) { video.muted = true; video.play().then(() => setNeedsPlay(false)).catch(() => setNeedsPlay(true)); } }}>{"تشغيل الخلفية"}</button>}
     </>
