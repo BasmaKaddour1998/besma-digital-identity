@@ -40,6 +40,22 @@ type AccentLinkProps = {
   onClick?: () => void;
 };
 
+function readStoredValue(key: string) {
+  try {
+    return window.localStorage.getItem(key);
+  } catch {
+    return null;
+  }
+}
+
+function writeStoredValue(key: string, value: string) {
+  try {
+    window.localStorage.setItem(key, value);
+  } catch {
+    // Some mobile browsers block storage; the site remains fully usable without persistence.
+  }
+}
+
 function AccentLink({ href, children, onClick }: AccentLinkProps) {
   return (
     <a className="accent-link" href={href} onClick={onClick}>
@@ -191,7 +207,7 @@ function QrIdentity({ isArabic, tx }: { isArabic: boolean; tx: (en: string, ar: 
 
 function Home() {
   const [language, setLanguage] = useState<"en" | "ar" | "fr">(() => {
-    const saved = window.localStorage.getItem("besma-language");
+    const saved = readStoredValue("besma-language");
     if (saved === "ar" || saved === "en" || saved === "fr") return saved;
     if (window.navigator.language.toLowerCase().startsWith("fr")) return "fr";
     return window.navigator.language.toLowerCase().startsWith("ar") ? "ar" : "en";
@@ -201,7 +217,7 @@ function Home() {
   const [activeEngineering, setActiveEngineering] = useState(0);
   const [activeCategory, setActiveCategory] = useState("ALL");
   const [notice, setNotice] = useState("");
-  const [theme, setTheme] = useState<"dark" | "light">(() => window.localStorage.getItem("besma-theme-v2") === "dark" ? "dark" : "light");
+  const [theme, setTheme] = useState<"dark" | "light">(() => readStoredValue("besma-theme") === "light" ? "light" : "dark");
   const isArabic = language === "ar";
   const isFrench = language === "fr";
   const isLight = theme === "light";
@@ -233,11 +249,11 @@ function Home() {
   useEffect(() => {
     document.documentElement.lang = language;
     document.documentElement.dir = isArabic ? "rtl" : "ltr";
-    window.localStorage.setItem("besma-language", language);
+    writeStoredValue("besma-language", language);
   }, [isArabic, language]);
 
   useEffect(() => {
-    window.localStorage.setItem("besma-theme-v2", theme);
+    writeStoredValue("besma-theme", theme);
   }, [theme]);
 
   useEffect(() => {
