@@ -33,6 +33,7 @@ export const navigation = [
   { label: "Work", href: "#work" },
   { label: "Engineering", href: "#engineering" },
   { label: "AI", href: "#ai" },
+  { label: "Data Systems", href: "#data-systems" },
   { label: "Lab", href: "#lab" },
   { label: "Creative", href: "#creative" },
   { label: "Experience", href: "#experience" },

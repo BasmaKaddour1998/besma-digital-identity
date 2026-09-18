@@ -280,7 +280,7 @@ function Home() {
     else update();
   };
   const switchTheme = () => setTheme((current) => current === "dark" ? "light" : "dark");
-  const navItems = isArabic ? ["عنّي", "الأعمال", "الهندسة", "الذكاء الاصطناعي", "أنظمة البيانات", "المختبر", "الإبداع", "الخبرة", "تواصل"] : isFrench ? ["À PROPOS", "PROJETS", "INGÉNIERIE", "IA", "DATA SYSTEMS", "LABORATOIRE", "CRÉATIF", "EXPÉRIENCE", "CONTACT"] : navigation.map((item) => item.label);
+  const navItems = isArabic ? ["عنّي", "الأعمال", "الهندسة", "الذكاء الاصطناعي", "أنظمة البيانات", "المختبر", "الإبداع", "الخبرة", "تواصل"] : isFrench ? ["À PROPOS", "PROJETS", "INGÉNIERIE", "IA", "SYSTÈMES DE DONNÉES", "LABORATOIRE", "CRÉATIF", "EXPÉRIENCE", "CONTACT"] : navigation.map((item) => item.label);
   const aboutItems = isArabic ? ["الخلفية", "الهندسة", "الذكاء الاصطناعي", "تطوير المنتجات", "العمل الإبداعي", "الفلسفة"] : ["Background", "Engineering", "AI", "Product Development", "Creative Work", "Philosophy"];
   const categories = isArabic ? ["الكل", "الذكاء الاصطناعي", "البرمجيات", "الويب", "الهاتف", "الأنظمة", "الإبداع"] : isFrench ? ["TOUT", "IA", "LOGICIEL", "WEB", "MOBILE", "SYSTÈMES", "CRÉATIF"] : ["ALL", "AI", "SOFTWARE", "WEB", "MOBILE", "SYSTEMS", "CREATIVE"];
 
