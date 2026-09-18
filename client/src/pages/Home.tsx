@@ -95,13 +95,15 @@ function SignalField() {
 
 function HeroVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [needsPlay, setNeedsPlay] = useState(false);
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
     video.muted = true;
     const play = () => {
-      video.play().catch(() => {
+      video.play().then(() => setNeedsPlay(false)).catch(() => {
         // Mobile browsers may wait for the first gesture; the listeners below retry safely.
+        setNeedsPlay(true);
       });
     };
     const retryOnInteraction = () => play();
@@ -118,9 +120,12 @@ function HeroVideo() {
     };
   }, []);
   return (
-    <video ref={videoRef} className="hero-neural-video" autoPlay loop muted playsInline preload="metadata" controls={false} aria-hidden="true">
-      <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663961505897/pTXgsMEJAOjrFngH.mp4" type="video/mp4" />
-    </video>
+    <>
+      <video ref={videoRef} className="hero-neural-video" autoPlay loop muted playsInline preload="metadata" controls={false} aria-hidden="true">
+        <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663961505897/pTXgsMEJAOjrFngH.mp4" type="video/mp4" />
+      </video>
+      {needsPlay && <button type="button" className="video-playback-button" onClick={() => { const video = videoRef.current; if (video) { video.muted = true; video.play().then(() => setNeedsPlay(false)).catch(() => setNeedsPlay(true)); } }}>{"تشغيل الخلفية"}</button>}
+    </>
   );
 }
 
