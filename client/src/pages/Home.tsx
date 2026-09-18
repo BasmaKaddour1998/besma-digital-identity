@@ -93,6 +93,37 @@ function SignalField() {
   );
 }
 
+function HeroVideo() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = true;
+    const play = () => {
+      video.play().catch(() => {
+        // Mobile browsers may wait for the first gesture; the listeners below retry safely.
+      });
+    };
+    const retryOnInteraction = () => play();
+    video.addEventListener("loadedmetadata", play);
+    document.addEventListener("visibilitychange", play);
+    window.addEventListener("pointerdown", retryOnInteraction, { passive: true });
+    window.addEventListener("touchstart", retryOnInteraction, { passive: true });
+    play();
+    return () => {
+      video.removeEventListener("loadedmetadata", play);
+      document.removeEventListener("visibilitychange", play);
+      window.removeEventListener("pointerdown", retryOnInteraction);
+      window.removeEventListener("touchstart", retryOnInteraction);
+    };
+  }, []);
+  return (
+    <video ref={videoRef} className="hero-neural-video" autoPlay loop muted playsInline preload="metadata" controls={false} aria-hidden="true">
+      <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663961505897/pTXgsMEJAOjrFngH.mp4" type="video/mp4" />
+    </video>
+  );
+}
+
 function useScrollReveal<T extends HTMLElement>(threshold = 0.2) {
   const ref = useRef<T>(null);
   const [visible, setVisible] = useState(false);
@@ -358,9 +389,7 @@ function Home() {
 
       <main id="main-content">
         <section className="hero" id="top" aria-labelledby="hero-title">
-          <video className="hero-neural-video" autoPlay loop muted playsInline preload="auto" controls={false} aria-hidden="true">
-            <source src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663961505897/pTXgsMEJAOjrFngH.mp4" type="video/mp4" />
-          </video>
+          <HeroVideo />
           <SignalField />
           <div className="hero-portrait-wrap">
             <div className="portrait-frame" aria-hidden="true" />
