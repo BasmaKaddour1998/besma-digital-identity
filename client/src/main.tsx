@@ -29,6 +29,14 @@ class AppErrorBoundary extends Component<BoundaryProps, BoundaryState> {
 
   componentDidCatch(error: Error, info: ErrorInfo) {
     console.error("Portfolio application error", error, info);
+    try {
+      if (window.sessionStorage.getItem("besma-recovered") !== "1") {
+        window.sessionStorage.setItem("besma-recovered", "1");
+        window.location.replace(`${window.location.pathname}?recover=${Date.now()}`);
+      }
+    } catch {
+      // If storage is unavailable, keep the readable fallback below.
+    }
   }
 
   render() {
