@@ -4,7 +4,7 @@ import App from "./App";
 import "./index.css";
 
 type BoundaryProps = { children: ReactNode };
-type BoundaryState = { hasError: boolean };
+type BoundaryState = { hasError: boolean; message: string };
 
 function showRuntimeFallback() {
   const root = document.getElementById("root");
@@ -21,10 +21,10 @@ function showRuntimeFallback() {
 }
 
 class AppErrorBoundary extends Component<BoundaryProps, BoundaryState> {
-  state: BoundaryState = { hasError: false };
+  state: BoundaryState = { hasError: false, message: "" };
 
-  static getDerivedStateFromError(): BoundaryState {
-    return { hasError: true };
+  static getDerivedStateFromError(error: Error): BoundaryState {
+    return { hasError: true, message: error?.message || "Unknown browser error" };
   }
 
   componentDidCatch(error: Error, info: ErrorInfo) {
@@ -47,6 +47,7 @@ class AppErrorBoundary extends Component<BoundaryProps, BoundaryState> {
             <span className="runtime-fallback-label">BESMA KADDOUR</span>
             <h1>Software Engineer</h1>
             <p>The portfolio is temporarily refreshing. Please reload the page.</p>
+            <small style={{ display: "block", marginTop: 18, color: "#8f8998", fontSize: 11, wordBreak: "break-word" }}>{this.state.message}</small>
             <button type="button" onClick={() => window.location.reload()}>Reload portfolio</button>
           </div>
         </main>
