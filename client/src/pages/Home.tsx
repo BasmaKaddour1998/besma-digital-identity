@@ -130,6 +130,10 @@ function useScrollReveal<T extends HTMLElement>(threshold = 0.2) {
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
+    if (typeof window.IntersectionObserver === "undefined") {
+      setVisible(true);
+      return;
+    }
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         setVisible(true);
@@ -178,6 +182,10 @@ function SkillLab({ isArabic, tx }: { isArabic: boolean; tx: (en: string, ar: st
   useEffect(() => {
     const node = labRef.current;
     if (!node) return;
+    if (typeof window.IntersectionObserver === "undefined") {
+      setIsVisible(true);
+      return;
+    }
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
         setIsVisible(true);
@@ -290,6 +298,10 @@ function Home() {
   useEffect(() => {
     const sections = Array.from(document.querySelectorAll<HTMLElement>(".scroll-section"));
     document.documentElement.classList.add("has-scroll-reveal");
+    if (typeof window.IntersectionObserver === "undefined") {
+      sections.forEach((section) => section.classList.add("is-visible"));
+      return () => document.documentElement.classList.remove("has-scroll-reveal");
+    }
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
