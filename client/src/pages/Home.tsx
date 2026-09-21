@@ -356,7 +356,7 @@ function Home() {
             "description": "Software engineer designing professional software and applications for financial market analysis, web, mobile, AI, and data systems.",
             "knowsAbout": ["Financial market analysis software", "Financial market analysis applications", "Full-stack software engineering", "Artificial intelligence", "Web and mobile applications"],
             "url": window.location.origin,
-            "image": `${window.location.origin}/assets/besma-portrait.png`
+            "image": `${window.location.origin}/Link.jpeg`
           },
           {
             "@type": "WebSite",
