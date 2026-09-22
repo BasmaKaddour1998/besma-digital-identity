@@ -114,5 +114,3 @@ Arabic and English.
 ---
 
 © 2024–2026 BESMA KADDOUR — ALL RIGHTS RESERVED
-
-*Unknown institution names, credential titles, project dates, clients, links, and measurable outcomes remain omitted rather than invented.*

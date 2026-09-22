@@ -111,5 +111,3 @@ Arabe et anglais.
 ---
 
 © 2024–2026 BESMA KADDOUR — TOUS DROITS RÉSERVÉS
-
-*Les noms d’établissements, clients, dates, liens et résultats non fournis ont été omis plutôt qu’inventés.*

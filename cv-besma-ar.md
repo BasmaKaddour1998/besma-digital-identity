@@ -111,5 +111,3 @@ Git وGitHub وnpm وGradle وAndroid Studio وXcode وVercel وRender وإعد�
 ---
 
 © 2024–2026 BESMA KADDOUR — جميع الحقوق محفوظة
-
-*تم حذف أسماء المؤسسات والعملاء والتواريخ والروابط والنتائج غير المقدمة بدل اختلاقها.*
