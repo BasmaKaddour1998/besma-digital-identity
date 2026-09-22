@@ -100,7 +100,7 @@ export const aiAreas = [
 ];
 
 export const dataResearchAreas = [
-  { en: "Financial market analysis software", ar: "برمجيات تحليل الأسواق المالية", detailEn: "Designing professional software and applications for financial market analysis, visualization, monitoring, and research.", detailAr: "تصميم برامج وتطبيقات احترافية لتحليل الأسواق المالية وتصوير بياناتها ومراقبتها والبحث فيها." },
+  { en: "Data analysis systems", ar: "أنظمة تحليل البيانات", detailEn: "Designing professional software and applications for data processing, visualization, monitoring, and research.", detailAr: "تصميم برامج وتطبيقات احترافية لمعالجة البيانات وتصويرها ومراقبتها والبحث فيها." },
   { en: "Research workflows", ar: "مسارات البحث", detailEn: "Designing clear workflows for investigation, analysis, visualization, and documentation.", detailAr: "تصميم مسارات واضحة للتحقيق والتحليل والتصور والتوثيق." },
   { en: "Systems monitoring", ar: "مراقبة الأنظمة", detailEn: "Building software for observability, reporting, quality checks, and dependable operations.", detailAr: "بناء برمجيات للرصد وإعداد التقارير وفحوص الجودة والتشغيل الموثوق." },
 ];

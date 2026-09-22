@@ -1,13 +1,13 @@
 # BESMA KADDOUR
 
 ## Full Stack Software Engineer · AI-Assisted Software Engineer
-### Web & Mobile Applications · Software Systems · Financial Market Analysis Software
+### Web & Mobile Applications · Software Systems · Data & Research Systems
 
 **Contact:** WhatsApp · Email · [LinkedIn](https://www.linkedin.com/in/beasma-kaddour-6b32312b8) · [GitHub](https://github.com/BasmaKaddour1998)
 
 ## Professional Summary
 
-Full Stack Software Engineer designing professional software and applications for financial market analysis, alongside web applications, mobile applications, backend systems, dashboards, digital platforms, AI-assisted development, and automation. Works across requirements, architecture, UI/UX implementation, frontend and backend development, database design, REST APIs, authentication, third-party integrations, testing, debugging, deployment, production maintenance, and performance optimization.
+Full Stack Software Engineer designing web applications, mobile applications, backend systems, dashboards, digital platforms, data and research systems, AI-assisted development workflows, and automation solutions. Works across requirements, architecture, UI/UX implementation, frontend and backend development, database design, REST APIs, authentication, third-party integrations, testing, debugging, deployment, production maintenance, and performance optimization.
 
 AI is used as an engineering tool for codebase analysis, code generation and review, debugging, refactoring, testing, documentation, technical investigation, and development automation. Engineering judgment, validation, and production integration remain central to the workflow.
 
@@ -27,9 +27,9 @@ AI is used as an engineering tool for codebase analysis, code generation and rev
 
 Practical AI-assisted software engineering for architecture analysis, code generation, code review, debugging, refactoring, testing, documentation, problem solving, multi-file changes, and development automation. Experience areas include AI applications, conversational interfaces, AI agents, and intelligent automation workflows. Tools and working patterns include Claude Code, OpenCode, AI coding agents, engineering review, validation, and production integration.
 
-## Financial Market Analysis Software & Applications
+## Data & Research Systems
 
-Professional software engineering for financial market analysis, data processing, visualization, dashboards, research workflows, reporting, structured information, and multi-factor analysis.
+Professional software engineering for data processing, visualization, dashboards, research workflows, reporting, structured information, and analysis.
 
 Systems architecture includes data ingestion, validation, transformation, decision-support workflows, monitoring, reporting, access control, and reliable user experiences.
 

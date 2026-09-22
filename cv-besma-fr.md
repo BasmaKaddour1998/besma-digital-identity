@@ -1,13 +1,13 @@
 # BESMA KADDOUR
 
 ## Ingénieure logiciel Full Stack · Ingénieure logiciel assistée par l’IA
-### Applications web et mobiles · Systèmes logiciels · Logiciels d’analyse des marchés financiers
+### Applications web et mobiles · Systèmes logiciels · Systèmes de données et de recherche
 
 **Contact :** WhatsApp · Email · [LinkedIn](https://www.linkedin.com/in/beasma-kaddour-6b32312b8) · [GitHub](https://github.com/BasmaKaddour1998)
 
 ## Profil professionnel
 
-Ingénieure logiciel concevant des logiciels et applications professionnels pour l’analyse des marchés financiers, ainsi que des applications web et mobiles, des systèmes backend, des tableaux de bord, des plateformes numériques, des applications assistées par l’IA et des solutions d’automatisation. Intervient sur les besoins, l’architecture, l’implémentation UI/UX, le frontend et le backend, les bases de données, les API REST, l’authentification, les intégrations tierces, les tests, le débogage, le déploiement, la maintenance en production et l’optimisation des performances.
+Ingénieure logiciel concevant des applications web et mobiles, des systèmes backend, des tableaux de bord, des plateformes numériques, des systèmes de données et de recherche, des applications assistées par l’IA et des solutions d’automatisation. Intervient sur les besoins, l’architecture, l’implémentation UI/UX, le frontend et le backend, les bases de données, les API REST, l’authentification, les intégrations tierces, les tests, le débogage, le déploiement, la maintenance en production et l’optimisation des performances.
 
 L’IA est utilisée comme outil d’ingénierie pour analyser les bases de code, générer et relire du code, déboguer, refactoriser, tester, documenter, étudier les problèmes techniques et automatiser le développement. La revue technique, la validation et l’intégration en production restent centrales.
 
@@ -27,9 +27,9 @@ L’IA est utilisée comme outil d’ingénierie pour analyser les bases de code
 
 Ingénierie logicielle assistée par l’IA pour l’analyse d’architecture, la génération et la revue de code, le débogage, la refactorisation, les tests, la documentation, la résolution de problèmes, les modifications multi-fichiers et l’automatisation du développement. Les domaines incluent les applications IA, les interfaces conversationnelles, les agents IA et l’automatisation intelligente. Outils et méthodes : Claude Code, OpenCode, agents de codage IA, revue d’ingénierie, validation et intégration en production.
 
-## Logiciels et applications d’analyse des marchés financiers
+## Systèmes de données et de recherche
 
-Ingénierie logicielle professionnelle pour l’analyse des marchés financiers, le traitement des données, la visualisation, les tableaux de bord, les workflows de recherche, le reporting et l’analyse multifactorielle.
+Ingénierie logicielle professionnelle pour le traitement des données, la visualisation, les tableaux de bord, les workflows de recherche, le reporting et l’analyse.
 
 L’architecture des systèmes comprend l’ingestion, la validation et la transformation des données, les workflows d’aide à la décision, la supervision, le reporting, le contrôle des accès et des expériences utilisateur fiables.
 

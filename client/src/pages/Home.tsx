@@ -353,8 +353,8 @@ function Home() {
             "@type": "Person",
             "name": "Besma Kaddour",
             "jobTitle": "Software Engineer",
-            "description": "Software engineer designing professional software and applications for financial market analysis, web, mobile, AI, and data systems.",
-            "knowsAbout": ["Financial market analysis software", "Financial market analysis applications", "Full-stack software engineering", "Artificial intelligence", "Web and mobile applications"],
+            "description": "Software engineer designing web, mobile, AI, and data systems.",
+            "knowsAbout": ["Full-stack software engineering", "Artificial intelligence", "Web and mobile applications", "Data systems", "Research workflows"],
             "url": window.location.origin,
             "image": `${window.location.origin}/Link.jpeg`
           },
@@ -362,7 +362,7 @@ function Home() {
             "@type": "WebSite",
             "name": "BESMA KADDOUR — Digital Identity",
             "url": window.location.origin,
-            "description": "Professional software and applications for financial market analysis, web, mobile, AI, and data systems."
+            "description": "Professional web, mobile, AI, and data systems."
           }
         ]
       }) }} />
@@ -539,10 +539,10 @@ function Home() {
 
         <section className="section section-data scroll-section" id="data-systems" aria-labelledby="data-title">
           <SectionIntro index="06" label={tx("Data systems", "أنظمة البيانات")} title={tx("DATA SYSTEMS", "أنظمة البيانات")}>
-            <p className="intro-copy">{tx("Designing professional software and applications for financial market analysis, monitoring, visualization, and research.", "تصميم برامج وتطبيقات احترافية لتحليل الأسواق المالية ومراقبتها وتصوير بياناتها والبحث فيها.")}</p>
+            <p className="intro-copy">{tx("Designing professional software and applications for data systems, monitoring, visualization, and research.", "تصميم برامج وتطبيقات احترافية لأنظمة البيانات والمراقبة وتصوير البيانات والبحث.")}</p>
           </SectionIntro>
           <div className="data-layout">
-            <div className="market-coverage"><span className="eyebrow">{tx("Financial market analysis systems", "أنظمة تحليل الأسواق المالية")}</span><div>{dataCoverage.map((item) => <span key={item}>{isArabic ? ({"Structured data":"البيانات المنظمة", "Research tools":"أدوات البحث", "Dashboards":"لوحات المعلومات", "Reporting":"إعداد التقارير", "Visualization":"التصور", "Automation":"الأتمتة"}[item] || item) : item}</span>)}</div><p>{tx("Professional software systems for financial market analysis, monitoring, visualization, and research.", "أنظمة برمجية احترافية لتحليل الأسواق المالية ومراقبتها وتصوير بياناتها والبحث فيها.")}</p></div>
+            <div className="market-coverage"><span className="eyebrow">{tx("Data and research systems", "أنظمة البيانات والبحث")}</span><div>{dataCoverage.map((item) => <span key={item}>{isArabic ? ({"Structured data":"البيانات المنظمة", "Research tools":"أدوات البحث", "Dashboards":"لوحات المعلومات", "Reporting":"إعداد التقارير", "Visualization":"التصور", "Automation":"الأتمتة"}[item] || item) : item}</span>)}</div><p>{tx("Professional software systems for data processing, monitoring, visualization, and research.", "أنظمة برمجية احترافية لمعالجة البيانات والمراقبة وتصوير البيانات والبحث.")}</p></div>
             <div className="data-cards">{dataResearchAreas.map((area, index) => <article key={area.en}><span>0{index + 1}</span><h3>{isArabic ? area.ar : area.en}</h3><p>{isArabic ? area.detailAr : area.detailEn}</p></article>)}</div>
           </div>
         </section>
