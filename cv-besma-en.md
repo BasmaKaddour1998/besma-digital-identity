@@ -7,7 +7,7 @@
 
 ## Professional Summary
 
-Full Stack Software Engineer designing web applications, mobile applications, backend systems, dashboards, digital platforms, data and research systems, AI-assisted development workflows, and automation solutions. Works across requirements, architecture, UI/UX implementation, frontend and backend development, database design, REST APIs, authentication, third-party integrations, testing, debugging, deployment, production maintenance, and performance optimization.
+Full Stack Software Engineer designing web applications, mobile applications, backend systems, dashboards, digital platforms, data and research systems, AI engineering workflows, and automation solutions. Works across requirements, architecture, UI/UX implementation, frontend and backend development, database design, REST APIs, authentication, third-party integrations, testing, debugging, deployment, production maintenance, and performance optimization.
 
 AI is used as an engineering tool for codebase analysis, code generation and review, debugging, refactoring, testing, documentation, technical investigation, and development automation. Engineering judgment, validation, and production integration remain central to the workflow.
 
@@ -25,7 +25,7 @@ AI is used as an engineering tool for codebase analysis, code generation and rev
 
 ## AI, Agents & Automation
 
-Practical AI-assisted software engineering for architecture analysis, code generation, code review, debugging, refactoring, testing, documentation, problem solving, multi-file changes, and development automation. Experience areas include AI applications, conversational interfaces, AI agents, and intelligent automation workflows. Tools and working patterns include Claude Code, OpenCode, AI coding agents, engineering review, validation, and production integration.
+AI engineering for architecture analysis, code generation, code review, debugging, refactoring, testing, documentation, problem solving, multi-file changes, and development automation. Experience areas include AI applications, conversational interfaces, AI agents, and intelligent automation workflows. Tools and working patterns include Claude Code, OpenCode, AI coding agents, engineering review, validation, and production integration.
 
 ## Data & Research Systems
 
@@ -38,11 +38,11 @@ Systems architecture includes data ingestion, validation, transformation, decisi
 ### Software Engineer / Digital Identity
 **2024 — Present · Six years of experience stated by the profile owner**
 
-A professional practice across full-stack software engineering, AI-assisted development, software architecture, digital products, mobile and web applications, digital products, automation, and creative technology.
+A professional practice across full-stack software engineering, AI engineering, software architecture, digital products, mobile and web applications, digital products, automation, and creative technology.
 
 - Build and maintain web applications, mobile applications, backend systems, dashboards, APIs, and digital platforms.
 - Work across requirements, architecture, implementation, integration, testing, debugging, deployment, and production maintenance.
-- Develop AI-powered applications and practical AI-assisted engineering workflows.
+- Develop AI-powered applications and practical AI engineering workflows.
 - Design software for data analysis, decision-support workflows, monitoring, reporting, and reliable information systems.
 - Investigate existing codebases, implement multi-file changes, refactor systems, and validate production behavior.
 

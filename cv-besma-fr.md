@@ -7,7 +7,7 @@
 
 ## Profil professionnel
 
-Ingénieure logiciel concevant des applications web et mobiles, des systèmes backend, des tableaux de bord, des plateformes numériques, des systèmes de données et de recherche, des applications assistées par l’IA et des solutions d’automatisation. Intervient sur les besoins, l’architecture, l’implémentation UI/UX, le frontend et le backend, les bases de données, les API REST, l’authentification, les intégrations tierces, les tests, le débogage, le déploiement, la maintenance en production et l’optimisation des performances.
+Ingénieure logiciel concevant des applications web et mobiles, des systèmes backend, des tableaux de bord, des plateformes numériques, des systèmes de données et de recherche, des applications d’intelligence artificielle et des solutions d’automatisation. Intervient sur les besoins, l’architecture, l’implémentation UI/UX, le frontend et le backend, les bases de données, les API REST, l’authentification, les intégrations tierces, les tests, le débogage, le déploiement, la maintenance en production et l’optimisation des performances.
 
 L’IA est utilisée comme outil d’ingénierie pour analyser les bases de code, générer et relire du code, déboguer, refactoriser, tester, documenter, étudier les problèmes techniques et automatiser le développement. La revue technique, la validation et l’intégration en production restent centrales.
 
@@ -25,7 +25,7 @@ L’IA est utilisée comme outil d’ingénierie pour analyser les bases de code
 
 ## IA, agents et automatisation
 
-Ingénierie logicielle assistée par l’IA pour l’analyse d’architecture, la génération et la revue de code, le débogage, la refactorisation, les tests, la documentation, la résolution de problèmes, les modifications multi-fichiers et l’automatisation du développement. Les domaines incluent les applications IA, les interfaces conversationnelles, les agents IA et l’automatisation intelligente. Outils et méthodes : Claude Code, OpenCode, agents de codage IA, revue d’ingénierie, validation et intégration en production.
+Ingénierie logicielle et intelligence artificielle pour l’analyse d’architecture, la génération et la revue de code, le débogage, la refactorisation, les tests, la documentation, la résolution de problèmes, les modifications multi-fichiers et l’automatisation du développement. Les domaines incluent les applications IA, les interfaces conversationnelles, les agents IA et l’automatisation intelligente. Outils et méthodes : Claude Code, OpenCode, agents de codage IA, revue d’ingénierie, validation et intégration en production.
 
 ## Systèmes de données et de recherche
 
@@ -38,7 +38,7 @@ L’architecture des systèmes comprend l’ingestion, la validation et la trans
 ### Ingénieure logiciel / Identité numérique
 **2024 — Présent · Six années d’expérience indiquées par la personne propriétaire du profil**
 
-Pratique professionnelle en ingénierie logicielle Full Stack, développement assisté par l’IA, architecture logicielle, produits numériques, applications mobiles et web, produits numériques, automatisation et technologie créative.
+Pratique professionnelle en ingénierie logicielle Full Stack, ingénierie de l’intelligence artificielle, architecture logicielle, produits numériques, applications mobiles et web, produits numériques, automatisation et technologie créative.
 
 - Construire et maintenir des applications web et mobiles, des systèmes backend, des tableaux de bord, des API et des plateformes numériques.
 - Intervenir sur les besoins, l’architecture, l’implémentation, l’intégration, les tests, le débogage, le déploiement et la maintenance.
