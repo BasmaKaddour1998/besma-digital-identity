@@ -1,6 +1,6 @@
 # BESMA KADDOUR
 
-## Full Stack Software Engineer · AI-Assisted Software Engineer
+## Full Stack Software Engineer · AI Engineer
 ### Web & Mobile Applications · Software Systems · Data & Research Systems
 
 **Contact:** WhatsApp · Email · [LinkedIn](https://www.linkedin.com/in/beasma-kaddour-6b32312b8) · [GitHub](https://github.com/BasmaKaddour1998)

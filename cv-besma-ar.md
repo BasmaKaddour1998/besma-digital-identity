@@ -1,6 +1,6 @@
 # BESMA KADDOUR
 
-## مهندسة برمجيات Full Stack · هندسة برمجيات بمساعدة الذكاء الاصطناعي
+## مهندسة برمجيات Full Stack · مهندسة ذكاء اصطناعي
 ### تطبيقات الويب والهاتف · الأنظمة البرمجية · أنظمة البيانات والبحث
 
 **التواصل:** واتساب · البريد الإلكتروني · [LinkedIn](https://www.linkedin.com/in/beasma-kaddour-6b32312b8) · [GitHub](https://github.com/BasmaKaddour1998)

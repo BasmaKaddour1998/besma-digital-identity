@@ -1,6 +1,6 @@
 # BESMA KADDOUR
 
-## Ingénieure logiciel Full Stack · Ingénieure logiciel assistée par l’IA
+## Ingénieure logiciel Full Stack · Ingénieure en intelligence artificielle
 ### Applications web et mobiles · Systèmes logiciels · Systèmes de données et de recherche
 
 **Contact :** WhatsApp · Email · [LinkedIn](https://www.linkedin.com/in/beasma-kaddour-6b32312b8) · [GitHub](https://github.com/BasmaKaddour1998)
