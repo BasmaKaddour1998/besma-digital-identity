@@ -62,10 +62,12 @@ def parse_markdown(path: Path, language: str) -> str:
             level = len(match.group(1))
             title = match.group(2)
             slug = re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")
-            page_break = " page-break" if title in {
-                "المهارات والتقنيات", "Technical Skills", "Compétences techniques",
-                "الشهادات والتدريب", "Certifications & Training", "Certifications et formations",
-            } else ""
+            page_break_titles = {
+                "ar": {"الخبرة المهنية", "قواعد البيانات", "الروابط المهنية"},
+                "en": {"Technical Skills", "Certifications & Training"},
+                "fr": {"Compétences techniques", "Certifications et formations"},
+            }[language]
+            page_break = " page-break" if title in page_break_titles else ""
             if level == 1:
                 out.append(f'<h1 class="name">{inline(title)}</h1>')
             elif level == 2:
