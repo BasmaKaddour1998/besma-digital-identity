@@ -38,6 +38,8 @@ jobs:
       - name: Build website
         run: pnpm build
 
+      - name: Preserve SPA routes
+        run: cp dist/public/index.html dist/public/404.html
       - name: Configure Pages
         uses: actions/configure-pages@v5
         with:
