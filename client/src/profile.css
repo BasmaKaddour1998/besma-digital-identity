@@ -22,6 +22,9 @@
 .profile-tags { display: flex; flex-wrap: wrap; gap: 9px; }
 .profile-tags span { padding: 9px 13px; border: 1px solid var(--line-strong); color: var(--muted); font-family: 'Space Grotesk', sans-serif; font-size: 12px; direction: ltr; }
 .profile-note { margin-top: 28px !important; }
+.profile-technology-groups { display: grid; gap: 28px; }
+.profile-technology-group { padding-top: 18px; border-top: 1px solid var(--line); }
+.profile-technology-group h3 { margin: 0 0 14px; color: var(--gold); font-size: 16px; font-weight: 500; }
 .profile-projects { columns: 2; column-gap: 42px; }
 .profile-projects li { break-inside: avoid; }
 .profile-contact { max-width: 1120px; margin: 0 auto; padding: clamp(72px, 10vw, 140px) clamp(20px, 7vw, 120px); }

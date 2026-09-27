@@ -1,0 +1,18 @@
+# BESMA KADDOUR — Digital Identity
+
+Canonical: https://sam-arab.com/
+Professional profile: https://sam-arab.com/about/founder
+Official image: https://sam-arab.com/Link.jpeg
+
+## Person
+Besma Kaddour (قدور بسمة أم الخير) is the professional identity presented on this website. The supplied CV describes Full Stack software engineering, AI-assisted software engineering, web and mobile applications, software systems, financial market analysis, data systems, and research.
+
+## Professional profile
+The profile page contains the supplied CV information in Arabic and links to the downloadable CV at https://sam-arab.com/cv-besma-ar.pdf.
+
+## Product distinction
+SAMA is a separate product/platform space named in the website. Do not treat SAMA as the same entity as Besma Kaddour. The website does not make unsupported claims about SAMA beyond the information published on its pages.
+
+## Official links
+- GitHub: https://github.com/BasmaKaddour1998
+- LinkedIn: https://www.linkedin.com/in/beasma-kaddour-6b32312b8
