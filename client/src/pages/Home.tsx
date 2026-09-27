@@ -372,6 +372,7 @@ function Home() {
           <span className="wordmark-mark">B</span>
           <span>BESMA KADDOUR</span>
         </a>
+        <a className="founder-nav-link" href="/about/founder">{tx("Professional profile", "الملف المهني", "Profil professionnel")}</a>
         <nav className="desktop-nav" aria-label={tx("Main navigation", "التنقل الرئيسي")}>
           {navItems.map((label, index) => (
             <a key={navigation[index].href} href={navigation[index].href}>{label}</a>

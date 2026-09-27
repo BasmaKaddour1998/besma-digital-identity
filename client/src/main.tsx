@@ -2,6 +2,7 @@ import { Component, type ErrorInfo, type ReactNode } from "react";
 import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
+import "./profile.css";
 
 type BoundaryProps = { children: ReactNode };
 type BoundaryState = { hasError: boolean; message: string };
